@@ -1,0 +1,28 @@
+/*!
+ * Theme Name: Viking Diaries
+ * Theme URI: http://nuagegraphik.com
+ * Description: Viking Diaries
+ * Version: 3.0
+ * Author: Baptiste Régné (@VikingDiaries)
+ * Author URI: http://nuagegraphik.com
+ * Tags: Chronologic, HTML5, CSS3
+ *
+ * License: MIT
+ * License URI: http://opensource.org/licenses/mit-license.php
+ */
+
+// Modules
+@import "modules/variables";
+@import "modules/mixins";
+@import "modules/fonts";
+
+// Partials
+@import "partials/reset";
+@import "partials/wordpress";
+@import "partials/utils";
+@import "partials/wrapper";
+@import "partials/header";
+@import "partials/nav";
+@import "partials/sidebar";
+@import "partials/footer";
+@import "partials/print";
