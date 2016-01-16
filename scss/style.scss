@@ -12,15 +12,17 @@
  */
 
 // Modules
-@import "modules/variables";
+@import "compass/css3/";
 @import "modules/mixins";
+@import "modules/variables";
 @import "modules/fonts";
 
 // Partials
 @import "partials/reset";
 @import "partials/wordpress";
 @import "partials/utils";
-@import "partials/wrapper";
+@import "partials/layout";
+@import "partials/element";
 @import "partials/header";
 @import "partials/nav";
 @import "partials/sidebar";

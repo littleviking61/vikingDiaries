@@ -5,10 +5,37 @@
  */
 
 
-.nav {}
+.nav {
+	font-family: $font-family-title;
+	max-width: $wrapper-width;
+  padding: 0 $margin-horizontal-large;
+  margin: 0 auto;
+	@include display-flex;
 
-.menu {}
+	ul{
+		padding: 0;
+	}
 
-.sub-menu {}
+	.social li{
+		position: relative;
+		display: inline-block;
+	}
+}
 
-.menu-item {}
+.menu {
+}
+
+.sub-menu {
+	display: none;
+}
+
+.menu-item {
+	display: inline-block;
+	list-style: none;
+	
+	a{
+		text-transform: uppercase;
+		color: white;
+		padding: 5px 10px;
+	}
+}

@@ -1,0 +1,45 @@
+
+body{
+	@include reset-box;
+}
+
+body{
+	background-color: $body-bg;
+	@include bg;
+
+	font-family: 'Raleway', sans-serif;
+	color: $text-color;
+}
+
+.header{
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+
+	/* background angle */
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		overflow: visible;
+		width: 100%;
+		height: 250px;
+		background: black;
+		z-index: -1;
+		@include transform(skewY(-1.5deg));
+		-webkit-backface-visibility: hidden;
+	}
+}
+
+.wrapper {
+	max-width: $wrapper-width;
+	padding: 0 $margin-horizontal-large;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+main{
+}

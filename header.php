@@ -25,26 +25,39 @@
 	</head>
 	<body <?php body_class(); ?>>
 
+		<!-- header -->
+		<header class="header clear" role="banner">
+
+				<!-- logo -->
+				<!-- 	<div class="logo">
+					<a href="<?php echo home_url(); ?>">
+						svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script
+						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
+					</a>
+				</div> -->
+				<!-- /logo -->
+
+				<!-- nav -->
+				<nav class="nav" role="navigation">
+					<?php html5blank_nav(); ?>
+					<ul class="social right">
+						<li>
+							<a title="L’aventurier viking sur facebook" target="_blank" href="http://facebook.com/laventurierviking"><i class="fa fa-facebook"></i> </a>
+						</li>
+						<li>
+							<a title="Le twitter du viking" target="_blank" href="http://twitter.com/VikingDiaries"><i class="fa fa-twitter"></i></a>
+						</li>
+						<li>
+							<a title="Les vidéos de l’aventurier viking" target="_blank" href="http://youtube.com/laventurierviking"><i class="fa fa-youtube"></i></a>
+						</li>
+					</ul>
+				</nav>
+    </div>
+				<!-- /nav -->
+
+		</header>
+		<!-- /header -->
+
 		<!-- wrapper -->
 		<div class="wrapper">
 
-			<!-- header -->
-			<header class="header clear" role="banner">
-
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
-					</div>
-					<!-- /logo -->
-
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
-			</header>
-			<!-- /header -->
