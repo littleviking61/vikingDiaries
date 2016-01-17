@@ -25,3 +25,18 @@
 .right{
 	margin-left: auto;
 }
+
+/* background angle */
+.skew:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: visible;
+	width: 100%;
+	height: 250px;
+	background: black;
+	z-index: -1;
+	@include transform(skewY(-1.5deg));
+	-webkit-backface-visibility: hidden;
+}

@@ -26,7 +26,7 @@
 	<body <?php body_class(); ?>>
 
 		<!-- header -->
-		<header class="header clear" role="banner">
+		<header class="header clear skew" role="banner">
 
 				<!-- logo -->
 				<!-- 	<div class="logo">
@@ -40,17 +40,9 @@
 				<!-- nav -->
 				<nav class="nav" role="navigation">
 					<?php html5blank_nav(); ?>
-					<ul class="social right">
-						<li>
-							<a title="L’aventurier viking sur facebook" target="_blank" href="http://facebook.com/laventurierviking"><i class="fa fa-facebook"></i> </a>
-						</li>
-						<li>
-							<a title="Le twitter du viking" target="_blank" href="http://twitter.com/VikingDiaries"><i class="fa fa-twitter"></i></a>
-						</li>
-						<li>
-							<a title="Les vidéos de l’aventurier viking" target="_blank" href="http://youtube.com/laventurierviking"><i class="fa fa-youtube"></i></a>
-						</li>
-					</ul>
+					<div class="social right">
+						<?php html5blank_nav('social-menu'); ?>
+					</div>
 				</nav>
     </div>
 				<!-- /nav -->
