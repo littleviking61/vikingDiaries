@@ -227,6 +227,10 @@ h4 {
   font-size: 1.125rem; }
 
 a {
+  -moz-transition: background-color 0.4s;
+  -o-transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
   padding: 0.20833rem;
   display: inline-block; }
   a:hover {
@@ -309,7 +313,8 @@ img, iframe {
     width: 12.5rem;
     height: 8.3125rem;
     overflow: hidden;
-    text-align: left; }
+    text-align: left;
+    padding: 0; }
     .actus .actu a h4 {
       position: absolute;
       height: 100%;

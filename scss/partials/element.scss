@@ -24,11 +24,13 @@ h4{
 } 
 
 a{
+	@include single-transition(background-color, 0.4s);
+	padding: $gutter-mini;
+	display: inline-block;
+
 	&:hover{ 
 		background-color: rgba(black, 0.6);
 	}
-	padding: $gutter-mini;
-	display: inline-block;
 }
 
 nav > ul, %list-basic{
@@ -160,6 +162,7 @@ img, iframe{
 			height: rem-calc(133);
 			overflow: hidden;
 			text-align: left;
+			padding: 0;
 
 			h4{
 				position: absolute;
