@@ -9,10 +9,10 @@ $rem-base: 16px !default;
   margin: 0;
 }
 
-@mixin bg{
-  background-image: url("../img/fond.jpg");
+@mixin bg($fond : 'fond.jpg', $position: bottom center){
+  background-image: url("../img/#{$fond}" );
   background-repeat: no-repeat;
-  background-position: bottom center;
+  background-position:  $position;
   background-attachment: fixed;
 }
 

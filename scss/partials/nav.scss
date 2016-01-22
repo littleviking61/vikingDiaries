@@ -11,6 +11,7 @@
  	padding: 0 $margin-horizontal-large;
  	margin: 0 auto;
  	@include display-flex;
+ 	height: 50px;
 
  	ul{
  		padding: 0;
