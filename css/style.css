@@ -28,6 +28,7 @@
 /**
  * Grid
  */
+/* ref */
 /**
  * modules/fonts
  * ---
@@ -129,14 +130,8 @@ input[type="search"] {
  * ---
  * Utils classes
  */
-a {
-  -moz-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -webkit-transition: opacity 0.4s;
-  transition: opacity 0.4s; }
-  a:hover {
-    opacity: 0.7;
-    text-decoration: none; }
+a:hover {
+  text-decoration: none; }
 
 .clear:before, .clear:after {
   content: " ";
@@ -168,6 +163,9 @@ a {
   transform: skewY(-1deg);
   -webkit-backface-visibility: hidden; }
 
+.text-big {
+  font-size: 1.875rem; }
+
 html {
   font-size: 16px; }
 
@@ -176,7 +174,6 @@ body {
   margin: 0; }
 
 body {
-  background-color: black;
   background-image: url("../img/fond.jpg");
   background-repeat: no-repeat;
   background-position: top center;
@@ -184,6 +181,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 0.875rem;
   color: white;
+  background-color: black;
   padding-top: 3.125rem; }
 
 .header {
@@ -206,10 +204,15 @@ main > section {
 .sidebar {
   display: none; }
 
+footer {
+  text-align: center;
+  opacity: 0.4; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Poiret One", sans-serif;
   text-transform: uppercase;
-  font-weight: lighter; }
+  font-weight: lighter;
+  line-height: 1.2; }
 
 h1 {
   font-size: 1.875rem; }
@@ -223,24 +226,39 @@ h3 {
 h4 {
   font-size: 1.125rem; }
 
-nav > ul {
+a {
+  padding: 0.20833rem;
+  display: inline-block; }
+  a:hover {
+    background-color: rgba(0, 0, 0, 0.6); }
+
+nav > ul, .list {
   padding: 0; }
-  nav > ul li {
+  nav > ul li, .list li {
     list-style: none; }
+
+.list li {
+  display: inline-block;
+  vertical-align: baseline; }
+
+img, iframe {
+  max-width: 100%; }
 
 /* bloc */
 .banner {
-  padding: 6.25rem 0;
+  padding: 6.25rem 0 2.5rem;
   text-align: center; }
+  .banner .thumbnail {
+    padding: 1.25rem 0; }
   .banner h2 {
     font-size: 3.125rem;
-    margin-top: -1.875rem;
+    margin-top: -1.25rem;
     margin-bottom: 0; }
 
 .highlight .video {
   text-align: center; }
 .highlight .content {
-  max-width: 56.25rem;
+  max-width: 50rem;
   padding: 0.625rem 1.25rem;
   margin: 0 auto; }
 
@@ -249,16 +267,20 @@ nav > ul {
   .adventures .adventure {
     display: inline-block;
     list-style: none;
-    margin-bottom: 1.25rem; }
+    margin-bottom: 1.25rem;
+    border: thin transparent solid;
+    width: 50rem; }
     .adventures .adventure > div {
       display: inline-block;
       vertical-align: middle;
-      width: 25rem;
+      width: 50%;
       text-align: left; }
-    .adventures .adventure.medium > div {
-      width: 12.375rem; }
-    .adventures .adventure.medium .content {
-      display: none; }
+    .adventures .adventure.medium {
+      width: 24.875rem; }
+      .adventures .adventure.medium > div {
+        width: 50%; }
+      .adventures .adventure.medium .content {
+        display: none; }
     .adventures .adventure .details {
       padding: 0.625rem 1.25rem; }
     .adventures .adventure h4 {
@@ -278,6 +300,37 @@ nav > ul {
           padding: 0 0.625rem; }
         .adventures .adventure nav > ul > li:last-child:after {
           display: none; }
+
+.actus {
+  text-align: center; }
+  .actus .actu a {
+    position: relative;
+    display: block;
+    width: 12.5rem;
+    height: 8.3125rem;
+    overflow: hidden;
+    text-align: left; }
+    .actus .actu a h4 {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+      top: 0;
+      margin: 0;
+      padding: 0.625rem;
+      padding-top: 100%;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      transition: all 0.4s; }
+    .actus .actu a:hover h4 {
+      padding-top: 1.25rem;
+      background-color: rgba(0, 0, 0, 0.8); }
+  .actus .more a {
+    display: block;
+    width: 12.5rem;
+    height: 8.3125rem;
+    background-color: rgba(0, 0, 0, 0.8); }
 
 /**
  * partials/header
@@ -430,5 +483,12 @@ nav > ul {
 /* home */
 .home h3 {
   text-align: center; }
+
+/* shame of you */
+.admin-bar {
+  padding-top: 82px;
+  background-position: 32px center; }
+  .admin-bar .header {
+    top: 32px; }
 
 /*# sourceMappingURL=style.css.map */

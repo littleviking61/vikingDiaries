@@ -4,6 +4,7 @@ h1, h2, h3, h4, h5, h6{
 	font-family: $font-family-title;
 	text-transform: uppercase;
 	font-weight: lighter;
+	line-height: 1.2;
 }
 
 h1{
@@ -20,9 +21,17 @@ h3{
 
 h4{
 	font-size: $ft-size-larger;
+} 
+
+a{
+	&:hover{ 
+		background-color: rgba(black, 0.6);
+	}
+	padding: $gutter-mini;
+	display: inline-block;
 }
 
-nav > ul{
+nav > ul, %list-basic{
 	padding: 0;
 
 	li{
@@ -30,15 +39,32 @@ nav > ul{
 	}
 }
 
+.list{
+	@extend %list-basic;
+
+	li{
+		display: inline-block;
+		vertical-align: baseline;
+	}
+}
+
+img, iframe{
+	max-width: 100%;
+}
+
 /* bloc */
 
 .banner{
-	padding: rem-calc(100) 0;
+	padding: rem-calc(100) 0 rem-calc(40);
 	text-align: center;
+
+	.thumbnail{
+		padding: $gutter-large 0;
+	}
 
 	h2{
 		font-size: $ft-size-super-hudge;
-		margin-top: - $gutter-big;
+		margin-top: - $gutter-large;
 		margin-bottom: 0;
 	}
 
@@ -50,7 +76,7 @@ nav > ul{
 	}
 
 	.content{
-		max-width: rem-calc(900);
+		max-width: rem-calc(800);
 		padding: $gutter $gutter-large;
 		margin: 0 auto;
 	}
@@ -64,17 +90,22 @@ nav > ul{
 		display: inline-block;
 		list-style: none;
 		margin-bottom: $gutter-large;
+		border: thin transparent solid;
+		width: rem-calc(800);
+
 
 		> div{
 			display: inline-block;
 			vertical-align: middle;
-			width: rem-calc(400);
+			width: 50%;
 			text-align: left;
 		}
 
 		&.medium{
+			width: rem-calc(398);
+
 			> div{
-				width: rem-calc(198)
+				width: 50%;
 			}
 			.content{
 				display: none;
@@ -114,6 +145,50 @@ nav > ul{
 				}
 			}
 		}
-
 	}
+}
+
+.actus{
+	text-align: center;
+
+	.actu{
+
+		a{
+			position: relative;
+			display: block;
+			width: rem-calc(200);
+			height: rem-calc(133);
+			overflow: hidden;
+			text-align: left;
+
+			h4{
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				background-color: transparent;
+				top: 0;
+				margin: 0;
+				padding: $gutter;
+				padding-top: 100%;
+
+				@include single-transition(all, 0.4s);
+			}
+
+			&:hover{
+				h4{
+					padding-top: $gutter-large;
+					background-color: rgba(0,0,0,0.8);
+				}
+			}
+			
+		}
+	}
+	
+	.more a{
+		display: block;
+		width: rem-calc(200);
+		height: rem-calc(133);
+		background-color: rgba(0,0,0, 0.8);
+	}
+
 }

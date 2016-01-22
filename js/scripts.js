@@ -3,6 +3,7 @@
 
 	$(function () {
 		// DOM ready, take it away
+		var s = skrollr.init();
 	});
 
 } ( this, jQuery ));

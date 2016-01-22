@@ -7,12 +7,12 @@ body{
 }
 
 body{
-	background-color: $body-bg;
 	@include bg('fond.jpg', top center);
 	
 	font-family: 'Raleway', sans-serif;
 	font-size: $ft-size-medium;
 	color: $text-color;
+	background-color: $body-bg;
 	padding-top: rem-calc(50);
 
 	&.home{
@@ -45,4 +45,9 @@ main{
 
 .sidebar{
 	display: none;
+}
+
+footer{
+	text-align: center;
+	opacity: 0.4;
 }

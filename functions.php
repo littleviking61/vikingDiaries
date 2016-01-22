@@ -94,13 +94,15 @@ function html5blank_header_scripts()
         if (HTML5_DEBUG) {
             // jQuery
             wp_deregister_script('jquery');
-            wp_register_script('jquery', get_template_directory_uri() . '/js/lib/jquery.js', array(), '1.11.1');
+            wp_register_script('jquery', get_template_directory_uri() . '/js/lib/jquery-1.12.0.min.js', array(), '1.12.0');
 
             // Conditionizr
             wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0');
 
             // Modernizr
-            wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr.js', array(), '2.8.3');
+            wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1');
+            
+            wp_register_script('skrollr', get_template_directory_uri() . '/js/lib/skrollr.min.js', array(), '0.6.30');
 
             // Custom scripts
             wp_register_script(
@@ -109,7 +111,8 @@ function html5blank_header_scripts()
                 array(
                     'conditionizr',
                     'modernizr',
-                    'jquery'),
+                    'jquery',
+                    /*'skrollr'*/),
                 '1.0.0');
 
             // Enqueue Scripts

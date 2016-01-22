@@ -23,7 +23,8 @@
 		</div>
 	<?php else: ?>
 		<div class="image">
-			<?php the_field('image_a_lhonneur'); ?>
+			<?php $thumbnail = get_sub_field('image_a_lhonneur'); ?>
+			<img src="<?= $thumbnail['sizes']['large']; ?>" alt="<?= $thumbnail['alt']; ?>" />
 		</div>
 	<?php endif ?>
 	
@@ -40,9 +41,7 @@
 	if( get_field('aventures') ): ?>
 
 		<ul>
-
 		<?php while( has_sub_field('aventures') ): ?>
-
 			<?php 
 				$cat = get_sub_field('projet');
 				$thumbnail = get_field('thumbnail', $cat);
@@ -50,8 +49,8 @@
 				$journal = get_field('journal', $cat);
 				$carte = get_field('carte', $cat);
 				$grand = get_field('en_grand', $cat);
+				$avenir = get_field('a_venir', $cat);
 			?>
-
 			<li class="adventure <?= $grand ? 'full' : 'medium' ?> projet">
 				<div class="thumbnail"> 
 					<?php if( !empty($thumbnail) ): ?>
@@ -59,11 +58,13 @@
 							<img src="<?= $thumbnail['sizes']['large']; ?>" alt="<?= $thumbnail['alt']; ?>" />
 						</a>
 					<?php endif; ?>
-				</div>
-				<div class="details">
-					<a href="<?= get_category_link( $cat ); ?>">
-						<h4><?= $cat->name; ?></h4>
-					</a>
+				</div><!--
+				--><div class="details">
+					<h4>
+						<a href="<?= get_category_link( $cat ); ?>">
+							<?= $cat->name; ?>
+						</a>
+					</h4>
 					<nav>
 					    <ul>
 						    <?php if ($presentation): ?>
@@ -71,6 +72,8 @@
 						    <?php endif ?>
 						    <?php if ($journal): ?>
 						    	<li><a href="/adventures/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
+						    <?php else: ?>
+						    	<li><a href="<?= $presentation ?>"><?= $avenir ?></a></li>
 						    <?php endif ?>
 						    <?php if ($carte): ?>
 						    	<li><a href="<?= $carte ?>"><?= __('Carte') ?></a></li>
@@ -82,8 +85,6 @@
 					</div>
 				</div>
 			</li>
-
-
 		<?php endwhile; ?>
 
 	<?php endif; ?>
@@ -92,16 +93,47 @@
 
 <section class="actus">
 	<h3><?php the_field('titre_actu'); ?></h3>
-	<div class="content">
-		<ul>
-			<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu')]) ;
-			foreach ( $actus as $post ) : setup_postdata( $post ); ?>
-				<li>
-					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				</li>
-			<?php endforeach; 
-			wp_reset_postdata();?>
-		</ul>
-	</div>
+	<ul class="list">
+		<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'category_name' => 'actus', 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
+		foreach ( $actus as $post ) : setup_postdata( $post ); ?>
+			<li class="actu">
+				<a href="<?php the_permalink(); ?>">
+					<div class="thumbnail">
+						<?php the_post_thumbnail('medium'); ?>
+					</div>
+					<h4><?php the_title(); ?></h4>
+				</a>
+			</li>
+		<?php endforeach; 
+		wp_reset_postdata();?>
+	</ul>
 </section>
+
+<?php 
+	if( have_rows('autres_blocs') ):
+
+	 	// loop through the rows of data
+	    while ( have_rows('autres_blocs') ) : the_row(); ?>
+				
+				<section class="bloc">
+					<?php if (get_sub_field('titre')): ?>
+						<h3><?php the_sub_field('titre'); ?></h3>
+					<?php endif ?>
+
+					<?php if (get_sub_field('video')): ?>
+						<div class="video">
+							<?php the_sub_field('video'); ?>
+						</div>
+					<?php endif ?>
+					
+					<div class="content">
+						<?php the_sub_field('contenu'); ?>
+					</div>
+
+				</section>
+
+	    <?php endwhile;
+
+	endif;
+?>
 

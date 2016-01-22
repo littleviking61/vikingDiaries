@@ -48,14 +48,14 @@ $one: rem-calc(1);
 $two: $one*2;
 
 // gutter
-$gutter: rem-calc(10);
+$gutter: rem-calc(10); /* ref */
+$gutter-mini: $gutter/3;
+$gutter-small: $gutter/2;
 $gutter-medium: $gutter*1.5;
 $gutter-large: $gutter*2;
 $gutter-big: $gutter*3;
 $gutter-hudge: $gutter*4;
 $gutter-super-hudge: $gutter*6;
-$gutter-small: $gutter/2;
-$gutter-mini: $gutter/3;
 
 $padding-horizontal-base: $gutter-medium;
 $padding-vertical-base: $gutter;

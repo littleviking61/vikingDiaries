@@ -8,10 +8,7 @@
 // clearfix: http://nicolasgallagher.com/micro-clearfix-hack/
 
 a{
-	@include single-transition(opacity, 0.4s);
-	
 	&:hover{
-		opacity: 0.7;
 		text-decoration: none;
 	}
 }
@@ -49,4 +46,8 @@ a{
 	z-index: -1;
 	@include transform(skewY(-1deg));
 	-webkit-backface-visibility: hidden;
+}
+
+.text-big{
+	font-size: $ft-size-big;
 }
