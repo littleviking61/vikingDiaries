@@ -206,6 +206,7 @@ main > section {
 
 footer {
   text-align: center;
+  font-size: 0.75rem;
   opacity: 0.4; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -226,14 +227,15 @@ h3 {
 h4 {
   font-size: 1.125rem; }
 
-a {
+a.button, .adventures .adventure a {
   -moz-transition: background-color 0.4s;
   -o-transition: background-color 0.4s;
   -webkit-transition: background-color 0.4s;
   transition: background-color 0.4s;
   padding: 0.20833rem;
-  display: inline-block; }
-  a:hover {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.1); }
+  a.button:hover, .adventures .adventure a:hover {
     background-color: rgba(0, 0, 0, 0.6); }
 
 nav > ul, .list {

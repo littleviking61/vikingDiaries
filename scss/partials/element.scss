@@ -23,10 +23,11 @@ h4{
 	font-size: $ft-size-larger;
 } 
 
-a{
+a.button, %button{
 	@include single-transition(background-color, 0.4s);
 	padding: $gutter-mini;
 	display: inline-block;
+	background-color: rgba(black, 0.1);
 
 	&:hover{ 
 		background-color: rgba(black, 0.6);
@@ -95,6 +96,9 @@ img, iframe{
 		border: thin transparent solid;
 		width: rem-calc(800);
 
+		a{
+			@extend %button;
+		}
 
 		> div{
 			display: inline-block;
