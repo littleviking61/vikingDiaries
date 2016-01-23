@@ -1,5 +1,4 @@
-
-<section class="banner">
+<header class="banner">
 	<div class="thumbnail">
 		<?php 
 		$image = get_field('photo_auteur');
@@ -10,7 +9,7 @@
 	<h1><?= bloginfo('name' );?></h1>
 	<h2><?php the_field('texte_daccueil'); ?></h2>
 	<!-- <button class="quickJournal"><?php the_field('acces_rapide'); ?></button> -->
-</section>
+</header>
 
 <section class="highlight video">
 	<?php if (get_field('titre_a_lhonneur')): ?>
