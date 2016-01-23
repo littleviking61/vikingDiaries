@@ -36,6 +36,7 @@ a.button, %button{
 
 nav > ul, %list-basic{
 	padding: 0;
+	margin: $gutter-medium 0;
 
 	li{
 		list-style: none;
@@ -85,11 +86,11 @@ img, iframe{
 	}
 }
 
-.adventures{
+.projets{
 	text-align: center;
 
 	
-	.adventure{
+	.projet{
 		display: inline-block;
 		list-style: none;
 		margin-bottom: $gutter-large;
@@ -198,4 +199,10 @@ img, iframe{
 		background-color: rgba(0,0,0, 0.8);
 	}
 
+}
+
+.bloc{
+	> h3{
+		text-align: center;
+	}
 }

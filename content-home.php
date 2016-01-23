@@ -34,7 +34,7 @@
 
 </section>
 
-<section class="adventures">
+<section class="projets">
 	<h3><?php the_field('titre_aventures'); ?></h3>
 	<?php 
 
@@ -51,7 +51,7 @@
 				$grand = get_field('en_grand', $cat);
 				$avenir = get_field('a_venir', $cat);
 			?>
-			<li class="adventure <?= $grand ? 'full' : 'medium' ?> projet">
+			<li class="projet <?= $grand ? 'full' : 'medium' ?> projet">
 				<div class="thumbnail"> 
 					<?php if( !empty($thumbnail) ): ?>
 						<a href="<?= get_category_link( $cat ); ?>">

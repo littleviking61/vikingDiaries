@@ -13,7 +13,6 @@ body{
 	font-size: $ft-size-medium;
 	color: $text-color;
 	background-color: $body-bg;
-	padding-top: rem-calc(50);
 
 	&.home{
 		// @include bg('fond-home.jpg', 'top center');
@@ -33,6 +32,8 @@ body{
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden;
+	padding-top: rem-calc(50);
+	min-height: 100vh;
 }
 
 main{

@@ -23,11 +23,18 @@
         </script>
 
 	</head>
-	<body <?php body_class(); ?>>
-
+	<?php 
+		$cat = get_queried_object();
+		if(file_exists(get_template_directory()."/img/bg-".$cat->slug.".jpg")) {
+			$background = 'style="background-image: url('.get_template_directory_uri().'/img/bg-'.$cat->slug.'.jpg);background-position:bottom center;"';
+		}elseif(is_category()){
+			$background = 'style="background-image: url('.get_template_directory_uri().'/img/bg-default.jpg);background-position:bottom center;"';
+		}
+		/* todo ajouter image par defaut pour categorie */
+	?>
+	<body <?php body_class(); ?> <?= $background ?>>
 		<!-- header -->
 		<header class="header clear skew" role="banner">
-
 				<!-- logo -->
 				<!-- 	<div class="logo">
 					<a href="<?php echo home_url(); ?>">
