@@ -1,68 +1,112 @@
+<?php 
+	$cat = wp_get_post_terms($post->ID, 'category', array("fields" => "all"))[0];
+	$thumbnail = get_field('thumbnail', $cat);
+	$presentation = get_field('presentation', $cat);
+	$journal = get_field('journal', $cat);
+	$grand = get_field('en_grand', $cat);
+	$avenir = get_field('a_venir', $cat);
+	$icone = get_field('icone', $cat);
+	$carte = get_field('carte', $cat);
+?>
+
 <?php get_header(); ?>
 
 	<main role="main">
-	<!-- section -->
-	<section>
+		<?php if (get_the_id() === $presentation || get_the_id() === $carte): ?>
+			<header class="banner">
+				<div class="thumbnail">
+					<?php 
+					$image = get_field('photo_auteur');
+					if( !empty($icone) ): ?>
+						<img src="<?= $icone['url']; ?>" alt="<?= $icone['alt']; ?>" />
+					<?php else: ?>
+						<img src="http://dev.laventurierviking.fr/wp-content/uploads/2016/01/viking-first.svg" />
+					<?php endif; ?>
+				</div>
+				<h1><?= __('Journal de bord');?></h1>
+				<h2><?php single_cat_title(); ?></h2>
+				<nav>
+				    <ul>
+					    <?php if ($presentation): ?>
+					    	<?php $excludePosts[] = $presentation; ?>
+					    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation') ?></a></li>
+					    <?php endif ?>
+					    <?php if ($journal): ?>
+					    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
+					    <?php else: ?>
+					    	<li><a href="<?= $presentation ?>"><?= $avenir ?></a></li>
+					    <?php endif ?>
+						  <?php if ($carte): ?>
+						   	<?php $excludePosts[] = $carte; ?>
+						   	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte') ?></a></li>
+					    <?php endif ?>
+				    </ul>
+				</nav>
+			</header>
+		<?php endif ?>
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+		<!-- section -->
+		<section>
+		
+			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<!-- article -->
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
+					<!-- post thumbnail -->
+					<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+						</a>
+					<?php endif; ?>
+					<!-- /post thumbnail -->
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
+					<!-- post title -->
+					<h1>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+					</h1>
+					<!-- /post title -->
 
-			<!-- post details -->
-			<span class="date">
-				<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-					<?php the_date(); ?> <?php the_time(); ?>
-				</time>
-			</span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
+					<!-- post details -->
+					<span class="date">
+						<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
+							<?php the_date(); ?> <?php the_time(); ?>
+						</time>
+					</span>
+					<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
+					<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+					<!-- /post details -->
 
-			<?php the_content(); // Dynamic Content ?>
+					<?php the_content(); // Dynamic Content ?>
 
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+					<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
+					<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
 
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
+					<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
 
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
+					<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
-			<?php comments_template(); ?>
+					<?php comments_template(); ?>
 
-		</article>
-		<!-- /article -->
+				</article>
+				<!-- /article -->
 
-	<?php endwhile; ?>
+			<?php endwhile; ?>
 
-	<?php else: ?>
+			<?php else: ?>
 
-		<!-- article -->
-		<article>
+			<!-- article -->
+			<article>
 
-			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+				<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
 
-		</article>
-		<!-- /article -->
+			</article>
+			<!-- /article -->
 
-	<?php endif; ?>
+		<?php endif; ?>
 
-	</section>
+		</section>
 	<!-- /section -->
 	</main>
 

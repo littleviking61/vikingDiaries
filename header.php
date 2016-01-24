@@ -24,7 +24,14 @@
 
 	</head>
 	<?php 
-		$cat = get_queried_object();
+		global $excludePosts;
+		// get cat terms
+		if(is_single()){
+			$cat = wp_get_post_terms($post->ID, 'category', array("fields" => "all"))[0];
+		}elseif(is_category()){
+			$cat = get_queried_object();
+		}
+		// check file and add bg
 		if(file_exists(get_template_directory()."/img/bg-".$cat->slug.".jpg")) {
 			$background = 'style="background-image: url('.get_template_directory_uri().'/img/bg-'.$cat->slug.'.jpg);background-position:bottom center;"';
 		}elseif(is_category()){
@@ -47,6 +54,7 @@
 				<!-- nav -->
 				<nav class="nav" role="navigation">
 					<?php html5blank_nav(); ?>
+					<?php edit_post_link('edit', '<div class="edit"><ul><li>', '</li></ul></div>'); ?>
 					<div class="social right">
 						<?php html5blank_nav('social-menu'); ?>
 					</div>
@@ -59,4 +67,3 @@
 
 		<!-- wrapper -->
 		<div class="wrapper">
-
