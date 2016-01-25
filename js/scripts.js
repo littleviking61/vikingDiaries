@@ -4,7 +4,13 @@
 	$(function () {
 		// DOM ready, take it away
 		// init Isotope
+		// 
 		var $grid = $('.dairies').isotope({
+			masonry: {
+			  columnWidth: 'article',
+			  gutter: 60
+			}
+
 		});
 		// layout Isotope after each image loads
 		$grid.imagesLoaded().progress( function() {

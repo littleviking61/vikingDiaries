@@ -385,14 +385,28 @@ img, iframe {
   background: rgba(255, 255, 255, 0.8);
   content: ''; }
 .dairies article {
-  overflow: hidden;
-  width: 50%;
+  width: calc(50% - 30px);
   display: inline-block;
-  padding: 0.9375rem 1.875rem; }
+  margin-bottom: 1.875rem; }
   .dairies article .content {
     background-color: white;
     color: #737373;
     padding: 1.875rem; }
+  .dairies article:before, .dairies article:after {
+    content: '';
+    position: absolute;
+    top: 1.5625rem;
+    right: -30px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid white; }
+  .dairies article:after {
+    right: auto;
+    left: -30px;
+    border-right: none;
+    border-left: 8px solid white; }
 .dairies .entry-title {
   display: inline-block;
   margin-top: 0;
