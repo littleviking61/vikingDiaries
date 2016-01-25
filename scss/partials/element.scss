@@ -73,7 +73,46 @@ img, iframe{
 .pagination{
 	width: 100%;
 	text-align: center;
-	padding: $gutter;
+	position: relative;
+
+	&.top{
+		padding-top: $gutter-big;
+		&:before{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -1px;
+			width: 1px;
+			height: $gutter-big;
+			background: rgba(255, 255, 255, 0.8);
+			content: '';
+		}
+	}
+	
+	.more{
+		display: inline-block;
+		cursor: pointer;
+		padding: $gutter;
+		text-transform: uppercase;
+		font-family: $font-family-title;
+		border: thin white solid;
+		
+		&.disable{
+			display: none;
+		}
+
+		&.loading{
+			display: inline-block;
+			background-image: url('../img/loading-flat.gif');
+			background-position: center center;
+			background-repeat: no-repeat;
+			color: transparent;
+		}
+	}
+
+	.pagination-links{
+		display: none;
+	}
 }
 /* bloc */
 
@@ -249,6 +288,7 @@ img, iframe{
 }
 
 .dairies{
+	position: relative;
 
 	&:before{
 		position: absolute;
@@ -265,11 +305,15 @@ img, iframe{
 		width: calc(50% - 30px);
 		display: inline-block;
 		margin-bottom: $gutter-big;
-
+		
 		.content{
 			background-color: white;
 			color: $text-color-light;
 			padding: $gutter-big;
+		}
+
+		&.full{
+			width: 100%;
 		}
 
 		&:before, &:after{

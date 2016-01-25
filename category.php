@@ -6,6 +6,15 @@
 		<!-- section -->
 		
 		<?php get_template_part('header', 'projet'); ?>
+		
+		<?php if (get_query_var( 'paged' ) !== 0): ?>
+			
+			<div class="pagination top">
+				<span class="more pref">
+					<?= __('Charger les articles plus récents') ?>
+				</span>
+			</div>
+		<?php endif ?>
 
 		<section class="dairies">
 
@@ -16,10 +25,8 @@
 
 			<?php get_template_part('loop'); ?>
 			
-			<?php get_template_part('pagination'); ?>
 		</section>
-
-
+		<?php get_template_part('pagination'); ?>
 		<!-- /section -->
 	</main>
 

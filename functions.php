@@ -261,7 +261,9 @@ function html5wp_pagination()
         'base' => str_replace($big, '%#%', get_pagenum_link($big)),
         'format' => '?paged=%#%',
         'current' => max(1, get_query_var('paged')),
-        'total' => $wp_query->max_num_pages
+        'total' => $wp_query->max_num_pages,
+        'show_all' => true,
+        'prev_text' => false
     ));
 }
 
@@ -580,3 +582,40 @@ function my_gallery_shortcode($output, $attr) {
     return $output;
 }
 add_filter('post_gallery', 'my_gallery_shortcode', 10, 2);
+
+add_filter( 'template_include', 'baw_template_include' );
+function baw_template_include( $template ) {
+    if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && $_SERVER['HTTP_X_REQUESTED_WITH']== 'BAWXMLHttpRequest' ):
+        $pre = dirname( $template );
+        $suf = basename( $template );
+        $_template = $pre . '/ajax-' . $suf;
+        if( !file_exists( $_template ) )
+            $_template = $template;
+        $template = $_template;
+    endif;
+    return $template;
+}
+
+/* ajax call funtion */
+function bimLa_page($id) {
+    $gallery = $_GET['gallery'] ?: $_POST['gallery'];
+    $index = (int) $_GET['index'] ?: (int) $_POST['index'];
+
+    $template = locate_template( 'ajax-gallery.php' );
+    if(file_exists($template)) {
+        include($template);
+    }
+
+    // get_template_part( 'single', 'gallery' );
+    die();  
+}
+// creating Ajax call for WordPress
+add_action( 'wp_ajax_nopriv_get_diaries', 'bimLa_page' );
+add_action( 'wp_ajax_get_diaries', 'bimLa_page' );
+
+function load_the_template($template) {
+    $template = locate_template( $template );
+    if(file_exists($template)) {
+      include($template);
+    }
+}

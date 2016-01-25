@@ -2,7 +2,7 @@
   $content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
   $type = get_post_format();
 ?>
-<article <?php post_class(); ?>>
+<article <?php post_class(); ?> data-date="<?= get_the_time('U'); ?>">
   
   <?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
     $pattern = get_shortcode_regex();
