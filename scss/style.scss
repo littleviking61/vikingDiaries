@@ -13,6 +13,7 @@
 
 // Modules
 @import "compass/css3/";
+@import "compass/typography/text/ellipsis";
 @import "modules/mixins";
 @import "modules/variables";
 @import "modules/fonts";
@@ -30,4 +31,5 @@
 @import "partials/print";
 
 @import "partials/page";
+@import "partials/fotorama";
 @import "partials/shame";

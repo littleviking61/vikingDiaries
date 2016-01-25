@@ -7,4 +7,18 @@
 		text-align: center;
 	}
 
+	h2{
+		font-size: $ft-size-super-hudge;
+	}
+
+	.oEmbed{
+		max-width: rem-calc(850);
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.banner{
+		padding: rem-calc(100) 0 rem-calc(40);
+	}
+
 }

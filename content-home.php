@@ -17,7 +17,7 @@
 	<?php endif ?>
 
 	<?php if (get_field('video_a_lhonneur')): ?>
-		<div class="video">
+		<div class="video oEmbed">
 			<?php the_field('video_a_lhonneur'); ?>
 		</div>
 	<?php else: ?>
@@ -67,15 +67,15 @@
 					<nav>
 					    <ul>
 						    <?php if ($presentation): ?>
-						    	<li><a href="<?= $presentation ?>"><?= __('Presentation') ?></a></li>
+						    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation') ?></a></li>
 						    <?php endif ?>
 						    <?php if ($journal): ?>
-						    	<li><a href="/adventures/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
+						    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
 						    <?php else: ?>
-						    	<li><a href="<?= $presentation ?>"><?= $avenir ?></a></li>
+						    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
 						    <?php endif ?>
 						    <?php if ($carte): ?>
-						    	<li><a href="<?= $carte ?>"><?= __('Carte') ?></a></li>
+						    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte') ?></a></li>
 						    <?php endif ?>
 					    </ul>
 					</nav>

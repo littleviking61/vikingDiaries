@@ -6,6 +6,7 @@
  */
 
 require_once "modules/is-debug.php";
+require_once "modules/post-like.php";
 
 /*------------------------------------*\
     External Modules/Files
@@ -102,7 +103,11 @@ function html5blank_header_scripts()
             // Modernizr
             wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1');
             
-            wp_register_script('skrollr', get_template_directory_uri() . '/js/lib/skrollr.min.js', array(), '0.6.30');
+            wp_register_script('imagesloaded', get_template_directory_uri() . '/js/lib/imagesloaded.pkgd.min.js', array(), '4.1.0');
+            wp_register_script('isotope', get_template_directory_uri() . '/js/lib/isotope.pkgd.min.js', array(), '2.2.2');
+            wp_register_script('fitvids', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', array(), '1.1');
+            wp_register_script('fotorama', get_template_directory_uri() . '/js/lib/fotorama.js', array(), '4.6.3');
+            wp_register_script('magnific', get_template_directory_uri() . '/js/lib/jquery.magnific-popup.min.js', array(), '1.0.0');
 
             // Custom scripts
             wp_register_script(
@@ -112,7 +117,11 @@ function html5blank_header_scripts()
                     'conditionizr',
                     'modernizr',
                     'jquery',
-                    /*'skrollr'*/),
+                    'imagesloaded',
+                    'isotope',
+                    'fotorama',
+                    'magnific',
+                    'fitvids'),
                 '1.0.0');
 
             // Enqueue Scripts
@@ -344,7 +353,7 @@ function html5blankcomments($comment, $args, $depth)
     }
 ?>
     <!-- heads up: starting < for the html tag (li or div) in the next line: -->
-    <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
+    <?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
     <?php if ( 'div' != $args['style'] ) : ?>
     <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
     <?php endif; ?>
@@ -484,3 +493,90 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 {
     return '<h2>' . $content . '</h2>';
 }
+
+function my_gallery_shortcode($output, $attr) {
+    global $post;
+
+    static $instance = 0;
+    $instance++;
+
+    // We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+    if ( isset( $attr['orderby'] ) ) {
+        $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+        if ( !$attr['orderby'] )
+            unset( $attr['orderby'] );
+    }
+
+    extract(shortcode_atts(array(
+        'order'      => 'ASC',
+        'orderby'    => 'menu_order ID',
+        'id'         => $post->ID,
+        'itemtag'    => 'dl',
+        'icontag'    => 'dt',
+        'captiontag' => 'dd',
+        'columns'    => 3,
+        'size'       => 'thumbnail',
+        'include'    => '',
+        'exclude'    => ''
+    ), $attr));
+
+    $id = intval($id);
+    if ( 'RAND' == $order )
+        $orderby = 'none';
+
+    if ( !empty($include) ) {
+        $include = preg_replace( '/[^0-9,]+/', '', $include );
+        $_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+
+        $attachments = array();
+        foreach ( $_attachments as $key => $val ) {
+            $attachments[$val->ID] = $_attachments[$key];
+        }
+    } elseif ( !empty($exclude) ) {
+        $exclude = preg_replace( '/[^0-9,]+/', '', $exclude );
+        $attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+    } else {
+        $attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+    }
+
+    if ( empty($attachments) )
+        return '';
+
+    if ( is_feed() ) {
+        $output = "\n";
+        foreach ( $attachments as $att_id => $attachment )
+            $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+        return $output;
+    }
+
+    $selector = "gallery-{$instance}";
+
+    $size_class = sanitize_html_class( $size );
+    $gallery_div = "<div id='$selector' class='gallery galleryid-{$id}'>";
+    $output = '';
+    $output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
+
+    $i = 0;
+    foreach ( $attachments as $id => $attachment ) {
+        // $link = wp_get_attachment_link($id, $size, false, false);
+        // Here we add the image title
+
+        $urlFull = wp_get_attachment_image_src($id, 'full');
+        $urlLarge = is_single() ? wp_get_attachment_image_src($id, 'large') : wp_get_attachment_image_src($id, 'medium');
+
+        $link = "<a href='{$urlLarge[0]}' data-full='{$urlFull[0]}'>";
+        $link .= wp_get_attachment_image($id);
+        $link .= '</a>';
+
+        $output .= "$link";
+        if ( $captiontag && trim($attachment->post_excerpt) ) {
+            $output .= wptexturize($attachment->post_excerpt);
+        }
+    }
+
+    $output .= "
+        </div>\n";
+
+    return $output;
+}
+add_filter('post_gallery', 'my_gallery_shortcode', 10, 2);

@@ -51,19 +51,19 @@
 								</a>
 							</h4>
 							<nav>
-							    <ul>
-								    <?php if ($presentation): ?>
-								    	<li><a href="<?= $presentation ?>"><?= __('Presentation') ?></a></li>
-								    <?php endif ?>
-								    <?php if ($journal): ?>
-								    	<li><a href="/adventures/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
-								    <?php else: ?>
-								    	<li><a href="<?= $presentation ?>"><?= $avenir ?></a></li>
-								    <?php endif ?>
-								    <?php if ($carte): ?>
-								    	<li><a href="<?= $carte ?>"><?= __('Carte') ?></a></li>
-								    <?php endif ?>
-							    </ul>
+						    <ul>
+							    <?php if ($presentation): ?>
+							    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation') ?></a></li>
+							    <?php endif ?>
+							    <?php if ($journal): ?>
+							    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
+							    <?php else: ?>
+							    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
+							    <?php endif ?>
+							    <?php if ($carte): ?>
+							    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte') ?></a></li>
+							    <?php endif ?>
+						    </ul>
 							</nav>
 							<div class="content">
 								<?=  apply_filters('the_content', $cat->description); ?>
