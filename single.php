@@ -5,12 +5,12 @@
 		<?php get_template_part('header', 'projet'); ?>
 
 		<!-- section -->
-		<section>
+		<section class="middle-line">
 		
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 				<!-- article -->
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class('content'); ?>>
 
 					<!-- post thumbnail -->
 					<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>

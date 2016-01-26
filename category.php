@@ -16,7 +16,7 @@
 			</div>
 		<?php endif ?>
 
-		<section class="dairies">
+		<section class="dairies middle-line">
 
 			<?php 
 				global $wp_query;
