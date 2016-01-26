@@ -96,7 +96,7 @@
 		<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'category_name' => 'actus', 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
 		foreach ( $actus as $post ) : setup_postdata( $post ); ?>
 			<li class="actu">
-				<a href="<?php the_permalink(); ?>">
+				<a href="<?php the_permalink(); ?>" class="simple-ajax-popup">
 					<div class="thumbnail">
 						<?php the_post_thumbnail('medium'); ?>
 					</div>

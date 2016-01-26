@@ -27,7 +27,7 @@
 		  $grid.isotope('layout');
 		});
 
-		init_actions($grid);
+		init_actions();
 
 		lastPage = $('.pagination-links .current');
 		
@@ -123,6 +123,7 @@
 				settings: {
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post'
+
 				}
 			},
 			callbacks: {
@@ -134,7 +135,6 @@
 				ajaxContentAdded: function() {
 					// Ajax content is loaded and appended to DOM
 					$modal = this.content;
-					console.log($modal);
 
 				},
 				open: function() {
@@ -164,11 +164,20 @@
 
 	  $('.simple-ajax-popup', container).magnificPopup({
 	    type: 'ajax',
+      alignTop: true,
+      overflowY: 'scroll',
+      closeOnBgClick: true,
 	    tError: '<a href="%url%">The content</a> could not be loaded.',
 	    callbacks: {
-	    	open: function() {
-	  			ga('send', 'event', 'ajax', 'click', 'simple', this.currItem.el[0].title);
-				}
+				ajaxContentAdded: function(data) {
+  				ga('send', 'event', 'ajax', 'click', 'simple', this.currItem.el[0].title);
+					fotoramaLightbox(this.container);
+				},
+				elementParse: function() {
+					this.st.ajax.settings = {
+						headers: { 'X-Requested-With':'BAWXMLHttpRequest' },
+					};
+				},
 			}
 	  });
     

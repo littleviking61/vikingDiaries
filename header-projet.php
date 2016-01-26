@@ -1,5 +1,6 @@
 <?php 
 	global $excludePosts;
+	global $cat;
 
 	if(is_category()) {
 		$cat = get_queried_object();
@@ -16,7 +17,7 @@
 	$carte = get_field('carte', $cat);
 ?>
 
-<?php if (get_the_id() === $presentation || get_the_id() === $carte || is_category()): ?> 
+<?php if ($post->ID === $presentation || $post->ID === $carte || is_category()): ?> 
 
 	<header class="banner">
 		<div class="thumbnail">
@@ -34,7 +35,7 @@
 			<ul>
 				<?php if ($presentation): ?>
 					<?php $excludePosts[] = $presentation; ?>
-					<li <?= $post->ID === $presentation ? 'class="current"' : ''; ?>>
+					<li <?= $post->ID === $presentation && !is_category() ? 'class="current"' : ''; ?>>
 						<a href="<?= the_permalink($presentation) ?>"><?= __('Presentation') ?></a>
 					</li>
 				<?php endif ?>
@@ -47,7 +48,7 @@
 				<?php endif ?>
 				<?php if ($carte): ?>
 					<?php $excludePosts[] = $carte; ?>
-					<li <?= $post->ID === $carte ? 'class="current"' : ''; ?>>
+					<li <?= $post->ID === $carte && !is_category() ? 'class="current"' : ''; ?>>
 						<a href="<?= the_permalink($carte) ?>"><?= __('Carte') ?></a>
 					</li>
 				<?php endif ?>

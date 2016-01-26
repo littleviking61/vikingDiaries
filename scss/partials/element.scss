@@ -52,25 +52,12 @@ nav > ul, %list-basic{
 
 img, iframe{
 	max-width: 100%;
-}
-
-.content{
-	background-color: white;
-	color: $text-color-light;
-
-	a:not(.button){
-		color: $text-color-light;
-	}
+	height: auto;
 }
 
 .bloc{
 	text-align: center;
 
-	.content{
-		max-width: rem-calc(800);
-		padding: $gutter $gutter-large;
-		margin: 0 auto;
-	}
 }
 
 .oEmbed{
@@ -145,10 +132,6 @@ img, iframe{
 	}
 }
 
-.entry-content{
-	background-color: white;
-	color: $text-color-light;
-}
 /* bloc */
 
 .banner{
@@ -219,6 +202,13 @@ img, iframe{
 	.video{
 		text-align: center;
 	}
+
+	.content{
+		max-width: rem-calc(800);
+		padding: $gutter $gutter-large;
+		margin: 0 auto;
+	}
+
 }
 
 .projets{
@@ -343,8 +333,10 @@ img, iframe{
 		
 		.content{
 			background-color: white;
-			color: $text-color-light;
 			padding: $gutter-big;
+			&, a{
+				color: $text-color-light; 
+			}
 		}
 
 		&.full{
@@ -413,5 +405,19 @@ img, iframe{
 		display: block;
 		clear: both;
 		margin: $gutter 0 0;
+	}
+}
+
+.ajax-content{
+	background-color: white;
+  max-width: rem-calc(800);
+  margin: 20px auto;
+  padding: 20px 30px;
+  text-align: left;
+  margin: 40px auto;
+  position: relative;
+
+	&,a{ 
+		color: $text-color-light;
 	}
 }

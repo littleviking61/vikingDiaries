@@ -597,21 +597,31 @@ function baw_template_include( $template ) {
 }
 
 /* ajax call funtion */
-function bimLa_page($id) {
-    $gallery = $_GET['gallery'] ?: $_POST['gallery'];
-    $index = (int) $_GET['index'] ?: (int) $_POST['index'];
-
-    $template = locate_template( 'ajax-gallery.php' );
+function bimLes_comment() {
+    global $post, $id, $comments;
+    $post_id = (int) $_GET['postId'] ?: (int) $_POST['postId'];
+    $post = get_post($post_id);
+    $ajax_class = 'mp-popup';
+    $comments_args = array(
+        'post_id' => $post_id,
+        // 'number' => $get,//Número Máximo de Comentarios a Cargar
+        // 'order' => $orderComments,//Orden de los Comentarios
+        // 'offset' => $offset,//Desplazamiento desde el último comentario
+        'status' => 'approve'
+    );
+    
+    $comments = get_comments($comments_args);
+    // wp_list_comments(array('walker' => new DW_Timeline_Walker_Comment), $comments);
+    $template = locate_template( 'templates/comments.php' );
     if(file_exists($template)) {
         include($template);
     }
-
-    // get_template_part( 'single', 'gallery' );
-    die();  
+    
+    die();
 }
 // creating Ajax call for WordPress
-add_action( 'wp_ajax_nopriv_get_diaries', 'bimLa_page' );
-add_action( 'wp_ajax_get_diaries', 'bimLa_page' );
+add_action( 'wp_ajax_nopriv_get_comment', 'bimLes_comment' );
+add_action( 'wp_ajax_get_comment', 'bimLes_comment' );
 
 function load_the_template($template) {
     $template = locate_template( $template );
