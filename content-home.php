@@ -53,14 +53,14 @@
 			<li class="projet <?= $grand ? 'full' : 'medium' ?> projet">
 				<div class="thumbnail"> 
 					<?php if( !empty($thumbnail) ): ?>
-						<a href="<?= get_category_link( $cat ); ?>">
+						<a href="<?= $journal ? get_category_link( $cat ) : the_permalink($presentation); ?>">
 							<img src="<?= $thumbnail['sizes']['large']; ?>" alt="<?= $thumbnail['alt']; ?>" />
 						</a>
 					<?php endif; ?>
 				</div><!--
 				--><div class="details">
 					<h4>
-						<a href="<?= get_category_link( $cat ); ?>">
+						<a href="<?= $journal ? get_category_link( $cat ) : the_permalink($presentation); ?>">
 							<?= $cat->name; ?>
 						</a>
 					</h4>

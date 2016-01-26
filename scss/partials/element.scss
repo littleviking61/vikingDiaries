@@ -61,13 +61,24 @@ img, iframe{
 }
 
 .bloc{
-	> h3{
-		text-align: center;
+	text-align: center;
+
+	.content{
+		max-width: rem-calc(800);
+		padding: $gutter $gutter-large;
+		margin: 0 auto;
 	}
 }
 
 .oEmbed{
 	background-color: black;
+}
+
+.thumbnail{
+	// img{
+	// 	//min-width: 100%;
+	// 	height: auto;
+	// }
 }
 
 .pagination{
@@ -164,12 +175,6 @@ img, iframe{
 	.video{
 		text-align: center;
 	}
-
-	.content{
-		max-width: rem-calc(800);
-		padding: $gutter $gutter-large;
-		margin: 0 auto;
-	}
 }
 
 .projets{
@@ -203,9 +208,6 @@ img, iframe{
 			.content{
 				display: none;
 			}
-		}
-
-		.thumbnail{
 		}
 
 		.details{

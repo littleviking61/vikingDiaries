@@ -255,8 +255,12 @@ img, iframe {
 .content a:not(.button) {
   color: #737373; }
 
-.bloc > h3 {
+.bloc {
   text-align: center; }
+  .bloc .content {
+    max-width: 50rem;
+    padding: 0.625rem 1.25rem;
+    margin: 0 auto; }
 
 .oEmbed {
   background-color: black; }
@@ -327,10 +331,6 @@ img, iframe {
 
 .highlight .video {
   text-align: center; }
-.highlight .content {
-  max-width: 50rem;
-  padding: 0.625rem 1.25rem;
-  margin: 0 auto; }
 
 .projets {
   text-align: center; }
