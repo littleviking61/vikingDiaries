@@ -22,3 +22,22 @@
 	}
 
 }
+
+.presentation, .carte{
+
+	& + .pagination.top{
+		display: none;
+
+		& + .dairies{
+			.post .entry-date{
+				display: none;
+			}
+		}
+	}
+}
+
+.carte + .pagination + .dairies{
+	.entry-comments{
+		display: none;
+	}
+}

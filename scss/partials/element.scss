@@ -229,6 +229,7 @@ img, iframe{
 		margin-bottom: $gutter-large;
 		border: thin transparent solid;
 		width: rem-calc(800);
+		max-width: 100%;
 
 		a{
 			@extend %button;
@@ -239,6 +240,7 @@ img, iframe{
 			vertical-align: middle;
 			width: 50%;
 			text-align: left;
+			min-width: rem-calc(330);
 		}
 
 		&.medium{

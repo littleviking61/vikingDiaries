@@ -29,8 +29,7 @@
 ?>
 
 <?php if ($post->ID === $presentation || $post->ID === $carte || is_category()): ?> 
-
-	<header class="banner">
+	<header class="banner <?= $post->ID === $presentation ? 'presentation' : ($post->ID === $carte ? 'carte' : '') ?>">
 		<div class="thumbnail">
 			<?php 
 			$image = get_field('photo_auteur');

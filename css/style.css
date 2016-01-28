@@ -377,12 +377,14 @@ img, iframe {
     list-style: none;
     margin-bottom: 1.25rem;
     border: thin transparent solid;
-    width: 50rem; }
+    width: 50rem;
+    max-width: 100%; }
     .projets .projet > div {
       display: inline-block;
       vertical-align: middle;
       width: 50%;
-      text-align: left; }
+      text-align: left;
+      min-width: 20.625rem; }
     .projets .projet.medium {
       width: 24.875rem; }
       .projets .projet.medium > div {
@@ -877,6 +879,14 @@ img, iframe {
   margin-left: auto; }
 .home .banner {
   padding: 6.25rem 0 2.5rem; }
+
+.presentation + .pagination.top, .carte + .pagination.top {
+  display: none; }
+  .presentation + .pagination.top + .dairies .post .entry-date, .carte + .pagination.top + .dairies .post .entry-date {
+    display: none; }
+
+.carte + .pagination + .dairies .entry-comments {
+  display: none; }
 
 /* Magnific Popup CSS */
 .mfp-bg {
