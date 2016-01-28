@@ -7,6 +7,7 @@
 
 require_once "modules/is-debug.php";
 require_once "modules/post-like.php";
+require_once "modules/comments.php";
 
 /*------------------------------------*\
     External Modules/Files
@@ -634,4 +635,15 @@ function load_the_template($template) {
     if(file_exists($template)) {
       include($template);
     }
+}
+
+add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+function my_embed_oembed_html($html, $url, $attr, $post_id) {
+  return '<div class="oEmbed">' . $html . '</div>';
+}
+
+//Display website on new window when readers click Commenter's name
+add_filter( "get_comment_author_link", "pxzoom_modifiy_comment_author_anchor" );
+function pxzoom_modifiy_comment_author_anchor( $author_link ){
+    return str_replace( "<a", "<a target='new'", $author_link );
 }

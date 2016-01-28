@@ -677,6 +677,122 @@ img, iframe {
  * partials/footer
  * ---
  */
+/* ==========================================================================
+   Comments List
+   ========================================================================== */
+.comments-single {
+  margin-top: 15px; }
+
+.comments .alert {
+  margin-top: 20px; }
+.comments:not(.no-comments) > h3 {
+  border-bottom: 1px solid #ddd; }
+.comments > h3 {
+  padding-bottom: 0.9375rem;
+  margin: 2.5rem 0 1.25rem;
+  padding-top: 1.25rem;
+  border-top: thin solid #dddddd;
+  font-family: "Poiret One", sans-serif;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis; }
+.comments .comment-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.comments .comment {
+  border-top: 1px solid #ddd;
+  padding: 0.9375rem 0 0.9375rem 70px;
+  position: relative; }
+  .comments .comment:first-child {
+    border-top: none;
+    padding-top: 0; }
+  .comments .comment h4 {
+    margin: 5px 0; }
+    .comments .comment h4 a:after {
+      content: "\f08e";
+      padding-left: 0.9375rem;
+      font-size: 0.75rem; }
+  .comments .comment time {
+    display: block;
+    margin: 0 0 15px;
+    font-size: 0.75rem;
+    color: #999; }
+  .comments .comment .avatar {
+    border-radius: 40px;
+    position: absolute;
+    left: 0;
+    top: 35px; }
+  .comments .comment:first-child .avatar {
+    top: 0; }
+  .comments .comment .comment-action a {
+    padding: 0.3125rem 0.625rem;
+    border: thin solid #dddddd;
+    margin-right: 0.3125rem; }
+    .comments .comment .comment-action a:hover {
+      border-color: black; }
+    .comments .comment .comment-action a .fa-reply {
+      -moz-transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg); }
+  .comments .comment .children {
+    border-top: 1px solid #ddd;
+    padding: 0.9375rem 0 0;
+    margin: 0.9375rem 0 0;
+    list-style: none; }
+    .comments .comment .children li:last-child {
+      padding-bottom: 0; }
+
+/* ==========================================================================
+   Comment Form
+   ========================================================================== */
+#respond {
+  margin-top: 2.5rem;
+  border-top: 1px solid #ddd; }
+  #respond > h3 {
+    margin: 1.25rem 0 1.25rem;
+    font-family: "Poiret One", sans-serif;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; }
+  #respond .comment-reply-title small {
+    font-size: 11px;
+    float: right;
+    letter-spacing: 0;
+    text-transform: none; }
+  #respond .form-submit input[type=submit] {
+    padding: 0.3125rem 0.625rem;
+    border: thin solid #dddddd;
+    margin-right: 0.3125rem;
+    background: none; }
+    #respond .form-submit input[type=submit]:hover {
+      border-color: black; }
+  #respond .form-group textarea, #respond .form-group input[type='text'] {
+    width: 100% !important;
+    border: none;
+    padding: 0.625rem;
+    background: #dddddd;
+    margin-bottom: 0.625rem; }
+  #respond .form-group label {
+    display: none; }
+  #respond .form-group.required {
+    position: relative; }
+    #respond .form-group.required .required {
+      position: absolute;
+      right: 0.625rem;
+      top: 10px;
+      color: #FF3333; }
+    #respond .form-group.required .form-control {
+      padding-right: 1.25rem; }
+
 /**
  * partials/print
  * ---
@@ -1692,5 +1808,11 @@ img.mfp-img {
     padding: 0.3125rem 0.625rem;
     border: thin solid white;
     background-color: #dddddd; }
+
+.comments .comment h4 a:after {
+  font-family: 'FontAwesome';
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 /*# sourceMappingURL=style.css.map */

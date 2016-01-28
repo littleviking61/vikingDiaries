@@ -125,78 +125,14 @@
 		}
 	}
 
-	function closeArticle(target, scroll, nochange) {
-		target.removeClass('open');
-		init_actions(target, scroll);
-		// came back to page state
-		if(!moveByHistoty && !nochange) {
-			var url = lastPage.attr('href') || initialUrl;
-			history.pushState({page: url}, 'Page ' + lastPage.text(), url);
-		}
-	}
-
-	function loadArticle(url, target) {
-		
-		if($('.complete' ,target).length < 1) {
-			target.addClass('loading');
-			dairies.addClass('loading');
-
-			$grid.isotope('layout');
-			$grid.one( 'layoutComplete', function() { $(window).scrollTo(target.offset().top-70, 400); });
-
-			$.ajax({
-	      url    : url,
-	      type   : 'POST',
-	      headers: {
-	          'X-Requested-With':'BAWXMLHttpRequest'
-	      }
-	    }).done( function( data ) {
-				target.addClass('open');
-
-	    	target.append(data);
-	     	target.removeClass('loading').removeClass('error');
-
-	    	init_actions(target, true);
-	    	// change URL
-	      if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
-	    }).error( function() {
-	    	target.removeClass('loading').addClass('error');
-	    });
-		}else{
-			target.addClass('open');
-			init_actions(target, true);
-			// change URL
-			if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
-		}
-	}
-
-	// load more page
-	function loadPagedArticle(url, lastPage) {
-    $.ajax({
-      url    : url,
-      type   : 'POST',
-      headers: {
-          'X-Requested-With':'BAWXMLHttpRequest'
-      }
-    }).done( function( data ) {
-      $grid.isotope( 'insert', $(data).filter('article') );
-      init_actions($grid);
-      // push state hisoty
-      if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
-      $('.pagination .loading').removeClass('loading').removeClass('error');
-    }).error( function() {
-    	$('.pagination .loading').removeClass('loading').addClass('error');
-    });
-	}
-
 	function init_actions(container, scroll) {
 		container = container || $('main');
 
-		$(".oEmbed", container).fitVids();
-
+		$('.oEmbed, .entry-content iframe[src*="=oembed"]', container).fitVids();
 
 		fotoramaLightbox(container);
 		popupInit(container);
+		commentInit(container);	
 
 		container.imagesLoaded().progress( function() {
 		  $grid.isotope('layout');
@@ -299,6 +235,106 @@
 			}
 	  });
     
+	}
+
+	function commentInit(container) {
+		var 
+			commentform = $('#commentform', container), // find the comment form
+			statusdiv = $('<div id="comment-status" ></div>').prependTo(commentform); // add info panel before the form to provide feedback or errors
+
+		commentform.submit(function(){
+		    //serialize and store form data in a variable
+		    var formdata = commentform.serialize();
+		    //Add a status message
+		    statusdiv.html('<p>Processing...</p>');
+		    //Extract action URL from commentform
+		    var formurl = commentform.attr('action');
+		    //Post Form with data
+		    $.ajax({
+		        type: 'post',
+		        url: formurl,
+		        data: formdata,
+		        error: function(XMLHttpRequest, textStatus, errorThrown)
+	            {
+	                statusdiv.html('<p class="ajax-error" >Vous avez peut-être laisser l\'un des éléments requis vide, ou vous posté trop rapidement</p>');
+	            },
+		        success: function(data, textStatus){
+	            if(data == "success" || textStatus == "success"){
+	                statusdiv.html('<p class="ajax-success" >Merci pour votre commentaire, il sera approuvé rapidement.</p>');
+	            }else{
+	                statusdiv.html('<p class="ajax-error" >Veuillez attendre un petit peu avant de poster votre réponse</p>');
+	                commentform.find('textarea[name=comment]').val('');
+	            }
+		        }
+		    });
+		    return false;
+		});
+	}
+
+		// load more page
+	function loadPagedArticle(url, lastPage) {
+    $.ajax({
+      url    : url,
+      type   : 'POST',
+      headers: {
+          'X-Requested-With':'BAWXMLHttpRequest'
+      }
+    }).done( function( data ) {
+      $grid.isotope( 'insert', $(data).filter('article') );
+      init_actions($grid);
+      // push state hisoty
+      if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
+      $('.pagination .loading').removeClass('loading').removeClass('error');
+    }).error( function() {
+    	$('.pagination .loading').removeClass('loading').addClass('error');
+    });
+	}
+
+	// load single ajax
+	function loadArticle(url, target) {
+		
+		if($('.complete' ,target).length < 1) {
+			target.addClass('loading');
+			dairies.addClass('loading');
+
+			$grid.isotope('layout');
+			$grid.one( 'layoutComplete', function() { $(window).scrollTo(target.offset().top-70, 400); });
+
+			$.ajax({
+	      url    : url,
+	      type   : 'POST',
+	      headers: {
+	          'X-Requested-With':'BAWXMLHttpRequest'
+	      }
+	    }).done( function( data ) {
+				target.addClass('open');
+
+	    	target.append(data);
+	     	target.removeClass('loading').removeClass('error');
+
+	    	init_actions(target, true);
+	    	// change URL
+	      if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+	    }).error( function() {
+	    	target.removeClass('loading').addClass('error');
+	    });
+		}else{
+			target.addClass('open');
+			init_actions(target, true);
+			// change URL
+			if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+		}
+	}
+
+	// close single
+	function closeArticle(target, scroll, nochange) {
+		target.removeClass('open');
+		init_actions(target, scroll);
+		// came back to page state
+		if(!moveByHistoty && !nochange) {
+			var url = lastPage.attr('href') || initialUrl;
+			history.pushState({page: url}, 'Page ' + lastPage.text(), url);
+		}
 	}
 
 } ( this, jQuery ));

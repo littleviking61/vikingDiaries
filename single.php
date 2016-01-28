@@ -7,18 +7,18 @@
 			<?php
 			
 			$args = array( 'posts_per_page' => 100, 'category' => $cat->term_id );
-			$myposts = get_posts( $args ); $i = 0; $actifPostId = $post->ID;
+			$myposts = get_posts( $args ); $positionArticle = 0; $actifPostId = $post->ID;
 			foreach ( $myposts as $post ) : 
 				setup_postdata( $post );
 				if($post->ID === $actifPostId) break;
-				$i++; 
+				$positionArticle++; 
 			endforeach; 
 
 			wp_reset_postdata();
 			$perPage = get_option( 'posts_per_page' ); ?>
 
 			<div class="pagination top">
-				<a class="more-link" href="<?= get_category_link($cat). 'page/'. ceil($i / $perPage).'/#post-' . $post->ID ?>">
+				<a class="more-link" href="<?= get_category_link($cat). 'page/'. ceil($positionArticle / $perPage).'/' ?>">
 					<?= __('Retourner sur le journal') ?>
 				</a>
 			</div>
@@ -83,22 +83,6 @@
 							<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
 						</div>
 
-						<footer>
-							<?php get_template_part('templates/map'); ?>
-						</footer>
-
-						<div class="quick-comment-box form-group">
-							<?php 
-							global $current_user;
-							get_currentuserinfo();
-							echo get_avatar( $current_user->ID, 16); 
-							echo '<strong class="quick-comment-user-name">'.$current_user->display_name.'</strong>';
-							?>
-							<textarea class="form-control" name="quick-comment-content" id="quick-comment-content" rows="1" placeholder="<?php _e('Leave a note','dw-timeline') ?>"></textarea>
-							<input type="button" class="btn btn-link" value="<?php _e('Save','dw-timeline') ?>">
-							<input type="button" class="btn btn-link" value="<?php _e('Cancel', 'dw-timeline'); ?>">
-						</div>
-
 						<?php comments_template('/templates/comments.php'); ?>
 					</div>
 				</article>
@@ -119,6 +103,12 @@
 		<?php endif; ?>
 
 		</section>
+
+		<div class="pagination">
+			<a class="more-link" href="<?= get_category_link($cat). 'page/'. ceil($positionArticle / $perPage).'/' ?>">
+				<?= __('Retourner sur le journal') ?>
+			</a>
+		</div>
 	<!-- /section -->
 	</main>
 
