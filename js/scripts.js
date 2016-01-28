@@ -200,21 +200,21 @@
 
 	// magnifying popup
 	function popupInit(container) {
-    $('.popup-youtube, .popup-vimeo, .popup-gmaps', container).magnificPopup({
-      disableOn: 700,
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
-      preloader: true,
+   //  $('.popup-youtube, .popup-vimeo, .popup-gmaps', container).magnificPopup({
+   //    disableOn: 700,
+   //    type: 'iframe',
+   //    mainClass: 'mfp-fade',
+   //    removalDelay: 160,
+   //    preloader: true,
 
-      fixedContentPos: false,
+   //    fixedContentPos: false,
 
-      callbacks: {
-    		open: function() {
-    			ga('send', 'event', 'iframe', 'click', 'popup a', this.currItem.src);
-				}
-			}
-    });
+   //    callbacks: {
+   //  		open: function() {
+   //  			ga('send', 'event', 'iframe', 'click', 'popup a', this.currItem.src);
+			// 	}
+			// }
+   //  });
 
 	  $('.simple-ajax-popup', container).magnificPopup({
 	    type: 'ajax',
@@ -224,14 +224,18 @@
 	    tError: '<a href="%url%">The content</a> could not be loaded.',
 	    callbacks: {
 				ajaxContentAdded: function(data) {
+					history.pushState({actu: this.currItem.el[0].href}, 'Actu' + this.currItem.el[0].title, this.currItem.el[0].href );
   				ga('send', 'event', 'ajax', 'click', 'simple', this.currItem.el[0].title);
-					fotoramaLightbox(this.container);
+					init_actions(this.container);
 				},
 				elementParse: function() {
 					this.st.ajax.settings = {
 						headers: { 'X-Requested-With':'BAWXMLHttpRequest' },
 					};
 				},
+				close: function() {
+					history.go(-1);
+				}
 			}
 	  });
     

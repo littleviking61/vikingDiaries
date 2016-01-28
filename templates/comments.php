@@ -3,7 +3,7 @@
     return;
   } ?>
 
-<div>
+<div class="entry-comments">
 
   <?php if (have_comments() || count($comments) > 0) : ?>
     <section class="comments">

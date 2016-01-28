@@ -3,11 +3,18 @@
    Comments List
    ========================================================================== */
 
+.entry-comments{
+   h3{
+      text-align: left !important;
+   }
+}
+
 .comments-single{
    margin-top: 15px;
 }
 
-.comments {
+.comments{
+   text-align: left;
 
    .alert {
       margin-top: 20px;

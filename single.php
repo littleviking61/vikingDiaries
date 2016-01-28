@@ -26,7 +26,6 @@
 			<!-- section -->
 			<section class="dairies middle-line">
 			
-
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 				<!-- article -->
@@ -54,9 +53,6 @@
 						<?php elseif(has_post_thumbnail()) : ?>
 						  <div class="thumbnail image">
 						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('large', ['class'=> 'lazy']); ?></a>
-						    <!--<div class="overlay">    
-						      <span class="entry-date"><a href="<?php the_permalink(); ?>"><time class="published" datetime="<?= get_the_time('c'); ?>"><?= get_the_date('F Y'); ?></time></a></span>
-						    </div>-->
 						  </div>
 
 						<?php endif; ?>
@@ -68,19 +64,17 @@
 						</header>
 						<hr>
 						<div class="entry-content">
-							<?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
-							$pattern = get_shortcode_regex();
-							preg_match('/'.$pattern.'/s', $post->post_content, $matches);
-							if (is_array($matches) && $matches[2] == 'gallery') {
-
-								echo do_shortcode( $matches[0] );
-							};
-							$content = strip_shortcodes($content, 'gallery');
+							<?php if ( has_shortcode( $content, 'gallery' ) && $type == "image" ) :
+								$pattern = get_shortcode_regex();
+								preg_match('/'.$pattern.'/s', $post->post_content, $matches);
+								if (is_array($matches) && $matches[2] == 'gallery') {
+									echo do_shortcode( $matches[0] );
+								};
 							elseif(get_field('video') && $type == "video") :
 								echo get_field('video');
 							endif; ?>
+							<?php $content = strip_shortcodes($content, 'gallery'); ?>
 							<p><?= apply_filters('the_content', $content) ?></p>
-							<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
 						</div>
 
 						<?php comments_template('/templates/comments.php'); ?>

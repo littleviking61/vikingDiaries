@@ -186,7 +186,7 @@ body {
 .header {
   position: fixed;
   width: 100%;
-  z-index: 9999;
+  z-index: 1000;
   top: 0; }
 
 .wrapper {
@@ -557,7 +557,7 @@ img, iframe {
       border-right: none;
       border-left: 8px solid white; }
 
-.ajax-content {
+.mfp-content .complete {
   background-color: white;
   max-width: 50rem;
   margin: 20px auto;
@@ -565,7 +565,15 @@ img, iframe {
   text-align: left;
   margin: 40px auto;
   position: relative; }
-  .ajax-content, .ajax-content a {
+  .mfp-content .complete .mfp-close {
+    border: solid thin white;
+    top: 20px;
+    right: -60px;
+    opacity: 1;
+    color: white; }
+    .mfp-content .complete .mfp-close:hover {
+      opacity: 0.7; }
+  .mfp-content .complete, .mfp-content .complete a {
     color: #737373; }
 
 /**
@@ -680,72 +688,77 @@ img, iframe {
 /* ==========================================================================
    Comments List
    ========================================================================== */
+.entry-comments h3 {
+  text-align: left !important; }
+
 .comments-single {
   margin-top: 15px; }
 
-.comments .alert {
-  margin-top: 20px; }
-.comments:not(.no-comments) > h3 {
-  border-bottom: 1px solid #ddd; }
-.comments > h3 {
-  padding-bottom: 0.9375rem;
-  margin: 2.5rem 0 1.25rem;
-  padding-top: 1.25rem;
-  border-top: thin solid #dddddd;
-  font-family: "Poiret One", sans-serif;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis; }
-.comments .comment-list {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-.comments .comment {
-  border-top: 1px solid #ddd;
-  padding: 0.9375rem 0 0.9375rem 70px;
-  position: relative; }
-  .comments .comment:first-child {
-    border-top: none;
-    padding-top: 0; }
-  .comments .comment h4 {
-    margin: 5px 0; }
-    .comments .comment h4 a:after {
-      content: "\f08e";
-      padding-left: 0.9375rem;
-      font-size: 0.75rem; }
-  .comments .comment time {
-    display: block;
-    margin: 0 0 15px;
-    font-size: 0.75rem;
-    color: #999; }
-  .comments .comment .avatar {
-    border-radius: 40px;
-    position: absolute;
-    left: 0;
-    top: 35px; }
-  .comments .comment:first-child .avatar {
-    top: 0; }
-  .comments .comment .comment-action a {
-    padding: 0.3125rem 0.625rem;
-    border: thin solid #dddddd;
-    margin-right: 0.3125rem; }
-    .comments .comment .comment-action a:hover {
-      border-color: black; }
-    .comments .comment .comment-action a .fa-reply {
-      -moz-transform: rotateY(180deg);
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg); }
-  .comments .comment .children {
-    border-top: 1px solid #ddd;
-    padding: 0.9375rem 0 0;
-    margin: 0.9375rem 0 0;
+.comments {
+  text-align: left; }
+  .comments .alert {
+    margin-top: 20px; }
+  .comments:not(.no-comments) > h3 {
+    border-bottom: 1px solid #ddd; }
+  .comments > h3 {
+    padding-bottom: 0.9375rem;
+    margin: 2.5rem 0 1.25rem;
+    padding-top: 1.25rem;
+    border-top: thin solid #dddddd;
+    font-family: "Poiret One", sans-serif;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; }
+  .comments .comment-list {
+    margin: 0;
+    padding: 0;
     list-style: none; }
-    .comments .comment .children li:last-child {
-      padding-bottom: 0; }
+  .comments .comment {
+    border-top: 1px solid #ddd;
+    padding: 0.9375rem 0 0.9375rem 70px;
+    position: relative; }
+    .comments .comment:first-child {
+      border-top: none;
+      padding-top: 0; }
+    .comments .comment h4 {
+      margin: 5px 0; }
+      .comments .comment h4 a:after {
+        content: "\f08e";
+        padding-left: 0.9375rem;
+        font-size: 0.75rem; }
+    .comments .comment time {
+      display: block;
+      margin: 0 0 15px;
+      font-size: 0.75rem;
+      color: #999; }
+    .comments .comment .avatar {
+      border-radius: 40px;
+      position: absolute;
+      left: 0;
+      top: 35px; }
+    .comments .comment:first-child .avatar {
+      top: 0; }
+    .comments .comment .comment-action a {
+      padding: 0.3125rem 0.625rem;
+      border: thin solid #dddddd;
+      margin-right: 0.3125rem; }
+      .comments .comment .comment-action a:hover {
+        border-color: black; }
+      .comments .comment .comment-action a .fa-reply {
+        -moz-transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg); }
+    .comments .comment .children {
+      border-top: 1px solid #ddd;
+      padding: 0.9375rem 0 0;
+      margin: 0.9375rem 0 0;
+      list-style: none; }
+      .comments .comment .children li:last-child {
+        padding-bottom: 0; }
 
 /* ==========================================================================
    Comment Form
