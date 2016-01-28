@@ -15,6 +15,8 @@
 					break;
 				}
 			}
+		}else{
+			$cat = $cat[0];
 		}
 	}
 	$thumbnail = get_field('thumbnail', $cat);
