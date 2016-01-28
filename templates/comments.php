@@ -82,8 +82,6 @@
     
 </div>
 
-<button title="Close (Esc)" type="button" class="mfp-close">×</button>
-
 <script>
   $('document').ready(function(){
     var commentform=$('#commentform'); // find the comment form

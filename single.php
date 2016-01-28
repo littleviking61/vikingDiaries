@@ -6,48 +6,72 @@
 
 		<!-- section -->
 		<section class="middle-line">
-		
+			
+			<?php
+			
+			$args = array( 'posts_per_page' => 100, 'category' => $cat->term_id );
+			$myposts = get_posts( $args ); $i = 0; $actifPostId = $post->ID;
+			foreach ( $myposts as $post ) : 
+				setup_postdata( $post );
+				if($post->ID === $actifPostId) break;
+				$i++; 
+			endforeach; 
+
+			wp_reset_postdata();
+			$perPage = get_option( 'posts_per_page' ); ?>
+
+			<div class="pagination top">
+				<a class="more-link" href="<?= get_category_link($cat). 'page/'. ceil($i / $perPage).'/#post-' . $post->ID ?>">
+					<?= __('Retourner sur le journal') ?>
+				</a>
+			</div>
+
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 				<!-- article -->
-				<article id="post-<?php the_ID(); ?>" <?php post_class('content'); ?>>
+				<?php 
+				  $content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
+				  $type = get_post_format();
+				?>
+				<article <?php post_class(); ?>>
+					<header>
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+						<?php get_template_part('templates/entry-meta'); ?>
+					</header>
+					<hr>
+					<div class="entry-content">
+						<?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
+						$pattern = get_shortcode_regex();
+						preg_match('/'.$pattern.'/s', $post->post_content, $matches);
+						if (is_array($matches) && $matches[2] == 'gallery') {
 
-					<!-- post thumbnail -->
-					<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-							<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-						</a>
-					<?php endif; ?>
-					<!-- /post thumbnail -->
+							echo do_shortcode( $matches[0] );
+						};
+						$content = strip_shortcodes($content, 'gallery');
+						elseif(get_field('video') && $type == "video") :
+							echo get_field('video');
+						endif; ?>
+						<p><?= apply_filters('the_content', $content) ?></p>
+						<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
+					</div>
 
-					<!-- post title -->
-					<h1>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-					</h1>
-					<!-- /post title -->
+					<footer>
+						<?php get_template_part('templates/map'); ?>
+					</footer>
 
-					<!-- post details -->
-					<span class="date">
-						<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-							<?php the_date(); ?> <?php the_time(); ?>
-						</time>
-					</span>
-					<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-					<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-					<!-- /post details -->
+					<div class="quick-comment-box form-group">
+						<?php 
+						global $current_user;
+						get_currentuserinfo();
+						echo get_avatar( $current_user->ID, 16); 
+						echo '<strong class="quick-comment-user-name">'.$current_user->display_name.'</strong>';
+						?>
+						<textarea class="form-control" name="quick-comment-content" id="quick-comment-content" rows="1" placeholder="<?php _e('Leave a note','dw-timeline') ?>"></textarea>
+						<input type="button" class="btn btn-link" value="<?php _e('Save','dw-timeline') ?>">
+						<input type="button" class="btn btn-link" value="<?php _e('Cancel', 'dw-timeline'); ?>">
+					</div>
 
-					<?php the_content(); // Dynamic Content ?>
-
-					<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-					<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-					<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
-
-					<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-					<?php comments_template(); ?>
-
+					<?php comments_template('/templates/comments.php'); ?>
 				</article>
 				<!-- /article -->
 

@@ -108,6 +108,7 @@ function html5blank_header_scripts()
             wp_register_script('fitvids', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', array(), '1.1');
             wp_register_script('fotorama', get_template_directory_uri() . '/js/lib/fotorama.js', array(), '4.6.3');
             wp_register_script('magnific', get_template_directory_uri() . '/js/lib/jquery.magnific-popup.min.js', array(), '1.0.0');
+            wp_register_script('scrollTo', get_template_directory_uri() . '/js/lib/jquery.scrollTo.min.js', array(), '2.1.3');
 
             // Custom scripts
             wp_register_script(
@@ -121,6 +122,7 @@ function html5blank_header_scripts()
                     'isotope',
                     'fotorama',
                     'magnific',
+                    'scrollTo',
                     'fitvids'),
                 '1.0.0');
 

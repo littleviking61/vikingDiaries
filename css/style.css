@@ -186,7 +186,7 @@ body {
 .header {
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 9999;
   top: 0; }
 
 .wrapper {
@@ -198,9 +198,11 @@ body {
   padding-top: 3.125rem;
   min-height: 100vh; }
 
-main > section {
-  padding: 1.25rem 0;
-  margin: 0 auto; }
+main {
+  position: relative; }
+  main > section {
+    padding: 1.25rem 0;
+    margin: 0 auto; }
 
 .sidebar {
   display: none; }
@@ -274,16 +276,16 @@ img, iframe {
       height: 1.875rem;
       background: rgba(255, 255, 255, 0.8);
       content: ''; }
-  .pagination .more {
+  .pagination .more, .pagination .more-link {
     display: inline-block;
     cursor: pointer;
     padding: 0.625rem;
     text-transform: uppercase;
     font-family: "Poiret One", sans-serif;
     border: thin white solid; }
-    .pagination .more.disable {
+    .pagination .more.disable, .pagination .more-link.disable {
       display: none; }
-    .pagination .more.loading {
+    .pagination .more.loading, .pagination .more-link.loading {
       display: inline-block;
       background-image: url("../img/loading-flat.gif");
       background-position: center center;
@@ -436,16 +438,95 @@ img, iframe {
 .dairies {
   position: relative; }
   .dairies article {
+    position: relative;
     width: calc(50% - 30px);
     display: inline-block;
-    margin-bottom: 1.875rem; }
-    .dairies article .content {
+    margin-bottom: 1.875rem;
+    /* ajax style */
+    /* arrow */ }
+    .dairies article .entry-title {
+      display: inline-block;
+      margin-top: 0;
+      text-transform: initial;
+      font-size: 1.375rem;
+      margin-right: 0.9375rem; }
+    .dairies article .entry-content a {
+      font-weight: bold; }
+    .dairies article .social {
+      display: inline-block; }
+    .dairies article hr {
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      border: 0;
+      border-top: thin solid #eeeeee; }
+    .dairies article .entry-infos > * {
+      display: inline-block;
+      vertical-align: bottom; }
+    .dairies article .entry-infos .country {
+      max-width: 60%;
+      margin-right: 0.9375rem;
+      white-space: nowrap;
+      overflow: hidden;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+    .dairies article .more-link {
+      display: block;
+      clear: both;
+      margin: 0.625rem 0 0; }
+    .dairies article .mfp-close {
+      display: none;
+      border: solid thin white;
+      top: -20px;
+      right: -60px;
+      opacity: 1; }
+      .dairies article .mfp-close:hover {
+        opacity: 0.7; }
+    .dairies article .complete {
+      display: none;
+      position: relative; }
+    .dairies article .short {
+      position: relative; }
+    .dairies article.loading {
+      background-repeat: no-repeat;
+      background-image: url("../img/loading-flat.gif");
+      background-position: center; }
+      .dairies article.loading .complete, .dairies article.loading .short {
+        margin: 0 auto; }
+      .dairies article.loading .short {
+        display: block;
+        opacity: 0.5; }
+    .dairies article.open {
+      width: 100%; }
+      .dairies article.open:before, .dairies article.open:after {
+        display: none; }
+      .dairies article.open .mfp-close {
+        display: block;
+        z-index: 40; }
+      .dairies article.open .short .thumbnail.image {
+        position: relative;
+        display: block;
+        cursor: default; }
+        .dairies article.open .short .thumbnail.image:before {
+          position: absolute;
+          content: '';
+          opacity: 0;
+          z-index: 2;
+          width: 100%;
+          height: 100%; }
+      .dairies article.open .short .content {
+        display: none; }
+      .dairies article.open .complete, .dairies article.open .short {
+        display: block;
+        width: 50rem;
+        margin: 0 auto; }
+    .dairies article .content, .dairies article .complete {
       background-color: white;
       padding: 1.875rem; }
-      .dairies article .content, .dairies article .content a {
+      .dairies article .content, .dairies article .content a, .dairies article .complete, .dairies article .complete a {
         color: #737373; }
     .dairies article.full {
-      width: 100%; }
+      width: 80%; }
     .dairies article:before, .dairies article:after {
       content: '';
       position: absolute;
@@ -461,36 +542,6 @@ img, iframe {
       left: -30px;
       border-right: none;
       border-left: 8px solid white; }
-  .dairies .entry-title {
-    display: inline-block;
-    margin-top: 0;
-    text-transform: initial;
-    font-size: 1.375rem;
-    margin-right: 0.9375rem; }
-  .dairies .entry-content a {
-    font-weight: bold; }
-  .dairies .social {
-    display: inline-block; }
-  .dairies hr {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    border: 0;
-    border-top: thin solid #eeeeee; }
-  .dairies .entry-infos > * {
-    display: inline-block;
-    vertical-align: bottom; }
-  .dairies .entry-infos .country {
-    max-width: 60%;
-    margin-right: 0.9375rem;
-    white-space: nowrap;
-    overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis; }
-  .dairies .more-link {
-    display: block;
-    clear: both;
-    margin: 0.625rem 0 0; }
 
 .ajax-content {
   background-color: white;

@@ -17,7 +17,7 @@
 		<?php endif ?>
 
 		<section class="dairies middle-line">
-			<pre><?php var_dump($cat) ?></pre>
+
 			<?php 
 				global $wp_query;
 				$args = array_merge( $wp_query->query_vars, array( 'post__not_in' => $excludePosts  ) );
