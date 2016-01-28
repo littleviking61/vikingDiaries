@@ -19,25 +19,7 @@
 			<p><?= apply_filters('the_content', $content) ?></p>
 			<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
 		</div>
-
-		<footer>
-			<!-- <?php get_template_part('templates/map'); ?> -->
-		</footer>
-
-		<div class="quick-comment-box form-group">
-			<?php 
-			global $current_user;
-			get_currentuserinfo();
-			echo get_avatar( $current_user->ID, 16); 
-			echo '<strong class="quick-comment-user-name">'.$current_user->display_name.'</strong>';
-			?>
-			<textarea class="form-control" name="quick-comment-content" id="quick-comment-content" rows="1" placeholder="<?php _e('Leave a note','dw-timeline') ?>"></textarea>
-			<input type="button" class="btn btn-link" value="<?php _e('Save','dw-timeline') ?>">
-			<input type="button" class="btn btn-link" value="<?php _e('Cancel', 'dw-timeline'); ?>">
-		</div>
-
-		<?php comments_template(); ?>
-
+		<?php comments_template('/templates/comments.php'); ?>
 		<!-- /article -->
 
 	<?php endwhile; ?>

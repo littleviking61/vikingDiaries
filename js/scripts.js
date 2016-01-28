@@ -238,11 +238,13 @@
 	}
 
 	function commentInit(container) {
-		var 
-			commentform = $('#commentform', container), // find the comment form
-			statusdiv = $('<div id="comment-status" ></div>').prependTo(commentform); // add info panel before the form to provide feedback or errors
 
-		commentform.submit(function(){
+		var 
+			commentform = $('#commentform', container); // find the comment form
+		// to avoid multiple call
+		if($('.comment-status', container).length < 1) var statusdiv = $('<div id="comment-status" ></div>').prependTo(commentform); // add info panel before the form to provide feedback or errors
+
+		commentform.unbind('submit').submit(function(){
 		    //serialize and store form data in a variable
 		    var formdata = commentform.serialize();
 		    //Add a status message
