@@ -1,5 +1,5 @@
 <div class="complete">
-  <button title="Close" type="button" class="mfp-close">×</button>
+  <button title="Close (ESC)" type="button" class="mfp-close">×</button>
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 

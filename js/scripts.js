@@ -1,7 +1,7 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, taille;
+	var $grid, lastPage, dairies, taille, initialUrl, moveByHistoty = false;
 
 	$(function () {
 		// DOM ready, take it away
@@ -46,7 +46,7 @@
 		    var url = lastPage.attr( 'href');
 				if(url !== undefined) {
 					lastPage.addClass('loaded');
-		      loadPagedArticle(url);
+		      loadPagedArticle(url, lastPage);
 				}
 				// check si supprimer bouton
 				if($(this).hasClass('next')){
@@ -60,43 +60,81 @@
 		  }
 		});
 
-		$(document).on('click', '.ajax-go', function(e) {
+		dairies.on('click', '.ajax-go, .post .more-link', function(e) {
 			e.preventDefault();
 			var target = $(this).closest('.post');
 
-			if(target.hasClass('open')) {
+			if(target.hasClass('open') && !moveByHistoty) {
 				closeArticle(target, true);
 			}else{
 				// check open
-				var open = $('.post.open');
-				if(open.length > 0) closeArticle(open);
+				var open = $('.post.open', dairies);
+				if(open.length > 0) closeArticle(open, false, true);
 				// load article
 				loadArticle($(this).attr('href'), target);
 			}
 		});
 
-		$(document).on('click', '.post .mfp-close', function(e) {
+		dairies.on('click', '.post .mfp-close', function(e) {
 			e.preventDefault();
 			var target = $(this).closest('.post');
 			closeArticle(target, true);
 		});
 
-		window.addEventListener('popstate', function(event) {
-		  urlChange(event);
-
-		 // updateContent(event.state);
+		// close article on esc
+		$(document).keyup(function(e){
+			if(e.keyCode === 27) {
+				var open = $('.post.open', dairies);
+				if(open.length > 0) closeArticle(open);
+			}
 		});
+
+		window.addEventListener('popstate', function(event) {
+			urlChange(event);
+		});
+
+		initialUrl = location.href;
+		history.replaceState({initial: true}, 'Initial', initialUrl);
 
 	});
 
-	function urlChange(event) {
-		console.log(event);
+  // Back off, browser, I got this...
+	if ('scrollRestoration' in history) {
+	  history.scrollRestoration = 'manual';
 	}
 
-	function closeArticle(target, scroll) {
+	function urlChange(event) {
+		if(event.isTrusted) {
+
+			var currentState = history.state;
+			if(typeof currentState == 'object') {
+				
+				if(typeof currentState.article == 'string') {
+					moveByHistoty = true;
+					$(currentState.article + ' .entry-title .ajax-go', dairies).trigger('click');
+					moveByHistoty = false;
+				}
+
+				if(typeof currentState.initial == 'boolean' || typeof currentState.page == 'string') {
+					// check open
+					var open = $('.post.open', dairies);
+					if(open.length > 0) closeArticle(open, false, true);
+				}
+			}
+
+		}
+	}
+
+	function closeArticle(target, scroll, nochange) {
 		target.removeClass('open');
 		init_actions(target, scroll);
-		// window.history.go(-1);
+		// came back to page state
+		if(!moveByHistoty && !nochange) {
+			var url = lastPage.attr('href') || initialUrl;
+			console.log(url);
+			history.pushState({page: url}, 'Page ' + lastPage.text(), url);
+		}
+//		if(!nochange) window.history.go(-1);
 	}
 
 	function loadArticle(url, target) {
@@ -120,19 +158,21 @@
 	     	target.removeClass('loading').removeClass('error');
 
 	    	init_actions(target, true);
-	      // history.pushState(document.title, 'next', url);
+	    	// change URL
+	      if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
 	    }).error( function() {
 	    	target.removeClass('loading').addClass('error');
 	    });
 		}else{
 			target.addClass('open');
 			init_actions(target, true);
-			// history.pushState(document.title, 'next', url);
+			// change URL
+			if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
 		}
 	}
 
 	// load more page
-	function loadPagedArticle(url) {
+	function loadPagedArticle(url, lastPage) {
     $.ajax({
       url    : url,
       type   : 'POST',
@@ -142,7 +182,8 @@
     }).done( function( data ) {
       $grid.isotope( 'insert', $(data).filter('article') );
       init_actions($grid);
-      // history.pushState(document.title, 'next', url);
+      // push state hisoty
+      if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
       $('.pagination .loading').removeClass('loading').removeClass('error');
     }).error( function() {
     	$('.pagination .loading').removeClass('loading').addClass('error');
