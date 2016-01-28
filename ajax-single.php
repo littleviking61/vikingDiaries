@@ -5,8 +5,8 @@
 
 		<!-- article -->
 		<?php 
-		$content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
-		$type = get_post_format();
+			$content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
+			$type = get_post_format();
 		?>
 
 		<header>
@@ -15,7 +15,7 @@
 		</header>
 		<hr>
 		<div class="entry-content">
-			<?php $content = strip_shortcodes($content, 'gallery'); ?>		
+			<?php //$content = strip_shortcodes($content, 'gallery'); ?>		
 			<p><?= apply_filters('the_content', $content) ?></p>
 			<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
 		</div>

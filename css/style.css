@@ -266,14 +266,14 @@ img, iframe {
   text-align: center;
   position: relative; }
   .pagination.top {
-    padding-top: 1.875rem; }
+    padding-top: 1.25rem; }
     .pagination.top:before {
       position: absolute;
       top: 0;
       left: 50%;
       margin-left: -1px;
       width: 1px;
-      height: 1.875rem;
+      height: 1.25rem;
       background: rgba(255, 255, 255, 0.8);
       content: ''; }
   .pagination .more, .pagination .more-link {
@@ -356,6 +356,12 @@ img, iframe {
         display: block;
         margin: 0 0.625rem;
         font-size: 1.125rem; }
+  .banner.short {
+    padding-top: 3.75rem; }
+    .banner.short h2 {
+      display: inline-block;
+      padding-bottom: 0.625rem;
+      border-bottom: thin solid white; }
 
 .highlight .video {
   text-align: center; }
@@ -437,6 +443,14 @@ img, iframe {
 
 .dairies {
   position: relative; }
+  .dairies.loading:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 601; }
   .dairies article {
     position: relative;
     width: calc(50% - 30px);
@@ -1659,5 +1673,24 @@ img.mfp-img {
   background-position: 32px center; }
   .admin-bar .header {
     top: 32px; }
+
+.edit li {
+  list-style: none;
+  margin-left: 0.625rem; }
+  .edit li a {
+    text-transform: uppercase;
+    padding: 0.3125rem 0.625rem;
+    border: thin solid white; }
+
+.edit-post {
+  position: absolute;
+  bottom: 3px;
+  right: -1px;
+  z-index: 600; }
+  .edit-post a {
+    text-transform: uppercase;
+    padding: 0.3125rem 0.625rem;
+    border: thin solid white;
+    background-color: #dddddd; }
 
 /*# sourceMappingURL=style.css.map */

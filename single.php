@@ -3,10 +3,7 @@
 	<main role="main">
 		
 		<?php get_template_part('header', 'projet'); ?>
-
-		<!-- section -->
-		<section class="middle-line">
-			
+		
 			<?php
 			
 			$args = array( 'posts_per_page' => 100, 'category' => $cat->term_id );
@@ -26,6 +23,10 @@
 				</a>
 			</div>
 
+			<!-- section -->
+			<section class="dairies middle-line">
+			
+
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 				<!-- article -->
@@ -33,45 +34,73 @@
 				  $content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
 				  $type = get_post_format();
 				?>
-				<article <?php post_class(); ?>>
-					<header>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-						<?php get_template_part('templates/entry-meta'); ?>
-					</header>
-					<hr>
-					<div class="entry-content">
+				<article <?php post_class('open'); ?>>
+					<div class="short">
+						
 						<?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
-						$pattern = get_shortcode_regex();
-						preg_match('/'.$pattern.'/s', $post->post_content, $matches);
-						if (is_array($matches) && $matches[2] == 'gallery') {
+						  $pattern = get_shortcode_regex();
+						  preg_match('/'.$pattern.'/s', $post->post_content, $matches);
+						  if (is_array($matches) && $matches[2] == 'gallery') { ?>
+						    <div class="thumbnail gallerie">
+						      <?= do_shortcode( $matches[0] ); ?>
+						  </div>
+					  	<?php };
 
-							echo do_shortcode( $matches[0] );
-						};
-						$content = strip_shortcodes($content, 'gallery');
-						elseif(get_field('video') && $type == "video") :
-							echo get_field('video');
-						endif; ?>
-						<p><?= apply_filters('the_content', $content) ?></p>
-						<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
+						elseif(get_field('video') && $type == "video") : ?>
+
+						  <div class="thumbnail oEmbed">
+						    <?= get_field('video') ?>
+						  </div>
+						<?php elseif(has_post_thumbnail()) : ?>
+						  <div class="thumbnail image">
+						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('large', ['class'=> 'lazy']); ?></a>
+						    <!--<div class="overlay">    
+						      <span class="entry-date"><a href="<?php the_permalink(); ?>"><time class="published" datetime="<?= get_the_time('c'); ?>"><?= get_the_date('F Y'); ?></time></a></span>
+						    </div>-->
+						  </div>
+
+						<?php endif; ?>
 					</div>
+					<div class="complete">
+						<header>
+							<h1 class="entry-title"><?php the_title(); ?></h1>
+							<?php get_template_part('templates/entry-meta'); ?>
+						</header>
+						<hr>
+						<div class="entry-content">
+							<?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
+							$pattern = get_shortcode_regex();
+							preg_match('/'.$pattern.'/s', $post->post_content, $matches);
+							if (is_array($matches) && $matches[2] == 'gallery') {
 
-					<footer>
-						<?php get_template_part('templates/map'); ?>
-					</footer>
+								echo do_shortcode( $matches[0] );
+							};
+							$content = strip_shortcodes($content, 'gallery');
+							elseif(get_field('video') && $type == "video") :
+								echo get_field('video');
+							endif; ?>
+							<p><?= apply_filters('the_content', $content) ?></p>
+							<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
+						</div>
 
-					<div class="quick-comment-box form-group">
-						<?php 
-						global $current_user;
-						get_currentuserinfo();
-						echo get_avatar( $current_user->ID, 16); 
-						echo '<strong class="quick-comment-user-name">'.$current_user->display_name.'</strong>';
-						?>
-						<textarea class="form-control" name="quick-comment-content" id="quick-comment-content" rows="1" placeholder="<?php _e('Leave a note','dw-timeline') ?>"></textarea>
-						<input type="button" class="btn btn-link" value="<?php _e('Save','dw-timeline') ?>">
-						<input type="button" class="btn btn-link" value="<?php _e('Cancel', 'dw-timeline'); ?>">
+						<footer>
+							<?php get_template_part('templates/map'); ?>
+						</footer>
+
+						<div class="quick-comment-box form-group">
+							<?php 
+							global $current_user;
+							get_currentuserinfo();
+							echo get_avatar( $current_user->ID, 16); 
+							echo '<strong class="quick-comment-user-name">'.$current_user->display_name.'</strong>';
+							?>
+							<textarea class="form-control" name="quick-comment-content" id="quick-comment-content" rows="1" placeholder="<?php _e('Leave a note','dw-timeline') ?>"></textarea>
+							<input type="button" class="btn btn-link" value="<?php _e('Save','dw-timeline') ?>">
+							<input type="button" class="btn btn-link" value="<?php _e('Cancel', 'dw-timeline'); ?>">
+						</div>
+
+						<?php comments_template('/templates/comments.php'); ?>
 					</div>
-
-					<?php comments_template('/templates/comments.php'); ?>
 				</article>
 				<!-- /article -->
 

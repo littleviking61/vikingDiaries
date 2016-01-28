@@ -109,6 +109,8 @@ function html5blank_header_scripts()
             wp_register_script('fotorama', get_template_directory_uri() . '/js/lib/fotorama.js', array(), '4.6.3');
             wp_register_script('magnific', get_template_directory_uri() . '/js/lib/jquery.magnific-popup.min.js', array(), '1.0.0');
             wp_register_script('scrollTo', get_template_directory_uri() . '/js/lib/jquery.scrollTo.min.js', array(), '2.1.3');
+            wp_register_script('waypoints', get_template_directory_uri() . '/js/lib/jquery.waypoints.min.js', array(), '4.0.0');
+            wp_register_script('waypointssticky', get_template_directory_uri() . '/js/lib/sticky.min.js', array(), '4.0.0');
 
             // Custom scripts
             wp_register_script(
@@ -123,6 +125,8 @@ function html5blank_header_scripts()
                     'fotorama',
                     'magnific',
                     'scrollTo',
+                    // 'waypoints',
+                    // 'waypointssticky',
                     'fitvids'),
                 '1.0.0');
 
@@ -438,7 +442,7 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 // Shortcodes above would be nested like this -
 // [html5_shortcode_demo] [html5_shortcode_demo_2] Here's the page title! [/html5_shortcode_demo_2] [/html5_shortcode_demo]
 
-add_theme_support( 'post-formats', array( 'video', 'gallery', 'aside', 'link', 'quote' ) );
+add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio' ) );
 
 /*------------------------------------*\
     Custom Post Types

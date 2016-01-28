@@ -77,14 +77,14 @@ img, iframe{
 	position: relative;
 
 	&.top{
-		padding-top: $gutter-big;
+		padding-top: $gutter-large;
 		&:before{
 			position: absolute;
 			top: 0;
 			left: 50%;
 			margin-left: -1px;
 			width: 1px;
-			height: $gutter-big;
+			height: $gutter-large;
 			background: rgba(255, 255, 255, 0.8);
 			content: '';
 		}
@@ -195,7 +195,15 @@ img, iframe{
 			}
 		}
 	}
-
+	
+	&.short{
+		padding-top: $gutter-super-hudge;
+		h2{
+			display: inline-block;
+			padding-bottom: $gutter;
+			border-bottom: thin solid white;
+		}
+	}
 }
 
 .highlight{
@@ -325,6 +333,16 @@ img, iframe{
 
 .dairies{
 	position: relative;
+
+	&.loading:after{
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		opacity: 0.5;
+		z-index: 601
+	}
 
 	article{
 		position: relative;

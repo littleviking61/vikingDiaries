@@ -85,7 +85,7 @@
 		$(document).keyup(function(e){
 			if(e.keyCode === 27) {
 				var open = $('.post.open', dairies);
-				if(open.length > 0) closeArticle(open);
+				if(open.length > 0) closeArticle(open, true);
 			}
 		});
 
@@ -131,16 +131,15 @@
 		// came back to page state
 		if(!moveByHistoty && !nochange) {
 			var url = lastPage.attr('href') || initialUrl;
-			console.log(url);
 			history.pushState({page: url}, 'Page ' + lastPage.text(), url);
 		}
-//		if(!nochange) window.history.go(-1);
 	}
 
 	function loadArticle(url, target) {
-
+		
 		if($('.complete' ,target).length < 1) {
 			target.addClass('loading');
+			dairies.addClass('loading');
 
 			$grid.isotope('layout');
 			$grid.one( 'layoutComplete', function() { $(window).scrollTo(target.offset().top-70, 400); });
@@ -195,11 +194,13 @@
 
 		$(".oEmbed", container).fitVids();
 
+
 		fotoramaLightbox(container);
 		popupInit(container);
 
 		container.imagesLoaded().progress( function() {
 		  $grid.isotope('layout');
+			dairies.removeClass('loading');
 		});
 
 		$grid.one( 'layoutComplete', function() {

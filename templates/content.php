@@ -6,6 +6,10 @@ $type = get_post_format();
   
   <div class="short">
 
+    <?php if ( current_user_can('manage_options') ): 
+      edit_post_link('edit', '<div class="edit-post">', '</div>'); 
+    endif; ?>
+
     <?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
       $pattern = get_shortcode_regex();
       preg_match('/'.$pattern.'/s', $post->post_content, $matches);

@@ -5,9 +5,18 @@
 	if(is_category()) {
 		$cat = get_queried_object();
 	}else{
-		$cat = wp_get_post_terms($post->ID, 'category', array("fields" => "all"))[0];
-	}
+		$cat = wp_get_post_terms($post->ID, 'category', array("fields" => "all"));
 
+		// to deal with double cat
+		if(count($cat) > 1) {
+			foreach ($cat as $categ) {
+				if($categ->term_id !== 153) {
+					$cat = $categ;
+					break;
+				}
+			}
+		}
+	}
 	$thumbnail = get_field('thumbnail', $cat);
 	$presentation = get_field('presentation', $cat);
 	$journal = get_field('journal', $cat);
@@ -54,6 +63,13 @@
 				<?php endif ?>
 			</ul>
 		</nav>
+	</header>
+
+<?php elseif(is_single()): ?>
+
+	<header class="banner short">
+		<h1><?= __('Journal de bord');?></h1>
+		<h2><?= $cat->name; ?></h2>
 	</header>
 
 <?php endif; ?>

@@ -9,3 +9,28 @@
 	}
 
 }
+
+.edit{
+	li{
+		list-style: none;
+		margin-left: $gutter;
+		a{
+			text-transform: uppercase;
+			padding: $gutter-small $gutter;
+			border: thin solid white;
+		}
+	}
+}
+
+.edit-post{
+	position: absolute;
+	bottom: 3px;
+  right: -1px;
+	z-index: 600;
+	a{
+		text-transform: uppercase;
+		padding: $gutter-small $gutter;
+		border: thin solid white;
+		background-color: $grey;
+	}
+}
