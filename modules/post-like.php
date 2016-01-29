@@ -193,7 +193,7 @@ function getPostLikeLink( $post_id ) {
 		$title = esc_attr( 'Like' );
 		$heart = '<i id="icon-unlike" class="fa fa-heart"></i>';
 	}
-	$output = '<a href="#" class="jm-post-like'.$class.'" data-post_id="'.$post_id.'" title="'.$title.'">'.$heart.'&nbsp;'.$count.'</a>';
+	$output = '<a href="#" class="jm-post-like'.$class.'" data-post_id="'.$post_id.'" title="'.$title.'">'.$heart.'<span>'.$count.'</span></a>';
 	return $output;
 }
 

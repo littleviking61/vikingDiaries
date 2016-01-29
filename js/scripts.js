@@ -76,7 +76,8 @@
 			}
 		});
 
-		dairies.on('click', '.post .mfp-close', function(e) {
+		// tools init
+		dairies.on('click', '.post .close', function(e) {
 			e.preventDefault();
 			var target = $(this).closest('.post');
 			closeArticle(target, true);
@@ -136,7 +137,7 @@
 		fotoramaLightbox(container);
 		popupInit(container);
 		commentInit(container);	
-		//init_share(false, {});
+		init_share();
 
 	  $grid.isotope('layout');
 
@@ -155,10 +156,7 @@
 	function toolsInit(container, destroy) {
 
 		tools = $('.tools', container);
-			console.log(tools);
 		if(tools.length > 0 && !destroy) {
-
-			console.log('sticky');
 
 			sticky = new Waypoint.Sticky({
 			  element: tools[0]
@@ -175,12 +173,17 @@
 				  },
 				})
 			}
-			
-
 		}else if(destroy) {
 			if(sticky!==undefined) sticky.destroy() 
 			if(inview!==undefined) inview.destroy() 
 		}
+
+		$('a.comment',tools).click(function(e) {
+			e.preventDefault();
+			console.log(tools.closest('.post'));
+			console.log($('.entry-comments' ,tools.closest('.post')));
+			$(window).scrollTo($('.entry-comments' ,tools.closest('.post')), 400);
+		});
 
 	}
 
@@ -209,38 +212,38 @@
 			  fit: 'cover',
 			}).children().addClass('fotorama__wrap--no-controls');
 
-		$('a[href="#view-position"]', container).magnificPopup({
-			type: 'ajax',
-			ajax: {
-				settings: {
-					url: '/wp-admin/admin-ajax.php',
-					type: 'post'
+		// $('a[href="#view-position"]', container).magnificPopup({
+		// 	type: 'ajax',
+		// 	ajax: {
+		// 		settings: {
+		// 			url: '/wp-admin/admin-ajax.php',
+		// 			type: 'post'
 
-				}
-			},
-			callbacks: {
-				elementParse: function() {
-					this.st.ajax.settings.data = {
-						action: 'get_position',
-					};
-				},
-				ajaxContentAdded: function() {
-					// Ajax content is loaded and appended to DOM
-					$modal = this.content;
+		// 		}
+		// 	},
+		// 	callbacks: {
+		// 		elementParse: function() {
+		// 			this.st.ajax.settings.data = {
+		// 				action: 'get_position',
+		// 			};
+		// 		},
+		// 		ajaxContentAdded: function() {
+		// 			// Ajax content is loaded and appended to DOM
+		// 			$modal = this.content;
 
-				},
-				open: function() {
-    			ga('send', 'event', 'ajax', 'click', 'position', this.currItem.el[0].title);
-				}
-			}
-		});
+		// 		},
+		// 		open: function() {
+  //   			ga('send', 'event', 'ajax', 'click', 'position', this.currItem.el[0].title);
+		// 		}
+		// 	}
+		// });
 
 		$(window).trigger('resize');
 	} 
 
 	// magnifying popup
 	function popupInit(container) {
-   /* $('.popup-youtube, .popup-vimeo, .popup-gmaps', container).magnificPopup({
+   $('.popup-youtube, .popup-vimeo, .popup-gmaps', container).magnificPopup({
       disableOn: 700,
       type: 'iframe',
       mainClass: 'mfp-fade',
@@ -254,7 +257,7 @@
     			ga('send', 'event', 'iframe', 'click', 'popup a', this.currItem.src);
 				}
 			}
-    }); */
+    });
 
 	  $('.simple-ajax-popup', container).magnificPopup({
 	    type: 'ajax',
@@ -404,8 +407,8 @@
 		url: window.location.href,
 
 		ui: {
-		  flyout: 'middle right',
-		  buttonText: 'Partager',
+		  flyout: 'middle left',
+		  buttonText: '<i class="fa fa-share-alt"></i>',
 		  button_font: false,
 		  icon_font: false,
 		  networkOrder: ['facebook', 'twitter', 'whatsapp', 'googlePlus', 'linkedin'],
@@ -450,6 +453,10 @@
 	function init_share(container, args) {
 		var config = $.extend({}, configDefaultShare, args);
 		var share = new ShareButton(config);
+
+		$('share-button').click(function() {
+			$(this).toggleClass('active');
+		});
 		// console.log(share.config);
 	}
 

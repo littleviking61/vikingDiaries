@@ -41,8 +41,8 @@
 				<!-- /article -->
 
 			<?php endif; ?>
-
-      <share-button></share-button>
+			
+      <?php echo get_scp_widget(); ?>
 			
 			</section>
 			<!-- /section -->

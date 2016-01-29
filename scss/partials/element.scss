@@ -484,6 +484,7 @@ img, iframe{
 	    position: relative;
 	    width: 800px;
 	    margin: 0 auto;
+			z-index: 100;
 
 			&.stuck{
 				position: fixed;
@@ -492,28 +493,98 @@ img, iframe{
 				transform: translateX(-50%);
 			}
 
-			ul{
+			> ul{
 				padding-left: 0;
 				padding-top: rem-calc(200);
 				position: absolute;
-				right: - rem-calc(90);
+				right: - rem-calc(50);
 
-				li{
+				> li{
 					list-style: none;
+
+					> button, > share-button, > a{
+						display: block;
+						border: solid thin white;
+						background: none;
+						color: white;
+						padding: 0 $gutter;
+						font-size: 18px;
+						height: $gutter-hudge;
+						margin-bottom: $gutter;
+						width: $gutter-hudge;
+						line-height: 0;
+						opacity: 0.7;
+						text-align: center;
+
+						&:before{
+							display: none;
+						}
+
+						.fa-share-alt{
+							margin-top: $gutter;
+						}
+
+						&:hover, &.active{
+							opacity: 1;
+						}
+					}
+
+					a{
+						padding-top: $gutter;
+					}
+				}
+			}
+			
+			share-button{
+				display: block !important;
+			}
+
+			.comment{
+				position: relative;
+
+				span{
+					position: absolute;
+					font-size: $ft-size-normal;
+					right: - $gutter-medium;
+					opacity: 0.4;
+					top: 18px;
 				}
 			}
 
-			button{
-				border: solid thin white;
-				background: none;
-				display: block;
-				color: white;
-		    top: -20px;
-		    right: -60px;
-				opacity: 1;
+			.jm-post-like{
+				position: relative;
+				padding-top: 19px;
+				margin-left: 0px;
+				color: transparent;
 
-				&:hover{
-					opacity: 0.7;
+				i, span{
+					position: absolute;
+					top: 10px;
+					left: 10px;
+					color: white;
+				}
+
+				span{
+					top: auto;
+					left: auto;
+					font-size: $ft-size-normal;
+					right: - $gutter-medium;
+					opacity: 0.4;
+				}
+
+				&.liked{
+					border-color: $youtube;
+					opacity: 1;
+				}
+
+				&.loading{
+					i:first-child{
+						display: none;
+					}
+				}
+
+				&:before{
+
 				}
 			}
 
@@ -542,6 +613,20 @@ img, iframe{
 			border-right: none;
 			border-left: 8px solid white;
 		}
+	}
+
+	.show-on-single{
+		display: none;
+	}
+}
+
+.single-dairies{
+	.hide-on-single{
+		display: none;
+	}
+
+	.show-on-single{
+		display: initial;
 	}
 }
 

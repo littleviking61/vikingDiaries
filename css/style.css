@@ -540,29 +540,72 @@ img, iframe {
       height: 0;
       position: relative;
       width: 800px;
-      margin: 0 auto; }
+      margin: 0 auto;
+      z-index: 100; }
       .dairies article .tools.stuck, .single-dairies article .tools.stuck {
         position: fixed;
         left: 50%;
         top: 0%;
         transform: translateX(-50%); }
-      .dairies article .tools ul, .single-dairies article .tools ul {
+      .dairies article .tools > ul, .single-dairies article .tools > ul {
         padding-left: 0;
         padding-top: 12.5rem;
         position: absolute;
-        right: -5.625rem; }
-        .dairies article .tools ul li, .single-dairies article .tools ul li {
+        right: -3.125rem; }
+        .dairies article .tools > ul > li, .single-dairies article .tools > ul > li {
           list-style: none; }
-      .dairies article .tools button, .single-dairies article .tools button {
-        border: solid thin white;
-        background: none;
-        display: block;
-        color: white;
-        top: -20px;
-        right: -60px;
-        opacity: 1; }
-        .dairies article .tools button:hover, .single-dairies article .tools button:hover {
-          opacity: 0.7; }
+          .dairies article .tools > ul > li > button, .dairies article .tools > ul > li > share-button, .dairies article .tools > ul > li > a, .single-dairies article .tools > ul > li > button, .single-dairies article .tools > ul > li > share-button, .single-dairies article .tools > ul > li > a {
+            display: block;
+            border: solid thin white;
+            background: none;
+            color: white;
+            padding: 0 0.625rem;
+            font-size: 18px;
+            height: 2.5rem;
+            margin-bottom: 0.625rem;
+            width: 2.5rem;
+            line-height: 0;
+            opacity: 0.7;
+            text-align: center; }
+            .dairies article .tools > ul > li > button:before, .dairies article .tools > ul > li > share-button:before, .dairies article .tools > ul > li > a:before, .single-dairies article .tools > ul > li > button:before, .single-dairies article .tools > ul > li > share-button:before, .single-dairies article .tools > ul > li > a:before {
+              display: none; }
+            .dairies article .tools > ul > li > button .fa-share-alt, .dairies article .tools > ul > li > share-button .fa-share-alt, .dairies article .tools > ul > li > a .fa-share-alt, .single-dairies article .tools > ul > li > button .fa-share-alt, .single-dairies article .tools > ul > li > share-button .fa-share-alt, .single-dairies article .tools > ul > li > a .fa-share-alt {
+              margin-top: 0.625rem; }
+            .dairies article .tools > ul > li > button:hover, .dairies article .tools > ul > li > button.active, .dairies article .tools > ul > li > share-button:hover, .dairies article .tools > ul > li > share-button.active, .dairies article .tools > ul > li > a:hover, .dairies article .tools > ul > li > a.active, .single-dairies article .tools > ul > li > button:hover, .single-dairies article .tools > ul > li > button.active, .single-dairies article .tools > ul > li > share-button:hover, .single-dairies article .tools > ul > li > share-button.active, .single-dairies article .tools > ul > li > a:hover, .single-dairies article .tools > ul > li > a.active {
+              opacity: 1; }
+          .dairies article .tools > ul > li a, .single-dairies article .tools > ul > li a {
+            padding-top: 0.625rem; }
+      .dairies article .tools share-button, .single-dairies article .tools share-button {
+        display: block !important; }
+      .dairies article .tools .comment, .single-dairies article .tools .comment {
+        position: relative; }
+        .dairies article .tools .comment span, .single-dairies article .tools .comment span {
+          position: absolute;
+          font-size: 0.75rem;
+          right: -0.9375rem;
+          opacity: 0.4;
+          top: 18px; }
+      .dairies article .tools .jm-post-like, .single-dairies article .tools .jm-post-like {
+        position: relative;
+        padding-top: 19px;
+        margin-left: 0px;
+        color: transparent; }
+        .dairies article .tools .jm-post-like i, .dairies article .tools .jm-post-like span, .single-dairies article .tools .jm-post-like i, .single-dairies article .tools .jm-post-like span {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          color: white; }
+        .dairies article .tools .jm-post-like span, .single-dairies article .tools .jm-post-like span {
+          top: auto;
+          left: auto;
+          font-size: 0.75rem;
+          right: -0.9375rem;
+          opacity: 0.4; }
+        .dairies article .tools .jm-post-like.liked, .single-dairies article .tools .jm-post-like.liked {
+          border-color: #FF3333;
+          opacity: 1; }
+        .dairies article .tools .jm-post-like.loading i:first-child, .single-dairies article .tools .jm-post-like.loading i:first-child {
+          display: none; }
     .dairies article.full, .single-dairies article.full {
       width: 80%; }
     .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
@@ -580,6 +623,13 @@ img, iframe {
       left: -30px;
       border-right: none;
       border-left: 8px solid white; }
+  .dairies .show-on-single, .single-dairies .show-on-single {
+    display: none; }
+
+.single-dairies .hide-on-single {
+  display: none; }
+.single-dairies .show-on-single {
+  display: initial; }
 
 .mfp-content .complete {
   background-color: white;

@@ -42,7 +42,7 @@ $type = get_post_format();
           <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_title(); ?></a>
         </h2>
         <div class="social">
-          <span class="entry-comments"><a class="ajax-go" title="Commentaire : <?php the_title(); ?>" href="<?php the_permalink(); ?>#comments"><i class="fa fa-comments"></i> <?php comments_number( '0', '1', '%' ); ?></a></span>
+          <span class="nb-comments"><a class="ajax-go" title="Commentaire : <?php the_title(); ?>" href="<?php the_permalink(); ?>#comments"><i class="fa fa-comments"></i> <?php comments_number( '0', '1', '%' ); ?></a></span>
           <?= getPostLikeLink( get_the_ID() ) ?>
 
           <?php if (!is_null($icon)) : ?>
