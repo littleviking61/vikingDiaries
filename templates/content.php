@@ -46,6 +46,7 @@ $type = get_post_format();
           <?php if (!is_null($icon)) : ?>
            <i class="glyphicon glyphicon-<?= $icon ?>"></i>
           <?php endif ?>
+          <share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>" data-description="test"></share-button>
         </div>
       </header>
       <div class="entry-content">
@@ -61,6 +62,7 @@ $type = get_post_format();
       </div>
       <hr>
       <?php get_template_part('templates/entry-meta'); ?>
+
     </div>
 
   </div>

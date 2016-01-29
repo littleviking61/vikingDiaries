@@ -388,7 +388,8 @@ img, iframe {
     .projets .projet.medium {
       width: 24.875rem; }
       .projets .projet.medium > div {
-        width: 50%; }
+        width: 50%;
+        min-width: 8.75rem; }
       .projets .projet.medium .content {
         display: none; }
     .projets .projet .details {
@@ -503,6 +504,8 @@ img, iframe {
       position: relative; }
     .dairies article .short {
       position: relative; }
+      .dairies article .short .content {
+        position: relative; }
     .dairies article.loading {
       background-repeat: no-repeat;
       background-image: url("../img/loading-flat.gif");
@@ -512,27 +515,27 @@ img, iframe {
       .dairies article.loading .short {
         display: block;
         opacity: 0.5; }
-    .dairies article.open {
+    .dairies article.open, .dairies article.openned {
       width: 100%; }
-      .dairies article.open:before, .dairies article.open:after {
+      .dairies article.open:before, .dairies article.open:after, .dairies article.openned:before, .dairies article.openned:after {
         display: none; }
-      .dairies article.open .mfp-close {
+      .dairies article.open .mfp-close, .dairies article.openned .mfp-close {
         display: block;
         z-index: 40; }
-      .dairies article.open .short .thumbnail.image {
+      .dairies article.open .short .thumbnail.image, .dairies article.openned .short .thumbnail.image {
         position: relative;
         display: block;
         cursor: default; }
-        .dairies article.open .short .thumbnail.image:before {
+        .dairies article.open .short .thumbnail.image:before, .dairies article.openned .short .thumbnail.image:before {
           position: absolute;
           content: '';
           opacity: 0;
           z-index: 2;
           width: 100%;
           height: 100%; }
-      .dairies article.open .short .content {
+      .dairies article.open .short .content, .dairies article.openned .short .content {
         display: none; }
-      .dairies article.open .complete, .dairies article.open .short {
+      .dairies article.open .complete, .dairies article.open .short, .dairies article.openned .complete, .dairies article.openned .short {
         display: block;
         width: 50rem;
         margin: 0 auto; }

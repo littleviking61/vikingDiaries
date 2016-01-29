@@ -112,6 +112,7 @@ function html5blank_header_scripts()
             wp_register_script('scrollTo', get_template_directory_uri() . '/js/lib/jquery.scrollTo.min.js', array(), '2.1.3');
             wp_register_script('waypoints', get_template_directory_uri() . '/js/lib/jquery.waypoints.min.js', array(), '4.0.0');
             wp_register_script('waypointssticky', get_template_directory_uri() . '/js/lib/sticky.min.js', array(), '4.0.0');
+            wp_register_script('share', get_template_directory_uri() . '/js/lib/share-button.min.js', array(), '1.0.0');
 
             // Custom scripts
             wp_register_script(
@@ -126,6 +127,7 @@ function html5blank_header_scripts()
                     'fotorama',
                     'magnific',
                     'scrollTo',
+                    'share',
                     // 'waypoints',
                     // 'waypointssticky',
                     'fitvids'),
@@ -161,7 +163,8 @@ function html5blank_styles()
     wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(), '3.0.1');
 
     // Custom CSS
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array('normalize'), '1.0');
+    wp_register_style('sharebutton', get_template_directory_uri() . '/css/share-button.min.css', array(), '1.0');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array('normalize', 'sharebutton'), '1.0');
 
     // Register CSS
     wp_enqueue_style('html5blank');
@@ -589,6 +592,13 @@ function my_gallery_shortcode($output, $attr) {
     return $output;
 }
 add_filter('post_gallery', 'my_gallery_shortcode', 10, 2);
+
+
+// Add Shortcode
+function social_share_shortcode() {
+    return '<share-button></share-button>';
+}
+add_shortcode( 'share', 'social_share_shortcode' );
 
 add_filter( 'template_include', 'baw_template_include' );
 function baw_template_include( $template ) {

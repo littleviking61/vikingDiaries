@@ -42,6 +42,8 @@
 
 			<?php endif; ?>
 
+      <share-button></share-button>
+			
 			</section>
 			<!-- /section -->
 		<?php endif ?>

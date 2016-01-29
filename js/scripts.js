@@ -133,6 +133,7 @@
 		fotoramaLightbox(container);
 		popupInit(container);
 		commentInit(container);	
+		init_share(false, {});
 
 	  $grid.isotope('layout');
 
@@ -202,21 +203,21 @@
 
 	// magnifying popup
 	function popupInit(container) {
-   //  $('.popup-youtube, .popup-vimeo, .popup-gmaps', container).magnificPopup({
-   //    disableOn: 700,
-   //    type: 'iframe',
-   //    mainClass: 'mfp-fade',
-   //    removalDelay: 160,
-   //    preloader: true,
+   /* $('.popup-youtube, .popup-vimeo, .popup-gmaps', container).magnificPopup({
+      disableOn: 700,
+      type: 'iframe',
+      mainClass: 'mfp-fade',
+      removalDelay: 160,
+      preloader: true,
 
-   //    fixedContentPos: false,
+      fixedContentPos: false,
 
-   //    callbacks: {
-   //  		open: function() {
-   //  			ga('send', 'event', 'iframe', 'click', 'popup a', this.currItem.src);
-			// 	}
-			// }
-   //  });
+      callbacks: {
+    		open: function() {
+    			ga('send', 'event', 'iframe', 'click', 'popup a', this.currItem.src);
+				}
+			}
+    }); */
 
 	  $('.simple-ajax-popup', container).magnificPopup({
 	    type: 'ajax',
@@ -345,6 +346,61 @@
 			var url = lastPage.attr('href') || initialUrl;
 			history.pushState({page: url}, 'Page ' + lastPage.text(), url);
 		}
+	}
+
+	var configDefaultShare = {
+		enabledNetworks: 0,
+		protocol: '//',
+		url: window.location.href,
+
+		ui: {
+		  flyout: 'middle right',
+		  buttonText: 'Partager',
+		  button_font: false,
+		  icon_font: false,
+		  networkOrder: ['facebook', 'twitter', 'whatsapp', 'googlePlus', 'linkedin'],
+		},
+
+		networks: {
+		  googlePlus: {
+		    enabled: true,
+		    before: function(element) {
+		    	checkShareLink(this, element);
+        },
+		  },
+		  twitter: {
+		    enabled: true,
+		    description: '#trueadventure with @VikingDiaries ',
+		    before: function(element) {
+		    	checkShareLink(this, element);
+        },
+		  },
+		  facebook: {
+		    enabled: true,
+		    loadSdk: true,
+		    description: '#trueadventure with @laventurierviking ',
+		    app_id: 1677971055822056,
+		    before: function(element) {
+		    	checkShareLink(this, element);
+        },
+		  },
+		  linkedin: { enabled: true, before: function(element) { checkShareLink(this, element); }, },
+		  whatsapp: { enabled: true, before: function(element) { checkShareLink(this, element); }, },
+		  pinterest: { enabled: false },
+		  reddit: { enabled: false },
+		  email: { enabled: false }
+		}
+	};
+
+	function checkShareLink($this, element){
+		$this.url = element.getAttribute("data-url") || location.href;
+		$this.title = element.getAttribute("data-title") || null;
+	}
+
+	function init_share(container, args) {
+		var config = $.extend({}, configDefaultShare, args);
+		var share = new ShareButton(config);
+		console.log(share.config);
 	}
 
 } ( this, jQuery ));

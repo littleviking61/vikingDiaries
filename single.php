@@ -33,7 +33,7 @@
 				  $content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
 				  $type = get_post_format();
 				?>
-				<article <?php post_class('open'); ?>>
+				<article <?php post_class('openned'); ?>>
 					<div class="short">
 						
 						<?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :

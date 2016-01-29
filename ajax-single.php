@@ -13,6 +13,9 @@
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php get_template_part('templates/entry-meta'); ?>
 		</header>
+
+		<share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>"></share-button>
+
 		<hr>
 		<div class="entry-content">
 			<?php //$content = strip_shortcodes($content, 'gallery'); ?>		

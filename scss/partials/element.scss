@@ -248,6 +248,7 @@ img, iframe{
 
 			> div{
 				width: 50%;
+				min-width: rem-calc(140);
 			}
 			.content{
 				display: none;
@@ -417,6 +418,30 @@ img, iframe{
 
 		.short{
 			position: relative;
+
+			.content{
+				position: relative;
+			}
+
+			// share-button{
+			// 	position: inherit;
+			// 	display: inline-block !important;
+			// 	vertical-align: text-top;
+
+			// 	.sb-social.load {
+   //   			-webkit-transition: all 0.4s ease !important;
+		 //      transition: all 0.4s ease !important;
+			// 	}
+			// }
+		  
+		 //  &:hover share-button .sb-social {
+			//     opacity: 1;
+			//     visibility: visible;
+
+			//     &.sb-top {
+			//       top: -1em;
+			//     }
+			// }
 		}
 
 		&.loading{
@@ -436,7 +461,7 @@ img, iframe{
 			}
 		}
 
-		&.open{
+		&.open, &.openned{
 			width: 100%;
 
 			&:before, &:after{
