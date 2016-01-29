@@ -28,6 +28,7 @@
 		});
 
 		init_actions();
+		toolsInit($('.single-dairies'));
 
 		lastPage = $('.pagination-links .current');
 		
@@ -98,6 +99,8 @@
 
 	});
 
+/*********** FINIS READY *************/
+
   // Back off, browser, I got this...
 	if ('scrollRestoration' in history) {
 	  history.scrollRestoration = 'manual';
@@ -125,7 +128,7 @@
 		}
 	}
 
-	function init_actions(container, scroll) {
+	function init_actions(container, scroll, tools) {
 		container = container || $('main');
 
 		$('.oEmbed, .entry-content iframe[src*="=oembed"]', container).fitVids();
@@ -133,18 +136,52 @@
 		fotoramaLightbox(container);
 		popupInit(container);
 		commentInit(container);	
-		init_share(false, {});
+		//init_share(false, {});
 
 	  $grid.isotope('layout');
 
 		$grid.one( 'layoutComplete', function() {
-			if(scroll) $(window).scrollTo(container.offset().top-70, 400);
+			if(scroll) $(window).scrollTo(container.offset().top-70, 400, 
+				{ onAfter : function() {  if(tools) toolsInit(container); }}); // check tools and activate
 		});
 
 		container.imagesLoaded().always( function() {
 		  $grid.isotope('layout');
 			dairies.removeClass('loading');
 		});
+	}
+
+	var sticky, inview, tools;
+	function toolsInit(container, destroy) {
+
+		tools = $('.tools', container);
+			console.log(tools);
+		if(tools.length > 0 && !destroy) {
+
+			console.log('sticky');
+
+			sticky = new Waypoint.Sticky({
+			  element: tools[0]
+			});
+			
+			if($('.tools', container.next()).length > 0 && !destroy) {
+				inview = new Waypoint.Inview({
+				  element: $('.tools', container.next())[0],
+				  exit: function(direction) {
+				    if(direction === 'down') tools.removeClass('stuck');
+				  },
+				  enter: function(direction) {
+				     tools.addClass('stuck');
+				  },
+				})
+			}
+			
+
+		}else if(destroy) {
+			if(sticky!==undefined) sticky.destroy() 
+			if(inview!==undefined) inview.destroy() 
+		}
+
 	}
 
 	function fotoramaLightbox(container) {
@@ -241,7 +278,6 @@
 				}
 			}
 	  });
-    
 	}
 
 	function commentInit(container) {
@@ -322,7 +358,7 @@
 	    	target.append(data);
 	     	target.removeClass('loading').removeClass('error');
 
-	    	init_actions(target, true);
+	    	init_actions(target, true, true);
 	    	// change URL
 	      if(!moveByHistoty) {
 					if(typeof history.state.article == 'string') {
@@ -337,7 +373,7 @@
 	    });
 		}else{
 			target.addClass('open');
-			init_actions(target, true);
+			init_actions(target, true, true);
 			// change URL
 			if(!moveByHistoty) {
 				if(typeof history.state.article == 'string') {
@@ -358,6 +394,7 @@
 		}else{
 			target.removeClass('open');
 			init_actions(target, scroll);
+			toolsInit(target, true);
 		}
 	}
 
@@ -413,7 +450,7 @@
 	function init_share(container, args) {
 		var config = $.extend({}, configDefaultShare, args);
 		var share = new ShareButton(config);
-		console.log(share.config);
+		// console.log(share.config);
 	}
 
 } ( this, jQuery ));

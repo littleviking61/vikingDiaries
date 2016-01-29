@@ -444,9 +444,9 @@ img, iframe {
     height: 8.3125rem;
     background-color: rgba(0, 0, 0, 0.8); }
 
-.dairies {
+.dairies, .single-dairies {
   position: relative; }
-  .dairies.loading:after {
+  .dairies.loading:after, .single-dairies.loading:after {
     content: '';
     position: absolute;
     height: 100%;
@@ -454,32 +454,32 @@ img, iframe {
     background-color: black;
     opacity: 0.5;
     z-index: 601; }
-  .dairies article {
+  .dairies article, .single-dairies article {
     position: relative;
     width: calc(50% - 30px);
     display: inline-block;
     margin-bottom: 1.875rem;
-    /* ajax style */
+    overflow: hidden;
     /* arrow */ }
-    .dairies article .entry-title {
+    .dairies article .entry-title, .single-dairies article .entry-title {
       display: inline-block;
       margin-top: 0;
       text-transform: initial;
       font-size: 1.375rem;
       margin-right: 0.9375rem; }
-    .dairies article .entry-content a {
+    .dairies article .entry-content a, .single-dairies article .entry-content a {
       font-weight: bold; }
-    .dairies article .social {
+    .dairies article .social, .single-dairies article .social {
       display: inline-block; }
-    .dairies article hr {
+    .dairies article hr, .single-dairies article hr {
       margin-top: 1.25rem;
       margin-bottom: 1.25rem;
       border: 0;
       border-top: thin solid #eeeeee; }
-    .dairies article .entry-infos > * {
+    .dairies article .entry-infos > *, .single-dairies article .entry-infos > * {
       display: inline-block;
       vertical-align: bottom; }
-    .dairies article .entry-infos .country {
+    .dairies article .entry-infos .country, .single-dairies article .entry-infos .country {
       max-width: 60%;
       margin-right: 0.9375rem;
       white-space: nowrap;
@@ -487,66 +487,85 @@ img, iframe {
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
-    .dairies article .more-link {
+    .dairies article .more-link, .single-dairies article .more-link {
       display: block;
       clear: both;
       margin: 0.625rem 0 0; }
-    .dairies article .mfp-close {
-      display: none;
-      border: solid thin white;
-      top: -20px;
-      right: -60px;
-      opacity: 1; }
-      .dairies article .mfp-close:hover {
-        opacity: 0.7; }
-    .dairies article .complete {
+    .dairies article .complete, .single-dairies article .complete {
       display: none;
       position: relative; }
-    .dairies article .short {
+    .dairies article .short, .single-dairies article .short {
       position: relative; }
-      .dairies article .short .content {
+      .dairies article .short .content, .single-dairies article .short .content {
         position: relative; }
-    .dairies article.loading {
+    .dairies article.loading, .single-dairies article.loading {
       background-repeat: no-repeat;
       background-image: url("../img/loading-flat.gif");
       background-position: center; }
-      .dairies article.loading .complete, .dairies article.loading .short {
+      .dairies article.loading .complete, .dairies article.loading .short, .single-dairies article.loading .complete, .single-dairies article.loading .short {
         margin: 0 auto; }
-      .dairies article.loading .short {
+      .dairies article.loading .short, .single-dairies article.loading .short {
         display: block;
         opacity: 0.5; }
-    .dairies article.open, .dairies article.openned {
+    .dairies article.open, .dairies article.openned, .single-dairies article.open, .single-dairies article.openned {
       width: 100%; }
-      .dairies article.open:before, .dairies article.open:after, .dairies article.openned:before, .dairies article.openned:after {
+      .dairies article.open:before, .dairies article.open:after, .dairies article.openned:before, .dairies article.openned:after, .single-dairies article.open:before, .single-dairies article.open:after, .single-dairies article.openned:before, .single-dairies article.openned:after {
         display: none; }
-      .dairies article.open .mfp-close, .dairies article.openned .mfp-close {
+      .dairies article.open .mfp-close, .dairies article.openned .mfp-close, .single-dairies article.open .mfp-close, .single-dairies article.openned .mfp-close {
         display: block;
         z-index: 40; }
-      .dairies article.open .short .thumbnail.image, .dairies article.openned .short .thumbnail.image {
+      .dairies article.open .short .thumbnail.image, .dairies article.openned .short .thumbnail.image, .single-dairies article.open .short .thumbnail.image, .single-dairies article.openned .short .thumbnail.image {
         position: relative;
         display: block;
         cursor: default; }
-        .dairies article.open .short .thumbnail.image:before, .dairies article.openned .short .thumbnail.image:before {
+        .dairies article.open .short .thumbnail.image:before, .dairies article.openned .short .thumbnail.image:before, .single-dairies article.open .short .thumbnail.image:before, .single-dairies article.openned .short .thumbnail.image:before {
           position: absolute;
           content: '';
           opacity: 0;
           z-index: 2;
           width: 100%;
           height: 100%; }
-      .dairies article.open .short .content, .dairies article.openned .short .content {
+      .dairies article.open .short .content, .dairies article.openned .short .content, .single-dairies article.open .short .content, .single-dairies article.openned .short .content {
         display: none; }
-      .dairies article.open .complete, .dairies article.open .short, .dairies article.openned .complete, .dairies article.openned .short {
+      .dairies article.open .complete, .dairies article.open .short, .dairies article.openned .complete, .dairies article.openned .short, .single-dairies article.open .complete, .single-dairies article.open .short, .single-dairies article.openned .complete, .single-dairies article.openned .short {
         display: block;
         width: 50rem;
         margin: 0 auto; }
-    .dairies article .content, .dairies article .complete {
+    .dairies article .content, .dairies article .complete, .single-dairies article .content, .single-dairies article .complete {
       background-color: white;
       padding: 1.875rem; }
-      .dairies article .content, .dairies article .content a, .dairies article .complete, .dairies article .complete a {
+      .dairies article .content, .dairies article .content a, .dairies article .complete, .dairies article .complete a, .single-dairies article .content, .single-dairies article .content a, .single-dairies article .complete, .single-dairies article .complete a {
         color: #737373; }
-    .dairies article.full {
+    .dairies article .tools, .single-dairies article .tools {
+      height: 0;
+      position: relative;
+      width: 800px;
+      margin: 0 auto; }
+      .dairies article .tools.stuck, .single-dairies article .tools.stuck {
+        position: fixed;
+        left: 50%;
+        top: 0%;
+        transform: translateX(-50%); }
+      .dairies article .tools ul, .single-dairies article .tools ul {
+        padding-left: 0;
+        padding-top: 12.5rem;
+        position: absolute;
+        right: -5.625rem; }
+        .dairies article .tools ul li, .single-dairies article .tools ul li {
+          list-style: none; }
+      .dairies article .tools button, .single-dairies article .tools button {
+        border: solid thin white;
+        background: none;
+        display: block;
+        color: white;
+        top: -20px;
+        right: -60px;
+        opacity: 1; }
+        .dairies article .tools button:hover, .single-dairies article .tools button:hover {
+          opacity: 0.7; }
+    .dairies article.full, .single-dairies article.full {
       width: 80%; }
-    .dairies article:before, .dairies article:after {
+    .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
       content: '';
       position: absolute;
       top: 1.5625rem;
@@ -556,7 +575,7 @@ img, iframe {
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
       border-right: 8px solid white; }
-    .dairies article:after {
+    .dairies article:after, .single-dairies article:after {
       right: auto;
       left: -30px;
       border-right: none;
@@ -1840,5 +1859,8 @@ img.mfp-img {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.sticky-wrapper {
+  height: 0 !important; }
 
 /*# sourceMappingURL=style.css.map */

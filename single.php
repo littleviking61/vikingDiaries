@@ -24,7 +24,7 @@
 			</div>
 
 			<!-- section -->
-			<section class="dairies middle-line">
+			<section class="single-dairies middle-line">
 			
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -34,6 +34,9 @@
 				  $type = get_post_format();
 				?>
 				<article <?php post_class('openned'); ?>>
+
+					<?php get_template_part('content', 'tools') ?>
+					
 					<div class="short">
 						
 						<?php if ( has_shortcode( $content, 'gallery' ) && $type == "gallery" ) :
@@ -58,6 +61,8 @@
 						<?php endif; ?>
 					</div>
 					<div class="complete">
+
+
 						<header>
 							<h1 class="entry-title"><?php the_title(); ?></h1>
 							<?php get_template_part('templates/entry-meta'); ?>
@@ -79,6 +84,7 @@
 
 						<?php comments_template('/templates/comments.php'); ?>
 					</div>
+
 				</article>
 				<!-- /article -->
 

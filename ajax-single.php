@@ -1,5 +1,4 @@
 <div class="complete">
-  <button title="Close (ESC)" type="button" class="mfp-close">×</button>
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -14,7 +13,6 @@
 			<?php get_template_part('templates/entry-meta'); ?>
 		</header>
 
-		<share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>"></share-button>
 
 		<hr>
 		<div class="entry-content">

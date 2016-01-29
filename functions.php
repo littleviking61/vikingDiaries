@@ -112,6 +112,7 @@ function html5blank_header_scripts()
             wp_register_script('scrollTo', get_template_directory_uri() . '/js/lib/jquery.scrollTo.min.js', array(), '2.1.3');
             wp_register_script('waypoints', get_template_directory_uri() . '/js/lib/jquery.waypoints.min.js', array(), '4.0.0');
             wp_register_script('waypointssticky', get_template_directory_uri() . '/js/lib/sticky.min.js', array(), '4.0.0');
+            wp_register_script('waypointsinview', get_template_directory_uri() . '/js/lib/inview.min.js', array(), '4.0.0');
             wp_register_script('share', get_template_directory_uri() . '/js/lib/share-button.min.js', array(), '1.0.0');
 
             // Custom scripts
@@ -128,8 +129,9 @@ function html5blank_header_scripts()
                     'magnific',
                     'scrollTo',
                     'share',
-                    // 'waypoints',
-                    // 'waypointssticky',
+                    'waypoints',
+                    'waypointssticky',
+                    'waypointsinview',
                     'fitvids'),
                 '1.0.0');
 

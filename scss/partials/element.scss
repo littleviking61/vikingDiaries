@@ -334,7 +334,7 @@ img, iframe{
 
 }
 
-.dairies{
+.dairies, .single-dairies{
 	position: relative;
 
 	&.loading:after{
@@ -352,6 +352,7 @@ img, iframe{
 		width: calc(50% - 30px);
 		display: inline-block;
 		margin-bottom: $gutter-big;
+		overflow: hidden;
 
 		.entry-title{
 			display: inline-block;
@@ -396,20 +397,6 @@ img, iframe{
 			clear: both;
 			margin: $gutter 0 0;
 		}
-
-		/* ajax style */ 
-
-		.mfp-close{
-			display: none;
-			border: solid thin white;
-	    top: -20px;
-	    right: -60px;
-			opacity: 1;
-
-			&:hover{
-				opacity: 0.7;
-			}
-		}
 		
 		.complete{
 			display: none;
@@ -422,26 +409,6 @@ img, iframe{
 			.content{
 				position: relative;
 			}
-
-			// share-button{
-			// 	position: inherit;
-			// 	display: inline-block !important;
-			// 	vertical-align: text-top;
-
-			// 	.sb-social.load {
-   //   			-webkit-transition: all 0.4s ease !important;
-		 //      transition: all 0.4s ease !important;
-			// 	}
-			// }
-		  
-		 //  &:hover share-button .sb-social {
-			//     opacity: 1;
-			//     visibility: visible;
-
-			//     &.sb-top {
-			//       top: -1em;
-			//     }
-			// }
 		}
 
 		&.loading{
@@ -510,6 +477,46 @@ img, iframe{
 			&, a{
 				color: $text-color-light; 
 			}
+		}
+
+		.tools{
+			height: 0;
+	    position: relative;
+	    width: 800px;
+	    margin: 0 auto;
+
+			&.stuck{
+				position: fixed;
+				left: 50%;
+				top: 0%;
+				transform: translateX(-50%);
+			}
+
+			ul{
+				padding-left: 0;
+				padding-top: rem-calc(200);
+				position: absolute;
+				right: - rem-calc(90);
+
+				li{
+					list-style: none;
+				}
+			}
+
+			button{
+				border: solid thin white;
+				background: none;
+				display: block;
+				color: white;
+		    top: -20px;
+		    right: -60px;
+				opacity: 1;
+
+				&:hover{
+					opacity: 0.7;
+				}
+			}
+
 		}
 
 		&.full{

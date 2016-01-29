@@ -4,6 +4,8 @@ $type = get_post_format();
 ?>
 <article <?php post_class(); ?> data-date="<?= get_the_time('U'); ?>" id="post-<?= $post->ID ?>">
   
+  <?php get_template_part('content', 'tools') ?>
+
   <div class="short">
 
     <?php if ( current_user_can('manage_options') ): 
@@ -46,7 +48,6 @@ $type = get_post_format();
           <?php if (!is_null($icon)) : ?>
            <i class="glyphicon glyphicon-<?= $icon ?>"></i>
           <?php endif ?>
-          <share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>" data-description="test"></share-button>
         </div>
       </header>
       <div class="entry-content">
