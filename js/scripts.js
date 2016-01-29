@@ -193,7 +193,7 @@
 
 				},
 				open: function() {
-    				ga('send', 'event', 'ajax', 'click', 'position', this.currItem.el[0].title);
+    			ga('send', 'event', 'ajax', 'click', 'position', this.currItem.el[0].title);
 				}
 			}
 		});
@@ -291,8 +291,8 @@
     }).done( function( data ) {
       $grid.isotope( 'insert', $(data).filter('article') );
       init_actions($grid);
-      // push state hisoty
-      if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
+      // push state history (no more need with share on post)
+      // if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
       $('.pagination .loading').removeClass('loading').removeClass('error');
     }).error( function() {
     	console.log('Error', url, lastPage);
@@ -324,7 +324,13 @@
 
 	    	init_actions(target, true);
 	    	// change URL
-	      if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+	      if(!moveByHistoty) {
+					if(typeof history.state.article == 'string') {
+		      	history.replaceState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+					}else{
+		      	history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+					}
+	      } 
 	    }).error( function() {
 	    	console.log('Error', url, lastPage);
 	    	target.removeClass('loading').addClass('error');
@@ -333,18 +339,25 @@
 			target.addClass('open');
 			init_actions(target, true);
 			// change URL
-			if(!moveByHistoty) history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+			if(!moveByHistoty) {
+				if(typeof history.state.article == 'string') {
+	      	history.replaceState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+				}else{
+	      	history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+				}
+      } 
 		}
 	}
 
 	// close single
 	function closeArticle(target, scroll, nochange) {
-		target.removeClass('open');
-		init_actions(target, scroll);
 		// came back to page state
 		if(!moveByHistoty && !nochange) {
 			var url = lastPage.attr('href') || initialUrl;
-			history.pushState({page: url}, 'Page ' + lastPage.text(), url);
+			history.go(-1);
+		}else{
+			target.removeClass('open');
+			init_actions(target, scroll);
 		}
 	}
 
