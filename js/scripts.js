@@ -108,7 +108,7 @@
 	/* function resize */
 
 	// debulked onresize handler
-	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
+	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,150)};return c};
 
 	on_resize(function() {
 		var newWidth = (dairies.width() / 2) - 30;
@@ -138,7 +138,7 @@
 				if(typeof currentState.initial == 'boolean' || typeof currentState.page == 'string') {
 					// check open
 					var open = $('.post.open', dairies);
-					if(open.length > 0) closeArticle(open, false, true);
+					if(open.length > 0) closeArticle(open, true, true);
 				}
 			}
 
@@ -200,7 +200,6 @@
 			e.preventDefault();
 			$(window).scrollTo($('.entry-comments' ,tools.closest('.post')), 400);
 		});
-
 	}
 
 	function fotoramaLightbox(container) {
