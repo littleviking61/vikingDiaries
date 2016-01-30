@@ -459,7 +459,7 @@ img, iframe {
     width: calc(50% - 30px);
     display: inline-block;
     margin-bottom: 1.875rem;
-    overflow: hidden;
+    z-index: 1;
     /* arrow */ }
     .dairies article .entry-title, .single-dairies article .entry-title {
       display: inline-block;
@@ -498,48 +498,10 @@ img, iframe {
       position: relative; }
       .dairies article .short .content, .single-dairies article .short .content {
         position: relative; }
-    .dairies article.loading, .single-dairies article.loading {
-      background-repeat: no-repeat;
-      background-image: url("../img/loading-flat.gif");
-      background-position: center; }
-      .dairies article.loading .complete, .dairies article.loading .short, .single-dairies article.loading .complete, .single-dairies article.loading .short {
-        margin: 0 auto; }
-      .dairies article.loading .short, .single-dairies article.loading .short {
-        display: block;
-        opacity: 0.5; }
-    .dairies article.open, .dairies article.openned, .single-dairies article.open, .single-dairies article.openned {
-      width: 100%; }
-      .dairies article.open:before, .dairies article.open:after, .dairies article.openned:before, .dairies article.openned:after, .single-dairies article.open:before, .single-dairies article.open:after, .single-dairies article.openned:before, .single-dairies article.openned:after {
-        display: none; }
-      .dairies article.open .mfp-close, .dairies article.openned .mfp-close, .single-dairies article.open .mfp-close, .single-dairies article.openned .mfp-close {
-        display: block;
-        z-index: 40; }
-      .dairies article.open .short .thumbnail.image, .dairies article.openned .short .thumbnail.image, .single-dairies article.open .short .thumbnail.image, .single-dairies article.openned .short .thumbnail.image {
-        position: relative;
-        display: block;
-        cursor: default; }
-        .dairies article.open .short .thumbnail.image:before, .dairies article.openned .short .thumbnail.image:before, .single-dairies article.open .short .thumbnail.image:before, .single-dairies article.openned .short .thumbnail.image:before {
-          position: absolute;
-          content: '';
-          opacity: 0;
-          z-index: 2;
-          width: 100%;
-          height: 100%; }
-      .dairies article.open .short .content, .dairies article.openned .short .content, .single-dairies article.open .short .content, .single-dairies article.openned .short .content {
-        display: none; }
-      .dairies article.open .complete, .dairies article.open .short, .dairies article.openned .complete, .dairies article.openned .short, .single-dairies article.open .complete, .single-dairies article.open .short, .single-dairies article.openned .complete, .single-dairies article.openned .short {
-        display: block;
-        width: 50rem;
-        margin: 0 auto; }
-    .dairies article .content, .dairies article .complete, .single-dairies article .content, .single-dairies article .complete {
-      background-color: white;
-      padding: 1.875rem; }
-      .dairies article .content, .dairies article .content a, .dairies article .complete, .dairies article .complete a, .single-dairies article .content, .single-dairies article .content a, .single-dairies article .complete, .single-dairies article .complete a {
-        color: #737373; }
     .dairies article .tools, .single-dairies article .tools {
       height: 0;
       position: relative;
-      width: 800px;
+      width: 50rem;
       margin: 0 auto;
       z-index: 100; }
       .dairies article .tools.stuck, .single-dairies article .tools.stuck {
@@ -548,6 +510,7 @@ img, iframe {
         top: 0%;
         transform: translateX(-50%); }
       .dairies article .tools > ul, .single-dairies article .tools > ul {
+        display: none;
         padding-left: 0;
         padding-top: 12.5rem;
         position: absolute;
@@ -606,6 +569,43 @@ img, iframe {
           opacity: 1; }
         .dairies article .tools .jm-post-like.loading i:first-child, .single-dairies article .tools .jm-post-like.loading i:first-child {
           display: none; }
+    .dairies article .content, .dairies article .complete, .single-dairies article .content, .single-dairies article .complete {
+      background-color: white;
+      padding: 1.875rem; }
+      .dairies article .content, .dairies article .content a, .dairies article .complete, .dairies article .complete a, .single-dairies article .content, .single-dairies article .content a, .single-dairies article .complete, .single-dairies article .complete a {
+        color: #737373; }
+    .dairies article.open, .dairies article.openned, .single-dairies article.open, .single-dairies article.openned {
+      width: 100%; }
+      .dairies article.open:before, .dairies article.open:after, .dairies article.openned:before, .dairies article.openned:after, .single-dairies article.open:before, .single-dairies article.open:after, .single-dairies article.openned:before, .single-dairies article.openned:after {
+        display: none; }
+      .dairies article.open .tools > ul, .dairies article.openned .tools > ul, .single-dairies article.open .tools > ul, .single-dairies article.openned .tools > ul {
+        display: block; }
+      .dairies article.open .short .thumbnail.image, .dairies article.openned .short .thumbnail.image, .single-dairies article.open .short .thumbnail.image, .single-dairies article.openned .short .thumbnail.image {
+        position: relative;
+        display: block;
+        cursor: default; }
+        .dairies article.open .short .thumbnail.image:before, .dairies article.openned .short .thumbnail.image:before, .single-dairies article.open .short .thumbnail.image:before, .single-dairies article.openned .short .thumbnail.image:before {
+          position: absolute;
+          content: '';
+          opacity: 0;
+          z-index: 2;
+          width: 100%;
+          height: 100%; }
+      .dairies article.open .short .content, .dairies article.openned .short .content, .single-dairies article.open .short .content, .single-dairies article.openned .short .content {
+        display: none; }
+      .dairies article.open .complete, .dairies article.open .short, .dairies article.openned .complete, .dairies article.openned .short, .single-dairies article.open .complete, .single-dairies article.open .short, .single-dairies article.openned .complete, .single-dairies article.openned .short {
+        display: block;
+        width: 50rem;
+        margin: 0 auto; }
+    .dairies article.loading, .single-dairies article.loading {
+      background-repeat: no-repeat;
+      background-image: url("../img/loading-flat.gif");
+      background-position: center; }
+      .dairies article.loading .complete, .dairies article.loading .short, .single-dairies article.loading .complete, .single-dairies article.loading .short {
+        margin: 0 auto; }
+      .dairies article.loading .short, .single-dairies article.loading .short {
+        display: block;
+        opacity: 0.5; }
     .dairies article.full, .single-dairies article.full {
       width: 80%; }
     .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {

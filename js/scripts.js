@@ -1,13 +1,14 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, taille, initialUrl, moveByHistoty = false;
+	var $grid, lastPage, dairies, taille, initialUrl, isotopeArgDefault, moveByHistoty = false;
 
 	$(function () {
 		// DOM ready, take it away
 		// init Isotope
 		dairies = $('.dairies');
-		$grid = dairies.isotope({
+
+		isotopeArgDefault = {
 			sortBy : 'date',
 			sortAscending: false,
 
@@ -17,10 +18,13 @@
 
 			masonry: {
 			  columnWidth: (dairies.width() / 2) - 30,
+			  //columnWidth: function() { return 408; }, 
 			  gutter: 60
-			}
+			},
+			isResizeBound: false
 
-		});
+		};
+		$grid = dairies.isotope(isotopeArgDefault);
 
 		// layout Isotope after each image loads
 		$grid.imagesLoaded().progress( function() {
@@ -91,6 +95,7 @@
 			}
 		});
 
+
 		window.addEventListener('popstate', function(event) {
 			urlChange(event);
 		});
@@ -100,7 +105,18 @@
 
 	});
 
-/*********** FINIS READY *************/
+	/* function resize */
+
+	// debulked onresize handler
+	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
+
+	on_resize(function() {
+		var newWidth = (dairies.width() / 2) - 30;
+		var isotopeArgNew = { masonry : {  columnWidth: newWidth,  gutter: 60 }  };
+  	$grid.isotope($.extend({}, isotopeArgDefault, isotopeArgNew)).isotope('layout');
+	});
+ 
+  /*********** FINISH READY *************/
 
   // Back off, browser, I got this...
 	if ('scrollRestoration' in history) {
@@ -157,7 +173,7 @@
 
 		tools = $('.tools', container);
 		if(tools.length > 0 && !destroy) {
-
+			// console.log('stuck');
 			sticky = new Waypoint.Sticky({
 			  element: tools[0]
 			});
@@ -166,10 +182,12 @@
 				inview = new Waypoint.Inview({
 				  element: $('.tools', container.next())[0],
 				  exit: function(direction) {
+				  	// console.log('exit', $('.tools', container.next()));
 				    if(direction === 'down') tools.removeClass('stuck');
 				  },
 				  enter: function(direction) {
-				     tools.addClass('stuck');
+				  	// console.log('enter', $('.tools', container.next()));
+				    tools.addClass('stuck');
 				  },
 				})
 			}
@@ -180,8 +198,6 @@
 
 		$('a.comment',tools).click(function(e) {
 			e.preventDefault();
-			console.log(tools.closest('.post'));
-			console.log($('.entry-comments' ,tools.closest('.post')));
 			$(window).scrollTo($('.entry-comments' ,tools.closest('.post')), 400);
 		});
 

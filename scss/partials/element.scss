@@ -212,11 +212,10 @@ img, iframe{
 	}
 
 	.content{
-		max-width: rem-calc(800);
+		max-width: $content-width;
 		padding: $gutter $gutter-large;
 		margin: 0 auto;
 	}
-
 }
 
 .projets{
@@ -228,7 +227,7 @@ img, iframe{
 		list-style: none;
 		margin-bottom: $gutter-large;
 		border: thin transparent solid;
-		width: rem-calc(800);
+		width: $content-width;
 		max-width: 100%;
 
 		a{
@@ -352,7 +351,7 @@ img, iframe{
 		width: calc(50% - 30px);
 		display: inline-block;
 		margin-bottom: $gutter-big;
-		overflow: hidden;
+		z-index: 1;
 
 		.entry-title{
 			display: inline-block;
@@ -411,78 +410,10 @@ img, iframe{
 			}
 		}
 
-		&.loading{
-			//width: 100%;
-			background-repeat: no-repeat;
-			background-image: url('../img/loading-flat.gif');
-			background-position: center;
-
-			.complete, .short{
-				//width: calc(50% - 60px);
-				margin: 0 auto;
-			}
-
-			.short{
-				display: block;
-				opacity: 0.5;
-			}
-		}
-
-		&.open, &.openned{
-			width: 100%;
-
-			&:before, &:after{
-				display: none;
-			}
-
-			.mfp-close{
-				display: block;
-				z-index: 40;
-			}
-
-			.short {
-
-				.thumbnail.image{
-					position: relative;
-					display: block;
-					cursor: default;
-
-					&:before{
-						position: absolute;
-						content: '';
-						opacity: 0;
-						z-index: 2;
-						width: 100%;
-						height: 100%;
-					}
-				}
-				
-
-				.content{
-					display: none;
-				}
-			}
-
-			.complete, .short{
-				display: block;
-				width: rem-calc(800);
-				margin: 0 auto;
-			}
-		}
-
-		.content, .complete{
-			background-color: white;
-			padding: $gutter-big;
-
-			&, a{
-				color: $text-color-light; 
-			}
-		}
-
 		.tools{
 			height: 0;
 	    position: relative;
-	    width: 800px;
+	    width: $content-width;
 	    margin: 0 auto;
 			z-index: 100;
 
@@ -494,6 +425,7 @@ img, iframe{
 			}
 
 			> ul{
+				display: none;
 				padding-left: 0;
 				padding-top: rem-calc(200);
 				position: absolute;
@@ -587,7 +519,72 @@ img, iframe{
 
 				}
 			}
+		}
 
+		.content, .complete{
+			background-color: white;
+			padding: $gutter-big;
+
+			&, a{
+				color: $text-color-light; 
+			}
+		}
+
+		&.open, &.openned{
+			width: 100%;
+
+			&:before, &:after{
+				display: none;
+			}
+
+			.tools > ul{
+				display: block;
+			}
+
+			.short {
+
+				.thumbnail.image{
+					position: relative;
+					display: block;
+					cursor: default;
+
+					&:before{
+						position: absolute;
+						content: '';
+						opacity: 0;
+						z-index: 2;
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.content{
+					display: none;
+				}
+			}
+
+			.complete, .short{
+				display: block;
+				width: $content-width;
+				margin: 0 auto;
+			}
+		}
+
+		&.loading{
+			//width: 100%;
+			background-repeat: no-repeat;
+			background-image: url('../img/loading-flat.gif');
+			background-position: center;
+
+			.complete, .short{
+				//width: calc(50% - 60px);
+				margin: 0 auto;
+			}
+
+			.short{
+				display: block;
+				opacity: 0.5;
+			}
 		}
 
 		&.full{
@@ -632,7 +629,7 @@ img, iframe{
 
 .mfp-content .complete{
 	background-color: white;
-  max-width: rem-calc(800);
+  max-width: $content-width;
   margin: 20px auto;
   padding: 20px 30px;
   text-align: left;
