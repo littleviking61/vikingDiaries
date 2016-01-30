@@ -3,7 +3,7 @@
     return;
   } ?>
 
-<div class="entry-comments">
+<div class="entry-comments" id="comments">
 
   <?php if (have_comments() || count($comments) > 0) : ?>
     <section class="comments">
@@ -41,9 +41,7 @@
       <?php endif; ?>
     </section><!-- /#comments -->
   <?php else: ?>
-    <section class="comments no-comments">
-      <h3>Aucun commentaire pour le moment</h3>
-    </section><!-- /#comments -->
+    
   <?php endif; ?>
 
   <?php if (!have_comments() && !comments_open() && !is_page() && post_type_supports(get_post_type(), 'comments')) : ?>

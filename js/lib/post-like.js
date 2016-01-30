@@ -2,6 +2,7 @@ jQuery(document).ready(function() {
 	jQuery('body').on('click','.jm-post-like',function(event){
 		event.preventDefault();
 		heart = jQuery(this);
+		hearts = jQuery( '.jm-post-like', jQuery(this).closest('.post'))
 		post_id = heart.data("post_id");
 		heart.addClass('loading');
 		heart.html("<i id='icon-like' class='fa fa-heart'></i><i id='icon-gear' class='fa fa-spin fa-cog'></i>");
@@ -18,15 +19,17 @@ jQuery(document).ready(function() {
 					{
 						lecount = "";
 					}
-					heart.prop('title', 'Like');
-					heart.removeClass("liked");
-					heart.html("<i id='icon-unlike' class='fa fa-heart'></i><span>"+lecount+"</span>");
+					hearts
+						.prop('title', 'Like')
+						.removeClass("liked")
+						.html("<i id='icon-unlike' class='fa fa-heart'></i><span>&nbsp;"+lecount+"</span>");
 				}
 				else
 				{
-					heart.prop('title', 'Unlike');
-					heart.addClass("liked");
-					heart.html("<i id='icon-like' class='fa fa-heart-o'></i><span>"+count+"</span>");
+					hearts
+						.prop('title', 'Unlike')
+						.addClass("liked")
+						.html("<i id='icon-like' class='fa fa-heart-o'></i><span>&nbsp;"+count+"</span>");
 				}
 			}
 		});

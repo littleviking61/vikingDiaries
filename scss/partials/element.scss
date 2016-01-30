@@ -430,7 +430,7 @@ img, iframe{
 				padding-top: rem-calc(200);
 				position: absolute;
 				right: - rem-calc(50);
-
+				
 				> li{
 					list-style: none;
 
@@ -440,7 +440,7 @@ img, iframe{
 						background: none;
 						color: white;
 						padding: 0 $gutter;
-						font-size: 18px;
+						font-size: $ft-size-larger;
 						height: $gutter-hudge;
 						margin-bottom: $gutter;
 						width: $gutter-hudge;
@@ -464,59 +464,124 @@ img, iframe{
 					a{
 						padding-top: $gutter;
 					}
+
+					share-button{
+						display: block !important;
+					}
+
+					.comment{
+						position: relative;
+
+						span{
+							position: absolute;
+							font-size: $ft-size-normal;
+							right: - rem-calc(35);
+							opacity: 0.4;
+							top: 18px;
+							width: rem-calc(30);
+							text-align: left;
+						}
+					}
+
+					.jm-post-like{
+						position: relative;
+						padding-top: 19px;
+						margin-left: 0px;
+						color: transparent;
+
+						i, span{
+							position: absolute;
+							top: 10px;
+							left: 10px;
+							color: white;
+						}
+
+						span{
+							top: auto;
+							left: auto;
+							font-size: $ft-size-normal;
+							right: - rem-calc(35);
+							width: rem-calc(30);
+							text-align: left;
+							opacity: 0.4;
+						}
+
+						&.liked{
+							border-color: $youtube;
+							opacity: 1;
+						}
+
+						&.loading{
+							i:first-child{
+								display: none;
+							}
+						}
+
+						&:before{
+
+						}
+					}
 				}
 			}
-			
-			share-button{
-				display: block !important;
-			}
+		}
 
-			.comment{
-				position: relative;
+		.tools-short{
+			display: inline-block;
+	    vertical-align: middle;
 
-				span{
-					position: absolute;
-					font-size: $ft-size-normal;
-					right: - $gutter-medium;
-					opacity: 0.4;
-					top: 18px;
-				}
-			}
+			> ul{
+				padding: 0;
+				margin: 0;
+				margin-top: -5px;
 
-			.jm-post-like{
-				position: relative;
-				padding-top: 19px;
-				margin-left: 0px;
-				color: transparent;
-
-				i, span{
-					position: absolute;
-					top: 10px;
-					left: 10px;
-					color: white;
+				> li{
+					list-style: none;
+					display: inline-block;
+					vertical-align: middle;
 				}
 
-				span{
-					top: auto;
-					left: auto;
-					font-size: $ft-size-normal;
-					right: - $gutter-medium;
-					opacity: 0.4;
-				}
+				button, share-button, a{
+					border: none;
+					background: none;
+					color: $text-color-light;
+					font-size: $ft-size-large;
+					padding: 0 $gutter-small;
 
-				&.liked{
-					border-color: $youtube;
-					opacity: 1;
-				}
-
-				&.loading{
-					i:first-child{
-						display: none;
+					i{
+						color: $text-color-light;
 					}
 				}
 
-				&:before{
+				.liked i{
+					color: $youtube;
+				}
 
+				share-button{
+					&.active{
+						border-bottom: thin solid $grey;
+					}
+
+					li.enabled{
+						display: block;
+						height: 16px;
+						width: 40px;
+					}
+					&:before{
+						display: none;
+					}
+
+					.sb-social{
+						
+						&.active{
+							bottom: 185px;
+							left: 0.75em;
+						}
+						top: auto;
+						left: 0.75em;
+				    bottom: 175px;
+				    -webkit-transform: translate(-50%,100%);
+				    transform: translate(-50%,100%);
+					}
 				}
 			}
 		}
@@ -587,8 +652,18 @@ img, iframe{
 			}
 		}
 
+		&.error{
+			.short .content > header:before{
+				display: block;
+				color: $youtube;
+				content: "Something went wrong, sorry...";
+			}
+		}
+
 		&.full{
-			width: 80%;
+			.complete, .short, .tools{
+				width: rem-calc(1050);
+			}
 		}
 
 		/* arrow */

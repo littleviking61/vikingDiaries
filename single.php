@@ -32,8 +32,9 @@
 				<?php 
 				  $content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
 				  $type = get_post_format();
+				  $largeur = get_field('largeur');
 				?>
-				<article <?php post_class('openned'); ?>>
+				<article <?php post_class(['openned', $largeur]); ?>>
 
 					<?php get_template_part('content', 'tools') ?>
 					
@@ -55,14 +56,20 @@
 						  </div>
 						<?php elseif(has_post_thumbnail()) : ?>
 						  <div class="thumbnail image">
-						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('large', ['class'=> 'lazy']); ?></a>
+						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('large'); ?></a>
 						  </div>
-
+						<?php elseif(get_field('map')) : ?>
+							<div class="thumbnail map">
+								<?php 
+									$heightMap = get_field('map_height').'px';
+									$template = locate_template( 'maps/map-'.get_field('map_name').'.php' );
+									if(file_exists($template)) {
+										include($template);
+									} ?>
+							</div>
 						<?php endif; ?>
 					</div>
 					<div class="complete">
-
-
 						<header>
 							<h1 class="entry-title"><?php the_title(); ?></h1>
 							<?php get_template_part('templates/entry-meta'); ?>
@@ -75,10 +82,10 @@
 								if (is_array($matches) && $matches[2] == 'gallery') {
 									echo do_shortcode( $matches[0] );
 								};
-							elseif(get_field('video') && $type == "video") :
-								echo get_field('video');
 							endif; ?>
-							<?php $content = strip_shortcodes($content, 'gallery'); ?>
+							<?php if ($type == "gallery"): ?>			
+								<?php $content = strip_shortcodes($content, 'gallery'); ?>		
+							<?php endif ?>
 							<p><?= apply_filters('the_content', $content) ?></p>
 						</div>
 

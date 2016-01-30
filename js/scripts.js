@@ -1,7 +1,7 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, taille, initialUrl, isotopeArgDefault, moveByHistoty = false;
+	var $grid, lastPage, dairies, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty = false;
 
 	$(function () {
 		// DOM ready, take it away
@@ -66,17 +66,21 @@
 		});
 
 		dairies.on('click', '.ajax-go, .post .more-link', function(e) {
-			e.preventDefault();
-			var target = $(this).closest('.post');
+			if ( !e.ctrlKey && !e.metaKey )
+			{
+				e.preventDefault();
+				var target = $(this).closest('.post');
 
-			if(target.hasClass('open') && !moveByHistoty) {
-				closeArticle(target, true);
-			}else{
-				// check open
-				var open = $('.post.open', dairies);
-				if(open.length > 0) closeArticle(open, false, true);
-				// load article
-				loadArticle($(this).attr('href'), target);
+				if(target.hasClass('open') && !moveByHistoty) {
+					closeArticle(target, true);
+				}else{
+					// check open
+					var open = $('.post.open', dairies);
+					if(open.length > 0) closeArticle(open, false, true);
+					// load article
+					goComment = $(this).hasClass('comment');
+					loadArticle($(this).attr('href'), target);
+				}
 			}
 		});
 
@@ -124,6 +128,7 @@
 	}
 
 	function urlChange(event) {
+		// console.log('change');
 		if(event.isTrusted) {
 
 			var currentState = history.state;
@@ -159,11 +164,20 @@
 
 		$grid.one( 'layoutComplete', function() {
 			if(scroll) $(window).scrollTo(container.offset().top-70, 400, 
-				{ onAfter : function() {  if(tools) toolsInit(container); }}); // check tools and activate
+				{ onAfter : function() {  
+					if(tools) toolsInit(container); 
+				}}); // check tools and activate
 		});
 
 		container.imagesLoaded().always( function() {
 		  $grid.isotope('layout');
+			
+			$grid.one( 'layoutComplete', function() {
+			  if(goComment) {
+			  	$(window).scrollTo($('.entry-comments', container).offset().top-70, 300);
+			  	goComment = false;
+			  }
+			});
 			dairies.removeClass('loading');
 		});
 	}
@@ -198,7 +212,7 @@
 
 		$('a.comment',tools).click(function(e) {
 			e.preventDefault();
-			$(window).scrollTo($('.entry-comments' ,tools.closest('.post')), 400);
+			$(window).scrollTo($('.entry-comments' ,tools.closest('.post')).offset().top - 70, 400);
 		});
 	}
 
@@ -349,6 +363,7 @@
       // if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
       $('.pagination .loading').removeClass('loading').removeClass('error');
     }).error( function() {
+    	dairies.removeClass('loading');
     	console.log('Error', url, lastPage);
     	$('.pagination .loading').removeClass('loading').addClass('error');
     });
@@ -386,6 +401,7 @@
 					}
 	      } 
 	    }).error( function() {
+	    	dairies.removeClass('loading');
 	    	console.log('Error', url, lastPage);
 	    	target.removeClass('loading').addClass('error');
 	    });

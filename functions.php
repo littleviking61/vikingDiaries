@@ -29,10 +29,11 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('hudge', 1800, '', true); // Large Thumbnail
+    add_image_size('large', 1050, '', true); // Large Thumbnail
+    add_image_size('medium', 550, '', true); // Medium Thumbnail
+    add_image_size('small', 200, '', true); // Small Thumbnail
+   // add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -595,6 +596,23 @@ function my_gallery_shortcode($output, $attr) {
 }
 add_filter('post_gallery', 'my_gallery_shortcode', 10, 2);
 
+// bookmark
+function bigmap_shortcode( $atts = array(), $content = "" ) {
+    // $allMarker = true;
+    $values = shortcode_atts(array(
+            'height' => '600px'
+        ),$atts);
+
+    $template = locate_template( 'maps/map-'.$content.'.php' );
+    if(file_exists($template)) {
+        ob_start();
+        include($template);
+        $content = ob_get_contents();
+        ob_end_clean();
+    }
+    return $content;
+}
+add_shortcode( 'map', 'bigmap_shortcode' );
 
 // Add Shortcode
 function social_share_shortcode() {
@@ -614,33 +632,6 @@ function baw_template_include( $template ) {
     endif;
     return $template;
 }
-
-/* ajax call funtion */
-function bimLes_comment() {
-    global $post, $id, $comments;
-    $post_id = (int) $_GET['postId'] ?: (int) $_POST['postId'];
-    $post = get_post($post_id);
-    $ajax_class = 'mp-popup';
-    $comments_args = array(
-        'post_id' => $post_id,
-        // 'number' => $get,//Número Máximo de Comentarios a Cargar
-        // 'order' => $orderComments,//Orden de los Comentarios
-        // 'offset' => $offset,//Desplazamiento desde el último comentario
-        'status' => 'approve'
-    );
-    
-    $comments = get_comments($comments_args);
-    // wp_list_comments(array('walker' => new DW_Timeline_Walker_Comment), $comments);
-    $template = locate_template( 'templates/comments.php' );
-    if(file_exists($template)) {
-        include($template);
-    }
-    
-    die();
-}
-// creating Ajax call for WordPress
-add_action( 'wp_ajax_nopriv_get_comment', 'bimLes_comment' );
-add_action( 'wp_ajax_get_comment', 'bimLes_comment' );
 
 function load_the_template($template) {
     $template = locate_template( $template );

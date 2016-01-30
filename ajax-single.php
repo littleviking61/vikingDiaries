@@ -13,10 +13,11 @@
 			<?php get_template_part('templates/entry-meta'); ?>
 		</header>
 
-
 		<hr>
 		<div class="entry-content">
-			<?php //$content = strip_shortcodes($content, 'gallery'); ?>		
+			<?php if ($type == "gallery"): ?>			
+				<?php $content = strip_shortcodes($content, 'gallery'); ?>		
+			<?php endif ?>
 			<p><?= apply_filters('the_content', $content) ?></p>
 			<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
 		</div>

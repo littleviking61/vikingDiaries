@@ -41,13 +41,18 @@ $type = get_post_format();
         <h2 class="entry-title">
           <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_title(); ?></a>
         </h2>
-        <div class="social">
-          <span class="nb-comments"><a class="ajax-go" title="Commentaire : <?php the_title(); ?>" href="<?php the_permalink(); ?>#comments"><i class="fa fa-comments"></i> <?php comments_number( '0', '1', '%' ); ?></a></span>
-          <?= getPostLikeLink( get_the_ID() ) ?>
-
-          <?php if (!is_null($icon)) : ?>
-           <i class="glyphicon glyphicon-<?= $icon ?>"></i>
-          <?php endif ?>
+        <div class="tools-short">
+          <ul>
+            <li>
+              <?= getPostLikeLink( get_the_ID() ) ?>
+            </li>
+            <li>
+              <share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>" data-flyout="bottom left"></share-button></li>
+            </li>
+            <li>
+              <a href="<?php the_permalink(); ?>" class="ajax-go comment" title="<?= __('Commenter') ?>" type="button" class="comment"><i class="fa fa-commenting"></i><span><?php comments_number( "", "&nbsp;%", "&nbsp;%" ); ?> </span></a>
+            </li>
+          </ul>
         </div>
       </header>
       <div class="entry-content">

@@ -65,7 +65,7 @@ img {
 a {
   color: white;
   text-decoration: none; }
-  a:focus, a:hover {
+  a:hover {
     text-decoration: underline; }
 
 input[type="text"],
@@ -523,7 +523,7 @@ img, iframe {
             background: none;
             color: white;
             padding: 0 0.625rem;
-            font-size: 18px;
+            font-size: 1.125rem;
             height: 2.5rem;
             margin-bottom: 0.625rem;
             width: 2.5rem;
@@ -538,37 +538,79 @@ img, iframe {
               opacity: 1; }
           .dairies article .tools > ul > li a, .single-dairies article .tools > ul > li a {
             padding-top: 0.625rem; }
-      .dairies article .tools share-button, .single-dairies article .tools share-button {
-        display: block !important; }
-      .dairies article .tools .comment, .single-dairies article .tools .comment {
-        position: relative; }
-        .dairies article .tools .comment span, .single-dairies article .tools .comment span {
-          position: absolute;
-          font-size: 0.75rem;
-          right: -0.9375rem;
-          opacity: 0.4;
-          top: 18px; }
-      .dairies article .tools .jm-post-like, .single-dairies article .tools .jm-post-like {
-        position: relative;
-        padding-top: 19px;
-        margin-left: 0px;
-        color: transparent; }
-        .dairies article .tools .jm-post-like i, .dairies article .tools .jm-post-like span, .single-dairies article .tools .jm-post-like i, .single-dairies article .tools .jm-post-like span {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          color: white; }
-        .dairies article .tools .jm-post-like span, .single-dairies article .tools .jm-post-like span {
-          top: auto;
-          left: auto;
-          font-size: 0.75rem;
-          right: -0.9375rem;
-          opacity: 0.4; }
-        .dairies article .tools .jm-post-like.liked, .single-dairies article .tools .jm-post-like.liked {
-          border-color: #FF3333;
-          opacity: 1; }
-        .dairies article .tools .jm-post-like.loading i:first-child, .single-dairies article .tools .jm-post-like.loading i:first-child {
+          .dairies article .tools > ul > li share-button, .single-dairies article .tools > ul > li share-button {
+            display: block !important; }
+          .dairies article .tools > ul > li .comment, .single-dairies article .tools > ul > li .comment {
+            position: relative; }
+            .dairies article .tools > ul > li .comment span, .single-dairies article .tools > ul > li .comment span {
+              position: absolute;
+              font-size: 0.75rem;
+              right: -2.1875rem;
+              opacity: 0.4;
+              top: 18px;
+              width: 1.875rem;
+              text-align: left; }
+          .dairies article .tools > ul > li .jm-post-like, .single-dairies article .tools > ul > li .jm-post-like {
+            position: relative;
+            padding-top: 19px;
+            margin-left: 0px;
+            color: transparent; }
+            .dairies article .tools > ul > li .jm-post-like i, .dairies article .tools > ul > li .jm-post-like span, .single-dairies article .tools > ul > li .jm-post-like i, .single-dairies article .tools > ul > li .jm-post-like span {
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              color: white; }
+            .dairies article .tools > ul > li .jm-post-like span, .single-dairies article .tools > ul > li .jm-post-like span {
+              top: auto;
+              left: auto;
+              font-size: 0.75rem;
+              right: -2.1875rem;
+              width: 1.875rem;
+              text-align: left;
+              opacity: 0.4; }
+            .dairies article .tools > ul > li .jm-post-like.liked, .single-dairies article .tools > ul > li .jm-post-like.liked {
+              border-color: #FF3333;
+              opacity: 1; }
+            .dairies article .tools > ul > li .jm-post-like.loading i:first-child, .single-dairies article .tools > ul > li .jm-post-like.loading i:first-child {
+              display: none; }
+    .dairies article .tools-short, .single-dairies article .tools-short {
+      display: inline-block;
+      vertical-align: middle; }
+      .dairies article .tools-short > ul, .single-dairies article .tools-short > ul {
+        padding: 0;
+        margin: 0;
+        margin-top: -5px; }
+        .dairies article .tools-short > ul > li, .single-dairies article .tools-short > ul > li {
+          list-style: none;
+          display: inline-block;
+          vertical-align: middle; }
+        .dairies article .tools-short > ul button, .dairies article .tools-short > ul share-button, .dairies article .tools-short > ul a, .single-dairies article .tools-short > ul button, .single-dairies article .tools-short > ul share-button, .single-dairies article .tools-short > ul a {
+          border: none;
+          background: none;
+          color: #737373;
+          font-size: 1rem;
+          padding: 0 0.3125rem; }
+          .dairies article .tools-short > ul button i, .dairies article .tools-short > ul share-button i, .dairies article .tools-short > ul a i, .single-dairies article .tools-short > ul button i, .single-dairies article .tools-short > ul share-button i, .single-dairies article .tools-short > ul a i {
+            color: #737373; }
+        .dairies article .tools-short > ul .liked i, .single-dairies article .tools-short > ul .liked i {
+          color: #FF3333; }
+        .dairies article .tools-short > ul share-button.active, .single-dairies article .tools-short > ul share-button.active {
+          border-bottom: thin solid #dddddd; }
+        .dairies article .tools-short > ul share-button li.enabled, .single-dairies article .tools-short > ul share-button li.enabled {
+          display: block;
+          height: 16px;
+          width: 40px; }
+        .dairies article .tools-short > ul share-button:before, .single-dairies article .tools-short > ul share-button:before {
           display: none; }
+        .dairies article .tools-short > ul share-button .sb-social, .single-dairies article .tools-short > ul share-button .sb-social {
+          top: auto;
+          left: 0.75em;
+          bottom: 175px;
+          -webkit-transform: translate(-50%, 100%);
+          transform: translate(-50%, 100%); }
+          .dairies article .tools-short > ul share-button .sb-social.active, .single-dairies article .tools-short > ul share-button .sb-social.active {
+            bottom: 185px;
+            left: 0.75em; }
     .dairies article .content, .dairies article .complete, .single-dairies article .content, .single-dairies article .complete {
       background-color: white;
       padding: 1.875rem; }
@@ -606,8 +648,12 @@ img, iframe {
       .dairies article.loading .short, .single-dairies article.loading .short {
         display: block;
         opacity: 0.5; }
-    .dairies article.full, .single-dairies article.full {
-      width: 80%; }
+    .dairies article.error .short .content > header:before, .single-dairies article.error .short .content > header:before {
+      display: block;
+      color: #FF3333;
+      content: "Something went wrong, sorry..."; }
+    .dairies article.full .complete, .dairies article.full .short, .dairies article.full .tools, .single-dairies article.full .complete, .single-dairies article.full .short, .single-dairies article.full .tools {
+      width: 65.625rem; }
     .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
       content: '';
       position: absolute;

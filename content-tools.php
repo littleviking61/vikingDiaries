@@ -10,7 +10,7 @@
 			<share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>"></share-button></li>
 		</li>
 		<li>
-			<a href="#comment" title="<?= __('Commenter') ?>" type="button" class="comment"><i class="fa fa-commenting"></i><span><?php comments_number( "", "%", "%" ); ?> </span></a>
+			<a href="#comments" title="<?= __('Commenter') ?>" type="button" class="comment"><i class="fa fa-commenting"></i><span><?php comments_number( "", "&nbsp;%", "&nbsp;%" ); ?> </span></a>
 		</li>
 		<?php $location = get_field('travel_point'); ?>
 		<?php if( !empty($location) && !empty($location['lat']) && !empty($location['lng']) ): ?>
