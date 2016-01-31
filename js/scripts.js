@@ -241,32 +241,6 @@
 			  fit: 'cover',
 			}).children().addClass('fotorama__wrap--no-controls');
 
-		// $('a[href="#view-position"]', container).magnificPopup({
-		// 	type: 'ajax',
-		// 	ajax: {
-		// 		settings: {
-		// 			url: '/wp-admin/admin-ajax.php',
-		// 			type: 'post'
-
-		// 		}
-		// 	},
-		// 	callbacks: {
-		// 		elementParse: function() {
-		// 			this.st.ajax.settings.data = {
-		// 				action: 'get_position',
-		// 			};
-		// 		},
-		// 		ajaxContentAdded: function() {
-		// 			// Ajax content is loaded and appended to DOM
-		// 			$modal = this.content;
-
-		// 		},
-		// 		open: function() {
-  //   			ga('send', 'event', 'ajax', 'click', 'position', this.currItem.el[0].title);
-		// 		}
-		// 	}
-		// });
-
 		$(window).trigger('resize');
 	} 
 

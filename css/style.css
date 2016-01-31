@@ -200,7 +200,7 @@ body {
 
 main {
   position: relative; }
-  main > section {
+  main > section, main > article > section {
     padding: 1.25rem 0;
     margin: 0 auto; }
 
@@ -230,7 +230,7 @@ h3 {
 h4 {
   font-size: 1.125rem; }
 
-a.button, .projets .projet a {
+a.button, .projets .projet a, .sh-link {
   -moz-transition: background-color 0.4s;
   -o-transition: background-color 0.4s;
   -webkit-transition: background-color 0.4s;
@@ -238,7 +238,7 @@ a.button, .projets .projet a {
   padding: 0.20833rem;
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.1); }
-  a.button:hover, .projets .projet a:hover {
+  a.button:hover, .projets .projet a:hover, .sh-link:hover {
     background-color: rgba(0, 0, 0, 0.6); }
 
 nav > ul, .list {
@@ -257,6 +257,21 @@ img, iframe {
 
 .bloc {
   text-align: center; }
+  .bloc .content {
+    max-width: 50rem;
+    padding: 0.625rem 1.25rem;
+    margin: 0 auto;
+    text-align: justify; }
+
+.content-normal {
+  max-width: 50rem;
+  padding: 0.625rem 1.25rem;
+  margin: 0 auto;
+  text-align: justify; }
+  .content-normal h3 {
+    text-align: center; }
+    .content-normal h3:not(:first-child) {
+      margin-top: 6.25rem; }
 
 .oEmbed {
   background-color: black; }
@@ -1934,10 +1949,6 @@ img.mfp-img {
 .edit li {
   list-style: none;
   margin-left: 0.625rem; }
-  .edit li a {
-    text-transform: uppercase;
-    padding: 0.3125rem 0.625rem;
-    border: thin solid white; }
 
 .edit-post {
   position: absolute;
@@ -1958,5 +1969,10 @@ img.mfp-img {
 
 .sticky-wrapper {
   height: 0 !important; }
+
+.social-count-plus {
+  text-align: center; }
+  .social-count-plus .flat {
+    display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,5 @@
 <?php 
-$content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
+$content = get_the_content( __('Read more &rarr;', 'html5blank') );
 $type = get_post_format();
 ?>
 <article <?php post_class(); ?> data-date="<?= get_the_time('U'); ?>" id="post-<?= $post->ID ?>">
@@ -50,7 +50,7 @@ $type = get_post_format();
               <share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>" data-flyout="bottom left"></share-button></li>
             </li>
             <li>
-              <a href="<?php the_permalink(); ?>" class="ajax-go comment" title="<?= __('Commenter') ?>" type="button" class="comment"><i class="fa fa-commenting"></i><span><?php comments_number( "", "&nbsp;%", "&nbsp;%" ); ?> </span></a>
+              <a href="<?php the_permalink(); ?>" class="ajax-go comment" title="<?= __('Comment', 'html5blank') ?>" type="button" class="comment"><i class="fa fa-commenting"></i><span><?php comments_number( "", "&nbsp;%", "&nbsp;%" ); ?> </span></a>
             </li>
           </ul>
         </div>

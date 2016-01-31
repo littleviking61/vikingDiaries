@@ -10,7 +10,7 @@
       <h3>
         <i class="fa fa-comments"></i>&nbsp;
         <?php 
-          printf( __('Une réponse à &ldquo; %2$s &rdquo;', '%1$s réponses à &ldquo; %2$s &rdquo;', 
+          printf( __('One answer to &ldquo; %2$s &rdquo;', '%1$s answers to &ldquo; %2$s &rdquo;', 
             get_comments_number(), 'html5blank'), 
             number_format_i18n(get_comments_number()), 
             get_the_title()); 
@@ -36,7 +36,7 @@
 
       <?php if (!comments_open() && !is_page() && post_type_supports(get_post_type(), 'comments')) : ?>
         <div class="alert alert-warning">
-          <?php _e('Comments are closed.', 'html5blank'); ?>
+          <?php __('Comments are closed.', 'html5blank'); ?>
         </div>
       <?php endif; ?>
     </section><!-- /#comments -->
@@ -47,15 +47,15 @@
   <?php if (!have_comments() && !comments_open() && !is_page() && post_type_supports(get_post_type(), 'comments')) : ?>
     <section class="comments">
       <div class="alert alert-warning">
-        <?php _e('Comments are closed.', 'html5blank'); ?>
+        <?php __('Comments are closed.', 'html5blank'); ?>
       </div>
     </section><!-- /#comments -->
   <?php endif; ?>
   <?php
     $comments_args = array(
       'logged_in_as' => '',
-      'title_reply'  => __('Et vous vous en pensez quoi ?', 'html5blank'),
-      'label_submit' => __('Envoyer votre commentaire', 'html5blank'),
+      'title_reply'  => __('And you, what to you think ?', 'html5blank'),
+      'label_submit' => __('Send a comment', 'html5blank'),
       'comment_notes_before' => '',
       'comment_notes_after' => '',
       'fields' => apply_filters( 'comment_form_default_fields', array(

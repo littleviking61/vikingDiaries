@@ -8,7 +8,7 @@
   <div class="comment-content">
   <?php if ($comment->comment_approved == '0') : ?>
     <div class="alert alert-info">
-      <?php _e('Your comment is awaiting moderation.', 'html5blank'); ?>
+      <?php __('Your comment is awaiting moderation.', 'html5blank'); ?>
     </div>
   <?php endif; ?>
   <?php comment_text(); ?>

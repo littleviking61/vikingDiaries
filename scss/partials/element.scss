@@ -21,7 +21,7 @@ h4{
 	font-size: $ft-size-larger;
 } 
 
-a.button, %button{
+a.button, %button, .sh-link{
 	@include single-transition(background-color, 0.4s);
 	padding: $gutter-mini;
 	display: inline-block;
@@ -58,6 +58,26 @@ img, iframe{
 .bloc{
 	text-align: center;
 
+	.content{
+		max-width: $content-width;
+		padding: $gutter $gutter-large;
+		margin: 0 auto;
+		text-align: justify;
+	}
+}
+
+.content-normal{
+	max-width: $content-width;
+	padding: $gutter $gutter-large;
+	margin: 0 auto;
+	text-align: justify;
+
+	h3{
+		text-align: center;
+		&:not(:first-child) {
+			margin-top: rem-calc(100);
+		}
+	}
 }
 
 .oEmbed{

@@ -2,51 +2,81 @@
 
 	<main role="main">
 
-		<?php if (is_front_page()): ?>
-			
-			<?php get_template_part('content','home' ); ?>
+		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-		<?php else: ?>
-			<!-- section -->
-			<section>
+			<article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<h1><?php the_title(); ?></h1>
+				<?php if (is_front_page()): ?>
+					<?php get_template_part('content','home' ); ?>
+				<?php else: ?>
+					<!-- section -->
 
-			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+					<!-- article -->
+					<header class="banner">
+						<div class="thumbnail">
+							<?php 
+							$image = get_field('photo_auteur');
+							if( !empty($image) ): ?>
+								<img src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
+							<?php endif; ?>
+						</div>
+						<h1><?= bloginfo('name' );?></h1>
+						<h2><?php the_field('texte_daccueil'); ?></h2>
+						<!-- <button class="quickJournal"><?php the_field('acces_rapide'); ?></button> -->
+					</header>
 
-				<!-- article -->
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<?php 
+						if( have_rows('autres_blocs') ):
+
+						 	// loop through the rows of data
+						    while ( have_rows('autres_blocs') ) : the_row(); ?>
+									
+									<section class="bloc">
+										<?php if (get_sub_field('titre')): ?>
+											<h3><?php the_sub_field('titre'); ?></h3>
+										<?php endif ?>
+
+										<?php if (get_sub_field('video')): ?>
+											<div class="video oEmbed">
+											<div class="video oEmbed">
+												<?php the_sub_field('video'); ?>
+											</div>
+										<?php endif ?>
+										
+										<div class="content">
+											<?php the_sub_field('contenu'); ?>
+										</div>
+
+									</section>
+
+						    <?php endwhile;
+
+						endif;
+					?>
+				
+				<?php endif ?>
+
+				<section class="content-normal">
 
 					<?php the_content(); ?>
 
-					<?php comments_template( '', true ); // Remove if you don't want comments ?>
+				</section>
 
-					<br class="clear">
-
-					<?php edit_post_link(); ?>
-
-				</article>
-				<!-- /article -->
+			</article>
+			<!-- /section -->
 
 			<?php endwhile; ?>
+		<?php else: ?>
 
-			<?php else: ?>
+			<!-- article -->
+			<article>
 
-				<!-- article -->
-				<article>
+				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
 
-					<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+			</article>
+			<!-- /article -->
 
-				</article>
-				<!-- /article -->
-
-			<?php endif; ?>
-			
-      <?php echo get_scp_widget(); ?>
-			
-			</section>
-			<!-- /section -->
-		<?php endif ?>
+		<?php endif; ?>
 	</main>
 
 <?php get_sidebar(); ?>

@@ -1,198 +1,326 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: HTML5 Blank WordPress Theme\n"
-"POT-Creation-Date: 2014-01-08 00:08+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Antoine Lorence <antoine.lorence@gmail.com>\n"
-"Language-Team: Kevin Plattret <kevin@plattret.me>\n"
-"Language: fr\n"
+"Project-Id-Version: Viking Diaries\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Sun Jan 31 2016 17:50:31 GMT+0100 (CET)\n"
+"PO-Revision-Date: Sun Jan 31 2016 18:00:25 GMT+0100 (CET)\n"
+"Last-Translator: nuagegraphik <baptiste.regne@yahoo.fr>\n"
+"Language-Team: \n"
+"Language: French (France)\n"
+"Plural-Forms: nplurals=2; plural=n > 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPath-1: ..\n"
-
-#: ../404.php:9
-msgid "Page not found"
-msgstr "Page non trouvée"
-
-#: ../404.php:11
-msgid "Return home?"
-msgstr "Retour à la page d'accueil ?"
-
-#: ../archive.php:6
-msgid "Archives"
-msgstr "Archives"
-
-#: ../author.php:8
-msgid "Author Archives for "
-msgstr "Archives de l'auteur "
-
-#: ../author.php:14
-msgid "About "
-msgstr "À propos"
-
-#: ../author.php:41 ../loop.php:22 ../single.php:27
-msgid "Published by"
-msgstr "Publié par"
-
-#: ../author.php:42 ../loop.php:23 ../single.php:28
-msgid "Leave your thoughts"
-msgstr "Laissez vos commentaires"
-
-#: ../author.php:42 ../loop.php:23 ../single.php:28
-msgid "1 Comment"
-msgstr "1 Commentaire"
-
-#: ../author.php:42 ../loop.php:23 ../single.php:28
-msgid "% Comments"
-msgstr "% Comentaires"
-
-#: ../author.php:61 ../loop.php:39 ../page.php:31 ../single.php:53
-#: ../template-demo.php:31
-msgid "Sorry, nothing to display."
-msgstr "Désolé, aucun contenu disponible."
-
-#: ../category.php:6
-msgid "Category:"
-msgstr "Catégorie:"
-
-#: ../comments.php:3
-msgid "Post is password protected. Enter the password to view any comments."
-msgstr ""
-"Cet article est protégé par un mot de passe. Merci d'entrer le mot de passe "
-"pour voir les commentaires."
-
-#: ../comments.php:18
-msgid "Comments are closed here."
-msgstr "Les commentaires sont fermés."
-
-#: ../footer.php:6
-msgid "Powered by"
-msgstr "Propulsé par"
-
-#: ../functions.php:133
-msgid "Header Menu"
-msgstr "Menu d'entête"
-
-#: ../functions.php:134
-msgid "Sidebar Menu"
-msgstr "Menu de barre latérale"
-
-#: ../functions.php:135
-msgid "Extra Menu"
-msgstr "Menu supplémentaire"
-
-#: ../functions.php:181
-msgid "Widget Area 1"
-msgstr "Zone de widget 1"
-
-#: ../functions.php:182 ../functions.php:193
-msgid "Description for this widget-area..."
-msgstr "Description pour cette zone à widget..."
-
-#: ../functions.php:192
-msgid "Widget Area 2"
-msgstr "Zone de widget 2"
-
-#: ../functions.php:258
-msgid "View Article"
-msgstr "Voir l'article"
-
-#: ../functions.php:319
-#, php-format
-msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
-msgstr "<cite class=\"fn\">%s</cite> <span class=\"says\">dit:</span>"
-
-#: ../functions.php:322
-msgid "Your comment is awaiting moderation."
-msgstr "Votre commentaire est en attente de modération."
-
-#: ../functions.php:328
-#, php-format
-msgid "%1$s at %2$s"
-msgstr "%1$s à %2$s"
-
-#: ../functions.php:328
-msgid "(Edit)"
-msgstr "(Éditer)"
-
-#: ../functions.php:411 ../functions.php:412
-msgid "HTML5 Blank Custom Post"
-msgstr "Article personnalisé"
-
-#: ../functions.php:413
-msgid "Add New"
-msgstr "Ajouter nouveau"
-
-#: ../functions.php:414
-msgid "Add New HTML5 Blank Custom Post"
-msgstr "Ajouter un article personnalisé"
-
-#: ../functions.php:415
-msgid "Edit"
-msgstr "Éditer"
-
-#: ../functions.php:416
-msgid "Edit HTML5 Blank Custom Post"
-msgstr "Éditer l'article personnalisé"
-
-#: ../functions.php:417
-msgid "New HTML5 Blank Custom Post"
-msgstr "Nouvel article personnalisé"
-
-#: ../functions.php:418 ../functions.php:419
-msgid "View HTML5 Blank Custom Post"
-msgstr "Voir l'article personnalisé"
-
-#: ../functions.php:420
-msgid "Search HTML5 Blank Custom Post"
-msgstr "Rechercher un article personnalisé"
-
-#: ../functions.php:421
-msgid "No HTML5 Blank Custom Posts found"
-msgstr "Aucun article personnalisé trouvé"
-
-#: ../functions.php:422
-msgid "No HTML5 Blank Custom Posts found in Trash"
-msgstr "Aucun article personnalisé trouvé dans la corbeille"
-
-#: ../index.php:6
-msgid "Latest Posts"
-msgstr "Articles récents"
-
-#: ../search.php:6
-#, php-format
-msgid "%s Search Results for "
-msgstr "%s Résultats de recherche pour "
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: fr_FR\n"
+"X-Generator: Loco - https://localise.biz/"
 
 #: ../searchform.php:3
 msgid "To search, type and hit enter."
-msgstr "Rechercher"
+msgstr "Remplir puis appuyer sur entrer pour rechercher"
 
 #: ../searchform.php:4
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../single.php:33
-msgid "Tags: "
-msgstr "Tags : "
+#: ../404.php:10
+msgid "Page not found"
+msgstr "Page non trouvée"
 
-#: ../single.php:35
-msgid "Categorised in: "
-msgstr "Classés dans :"
+#: ../404.php:12
+msgid "Return home?"
+msgstr "Retour à la page d'accueil ?"
 
-#: ../single.php:37
-msgid "This post was written by "
-msgstr "Cet article a été écrit par "
+#: ../category.php:14
+msgid "Load recent posts"
+msgstr "Charger les articles plus récents"
 
-#: ../tag.php:6
-msgid "Tag Archive: "
-msgstr "Archives de tags : "
+#: ../content-home.php:70 ../header-projet.php:49 ../template-voyages.php:56
+msgid "Presentation"
+msgstr "Présentation"
 
-#~ msgid "%s results for "
-#~ msgstr "%s résultats pour "
+#: ../content-home.php:73
+msgid "Journal"
+msgstr "Journal"
+
+#: ../content-home.php:78
+msgid "Carte"
+msgstr "Carte"
+
+#: ../search.php:7
+#, php-format
+msgid "%s Search Results for "
+msgstr "Résultats pour %s "
+
+#: ../author.php:9
+msgid "Author Archives for "
+msgstr "Archive de l'auteur pour"
+
+#: ../author.php:15
+msgid "About "
+msgstr "A propos"
+
+#: ../author.php:46
+msgid "Published by"
+msgstr "Publié par"
+
+#: ../author.php:47
+msgid "Leave your thoughts"
+msgstr "Donner votre avis"
+
+#: ../author.php:47
+msgid "1 Comment"
+msgstr "1 commentaire"
+
+#: ../author.php:47
+#, php-format
+msgid "% Comments"
+msgstr "% commentaires"
+
+#: ../author.php:66 ../single.php:105 ../loop.php:7 ../ajax-single.php:34 ../tag.
+#: php:38 ../page.php:68
+msgid "Sorry, nothing to display."
+msgstr "Désolé, aucun contenu disponible."
+
+#: ../index.php:7
+msgid "Latest Posts"
+msgstr "Derniers articles"
+
+#: ../footer.php:7
+msgid "Design by"
+msgstr "Designer par"
+
+#: ../single.php:22 ../single.php:116
+msgid "Back to the diaries"
+msgstr "Retourner sur le journal"
+
+#: ../single.php:33 ../ajax-single.php:7 ../templates/content.php:2
+msgid "Read more &rarr;"
+msgstr "Lire la suite &rarr;"
+
+#: ../content-tools.php:13 ../templates/comments.php:80 ../templates/content.php:53
+msgid "Comment"
+msgstr "Commentaire"
+
+#: ../content-tools.php:18 ../templates/entry-meta.php:4
+msgid "See on the map"
+msgstr "Voir sur une carte"
+
+#: ../header-projet.php:42 ../header-projet.php:54 ../header-projet.php:72 ..
+#: /template-voyages.php:59
+msgid "Diaries"
+msgstr "Journal"
+
+#: ../header-projet.php:62 ../template-voyages.php:64
+msgid "Map"
+msgstr "Carte"
+
+#: ../archive.php:7
+msgid "Archives"
+msgstr "Archives"
+
+#: ../ajax-single.php:22
+msgid "Pages:"
+msgstr "Pages :"
+
+#: ../pagination.php:4
+msgid "Load previous Posts"
+msgstr "Charger les articles plus anciens"
+
+#: ../functions.php:181
+msgid "Header Menu"
+msgstr ""
+
+#: ../functions.php:182
+msgid "Sidebar Menu"
+msgstr ""
+
+#: ../functions.php:183
+msgid "Extra Menu"
+msgstr ""
+
+#: ../functions.php:184
+msgid "Social Menu"
+msgstr ""
+
+#: ../functions.php:237
+msgid "Widget Area 1"
+msgstr ""
+
+#: ../functions.php:238 ../functions.php:249
+msgid "Description for this widget-area..."
+msgstr ""
+
+#: ../functions.php:248
+msgid "Widget Area 2"
+msgstr ""
+
+#: ../functions.php:316
+msgid "View Article"
+msgstr "Voir l'article"
+
+#: ../functions.php:377
+#, php-format
+msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
+msgstr "<cite class=\"fn\">%s</cite> <span class=\"says\">dit:</span>"
+
+#: ../functions.php:380 ../templates/comment.php:11
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération."
+
+#: ../functions.php:386
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s à %2$s"
+
+#: ../functions.php:386
+msgid "(Edit)"
+msgstr "(Éditer)"
+
+#: ../functions.php:466 ../functions.php:467
+msgid "HTML5 Blank Custom Post"
+msgstr ""
+
+#: ../functions.php:468
+msgid "Add New"
+msgstr ""
+
+#: ../functions.php:469
+msgid "Add New HTML5 Blank Custom Post"
+msgstr ""
+
+#: ../functions.php:470
+msgid "Edit"
+msgstr ""
+
+#: ../functions.php:471
+msgid "Edit HTML5 Blank Custom Post"
+msgstr ""
+
+#: ../functions.php:472
+msgid "New HTML5 Blank Custom Post"
+msgstr ""
+
+#: ../functions.php:473 ../functions.php:474
+msgid "View HTML5 Blank Custom Post"
+msgstr ""
+
+#: ../functions.php:475
+msgid "Search HTML5 Blank Custom Post"
+msgstr ""
+
+#: ../functions.php:476
+msgid "No HTML5 Blank Custom Posts found"
+msgstr ""
+
+#: ../functions.php:477
+msgid "No HTML5 Blank Custom Posts found in Trash"
+msgstr ""
+
+#. Name of the template
+msgid "Page Voyages"
+msgstr ""
+
+#: ../templates/comments.php:13
+#, php-format
+msgid "One answer to &ldquo; %2$s &rdquo;"
+msgstr "Une réponse à &ldquo; %2$s &rdquo;"
+
+#: ../templates/comments.php:28
+msgid "&larr; Older comments"
+msgstr "&larr; Anciens commentaires\n"
+
+#: ../templates/comments.php:31
+msgid "Newer comments &rarr;"
+msgstr "Nouveaux commentaires &rarr;"
+
+#: ../templates/comments.php:39 ../templates/comments.php:50
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: ../templates/comments.php:57
+msgid "And you, what to you think ?"
+msgstr "Et vous vous en pensez quoi ?"
+
+#: ../templates/comments.php:58
+msgid "Send a comment"
+msgstr "Envoyer un commentaire"
+
+#: ../templates/comments.php:64 ../templates/comments.php:65
+msgid "Name"
+msgstr "Nom"
+
+#: ../templates/comments.php:69 ../templates/comments.php:70
+msgid "Email"
+msgstr "Mail"
+
+#: ../templates/comments.php:75 ../templates/comments.php:76
+msgid "Website"
+msgstr "Site"
+
+#: ../templates/comments.php:80
+msgid "Au plaisir de vous lire !"
+msgstr ""
+
+#: ../templates/entry-meta.php:14
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../templates/comment.php:5
+#, php-format
+msgid "%1$s à %2$s"
+msgstr ""
+
+#: ../templates/comment.php:19
+#, php-format
+msgid "%s Reply"
+msgstr "%s Repondre"
+
+#: ../templates/comment.php:21
+#, php-format
+msgid "%s edit"
+msgstr "%s éditer"
+
+#: ../modules/post-like.php:208 ../modules/post-like.php:268
+msgid "You Like:"
+msgstr "Vous aimez :"
+
+#: ../modules/post-like.php:232
+msgid "You don't like anything yet."
+msgstr "Vous aimez rien pou le moment"
+
+#: ../modules/post-like.php:307
+msgid "Today's Most Popular Posts"
+msgstr ""
+
+#: ../modules/post-like.php:346
+msgid "This Month's Most Popular Posts"
+msgstr ""
+
+#: ../modules/post-like.php:385
+msgid "This Week's Most Popular Posts"
+msgstr ""
+
+#: ../modules/post-like.php:404
+msgid "Most Popular Posts"
+msgstr ""
+
+#. Name of the theme
+msgid "Viking Diaries"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "http://nuagegraphik.com"
+msgstr ""
+
+#. Author of the theme
+msgid "Baptiste Régné (@VikingDiaries)"
+msgstr ""

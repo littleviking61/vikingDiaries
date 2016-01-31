@@ -1,7 +1,7 @@
 <!-- pagination -->
 <div class="pagination">
 	<span class="more next">
-		<?= __('Charger les articles plus anciens') ?>
+		<?= __('Load previous Posts', 'html5blank') ?>
 	</span>
 	<div class="pagination-links">
 		<?php html5wp_pagination(); ?>

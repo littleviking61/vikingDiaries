@@ -53,7 +53,7 @@
 				<nav class="nav" role="navigation">
 					<?php html5blank_nav(); ?>
 					<?php if ( current_user_can('manage_options') ): 
-						edit_post_link('edit', '<div class="edit"><ul><li>', '</li></ul></div>'); 
+						edit_post_link('<i class="fa fa-pencil"></i>', '<div class="edit"><ul><li>', '</li></ul></div>'); 
 					endif; ?>
 					<div class="social right">
 						<?php html5blank_nav('social-menu'); ?>

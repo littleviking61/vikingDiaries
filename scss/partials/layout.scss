@@ -38,7 +38,7 @@ body{
 
 main{
 	position: relative;
-	> section{
+	> section, > article > section{
 		padding: $gutter-large 0;
 		margin: 0 auto;
 	}

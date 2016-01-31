@@ -19,7 +19,7 @@
 
 			<div class="pagination top">
 				<a class="more-link" href="<?= get_category_link($cat). 'page/'. ceil($positionArticle / $perPage).'/' ?>">
-					<?= __('Retourner sur le journal') ?>
+					<?= __('Back to the diaries', 'html5blank') ?>
 				</a>
 			</div>
 
@@ -30,7 +30,7 @@
 
 				<!-- article -->
 				<?php 
-				  $content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
+				  $content = get_the_content( __('Read more &rarr;', 'html5blank') );
 				  $type = get_post_format();
 				  $largeur = get_field('largeur');
 				?>
@@ -113,7 +113,7 @@
 
 		<div class="pagination">
 			<a class="more-link" href="<?= get_category_link($cat). 'page/'. ceil($positionArticle / $perPage).'/' ?>">
-				<?= __('Retourner sur le journal') ?>
+				<?= __('Back to the diaries', 'html5blank') ?>
 			</a>
 		</div>
 	<!-- /section -->

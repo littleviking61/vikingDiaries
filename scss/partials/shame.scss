@@ -14,11 +14,6 @@
 	li{
 		list-style: none;
 		margin-left: $gutter;
-		a{
-			text-transform: uppercase;
-			padding: $gutter-small $gutter;
-			border: thin solid white;
-		}
 	}
 }
 
@@ -44,4 +39,11 @@
 
 .sticky-wrapper{
 	height: 0 !important;
+}
+
+.social-count-plus{
+	text-align: center;
+	.flat{
+		display: inline-block;
+	}
 }

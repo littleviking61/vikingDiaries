@@ -67,15 +67,15 @@
 					<nav>
 					    <ul>
 						    <?php if ($presentation): ?>
-						    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation') ?></a></li>
+						    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation', 'html5blank') ?></a></li>
 						    <?php endif ?>
 						    <?php if ($journal): ?>
-						    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal') ?></a></li>
+						    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal', 'html5blank') ?></a></li>
 						    <?php else: ?>
 						    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
 						    <?php endif ?>
 						    <?php if ($carte): ?>
-						    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte') ?></a></li>
+						    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte', 'html5blank') ?></a></li>
 						    <?php endif ?>
 					    </ul>
 					</nav>

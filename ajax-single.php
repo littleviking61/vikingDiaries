@@ -4,7 +4,7 @@
 
 		<!-- article -->
 		<?php 
-			$content = get_the_content( __('Lire la suite &rarr;', 'dw-timeline') );
+			$content = get_the_content( __('Read more &rarr;', 'html5blank') );
 			$type = get_post_format();
 		?>
 
@@ -19,7 +19,7 @@
 				<?php $content = strip_shortcodes($content, 'gallery'); ?>		
 			<?php endif ?>
 			<p><?= apply_filters('the_content', $content) ?></p>
-			<?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'dw- timeline'), 'after' => '</p></nav>')); ?>
+
 		</div>
 		<?php comments_template('/templates/comments.php'); ?>
 		<!-- /article -->

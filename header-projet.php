@@ -39,7 +39,7 @@
 				<img src="/wp-content/uploads/2016/01/viking-first.svg" />
 			<?php endif; ?>
 		</div>
-		<h1><?= __('Journal de bord');?></h1>
+		<h1><?= __('Diaries', 'html5blank');?></h1>
 		<h2><?= $cat->name; ?></h2>
 		<nav>
 			<ul>
@@ -51,7 +51,7 @@
 				<?php endif ?>
 				<?php if ($journal): ?>
 					<li <?= is_category() ? 'class="current"' : '' ?>>
-						<a href="/<?= $cat->slug; ?>"><?= __('Journal') ?></a>
+						<a href="/<?= $cat->slug; ?>"><?= __('Diaries', 'html5blank') ?></a>
 					</li>
 				<?php else: ?>
 					<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
@@ -59,7 +59,7 @@
 				<?php if ($carte): ?>
 					<?php $excludePosts[] = $carte; ?>
 					<li <?= $post->ID === $carte && !is_category() ? 'class="current"' : ''; ?>>
-						<a href="<?= the_permalink($carte) ?>"><?= __('Carte') ?></a>
+						<a href="<?= the_permalink($carte) ?>"><?= __('Map', 'html5blank') ?></a>
 					</li>
 				<?php endif ?>
 			</ul>
@@ -69,7 +69,7 @@
 <?php elseif(is_single()): ?>
 
 	<header class="banner short">
-		<h1><?= __('Journal de bord');?></h1>
+		<h1><?= __('Diaries', 'html5blank');?></h1>
 		<h2><?= $cat->name; ?></h2>
 	</header>
 

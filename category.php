@@ -11,7 +11,7 @@
 			
 			<div class="pagination top">
 				<span class="more pref">
-					<?= __('Charger les articles plus récents') ?>
+					<?= _e('Load recent posts', 'html5blank') ?>
 				</span>
 			</div>
 		<?php endif ?>
