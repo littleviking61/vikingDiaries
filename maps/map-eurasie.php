@@ -183,7 +183,7 @@ function render_map( $el ) {
 	var args = {
 		zoom		: 16,
 		center		: new google.maps.LatLng(0, 0),
-		// scrollwheel: false,
+		scrollwheel: false,
 		mapTypeId	: google.maps.MapTypeId.HYBRID,
 	  // mapTypeControl: false,
     panControl: true,
