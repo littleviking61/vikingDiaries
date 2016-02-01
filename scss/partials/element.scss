@@ -256,7 +256,10 @@ img, iframe{
 .projets{
 	text-align: center;
 
-	
+	ul{
+		padding-left: 0;
+	}
+
 	.projet{
 		display: inline-block;
 		list-style: none;
@@ -279,6 +282,7 @@ img, iframe{
 			width: 50%;
 			text-align: left;
 			min-width: rem-calc(330);
+			max-width: 100%;
 		}
 
 		&.medium{
@@ -468,7 +472,7 @@ img, iframe{
 				padding-left: 0;
 				padding-top: rem-calc(200);
 				position: absolute;
-				right: - rem-calc(50);
+				right: - rem-calc(55);
 				
 				> li{
 					list-style: none;
@@ -670,6 +674,7 @@ img, iframe{
 			.complete, .short{
 				display: block;
 				width: $content-width;
+				max-width: 100%;
 				margin: 0 auto;
 			}
 		}
@@ -701,7 +706,8 @@ img, iframe{
 
 		&.full{
 			.complete, .short, .tools{
-				width: rem-calc(1050);
+				width: rem-calc(960);
+				max-width: 100%;
 			}
 		}
 

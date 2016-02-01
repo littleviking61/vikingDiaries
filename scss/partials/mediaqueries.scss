@@ -1,0 +1,42 @@
+// media querie
+// 
+
+.show-for-medium{
+	display: none;
+}
+
+.show-for-small{
+	display: none;
+}
+
+@media #{$large-down}{
+
+	.content-normal{
+	img.couv{
+			max-width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	.dairies, .single-dairies{
+		width: rem-calc(550);
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+		article{
+			width: 100%;
+
+			&:before, &:after{
+				display: none;
+			}
+		}
+	}
+}
+
+@media #{$extra-large-down}{
+	.single-dairies .tools, .dairies .tools{
+		/* to do move tools...*/
+		display: none;
+	}
+}

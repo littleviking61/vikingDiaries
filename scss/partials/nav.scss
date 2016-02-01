@@ -49,7 +49,7 @@
  			}
  		}
 
- 		&.current-menu-item, &.current_page_item, &:hover{
+ 		&.current-menu-item, &.current_page_item, &:hover, &.current_page_ancestor{
  			i{ opacity: 1; }
 
  			a{

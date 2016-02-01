@@ -396,6 +396,8 @@ img, iframe {
 
 .projets {
   text-align: center; }
+  .projets ul {
+    padding-left: 0; }
   .projets .projet {
     display: inline-block;
     list-style: none;
@@ -410,7 +412,8 @@ img, iframe {
       vertical-align: middle;
       width: 50%;
       text-align: left;
-      min-width: 20.625rem; }
+      min-width: 20.625rem;
+      max-width: 100%; }
     .projets .projet.medium {
       width: 24.875rem; }
       .projets .projet.medium > div {
@@ -540,7 +543,7 @@ img, iframe {
         padding-left: 0;
         padding-top: 12.5rem;
         position: absolute;
-        right: -3.125rem; }
+        right: -3.4375rem; }
         .dairies article .tools > ul > li, .single-dairies article .tools > ul > li {
           list-style: none; }
           .dairies article .tools > ul > li > button, .dairies article .tools > ul > li > share-button, .dairies article .tools > ul > li > a, .single-dairies article .tools > ul > li > button, .single-dairies article .tools > ul > li > share-button, .single-dairies article .tools > ul > li > a {
@@ -664,6 +667,7 @@ img, iframe {
       .dairies article.open .complete, .dairies article.open .short, .dairies article.openned .complete, .dairies article.openned .short, .single-dairies article.open .complete, .single-dairies article.open .short, .single-dairies article.openned .complete, .single-dairies article.openned .short {
         display: block;
         width: 50rem;
+        max-width: 100%;
         margin: 0 auto; }
     .dairies article.loading, .single-dairies article.loading {
       background-repeat: no-repeat;
@@ -679,7 +683,8 @@ img, iframe {
       color: #FF3333;
       content: "Something went wrong, sorry..."; }
     .dairies article.full .complete, .dairies article.full .short, .dairies article.full .tools, .single-dairies article.full .complete, .single-dairies article.full .short, .single-dairies article.full .tools {
-      width: 65.625rem; }
+      width: 60rem;
+      max-width: 100%; }
     .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
       content: '';
       position: absolute;
@@ -767,9 +772,9 @@ img, iframe {
         transition: opacity 0.4s;
         opacity: 0.35;
         margin-right: 6px; }
-    .nav .menu-item.current-menu-item i, .nav .menu-item.current_page_item i, .nav .menu-item:hover i {
+    .nav .menu-item.current-menu-item i, .nav .menu-item.current_page_item i, .nav .menu-item:hover i, .nav .menu-item.current_page_ancestor i {
       opacity: 1; }
-    .nav .menu-item.current-menu-item a, .nav .menu-item.current_page_item a, .nav .menu-item:hover a {
+    .nav .menu-item.current-menu-item a, .nav .menu-item.current_page_item a, .nav .menu-item:hover a, .nav .menu-item.current_page_ancestor a {
       border-bottom-color: white; }
     .nav .menu-item.menu-item-has-children {
       position: relative;
@@ -1956,6 +1961,30 @@ img.mfp-img {
 .fotorama--fullscreen .fotorama__nav:after, .fotorama--fullscreen .fotorama__nav:before, .fotorama--fullscreen .fotorama__stage:after, .fotorama--fullscreen .fotorama__stage:before, .fotorama__wrap--fade .fotorama__stage:after, .fotorama__wrap--fade .fotorama__stage:before, .fotorama__wrap--no-shadows .fotorama__nav:after, .fotorama__wrap--no-shadows .fotorama__nav:before, .fotorama__wrap--no-shadows .fotorama__stage:after, .fotorama__wrap--no-shadows .fotorama__stage:before {
   display: none; }
 
+.show-for-medium {
+  display: none; }
+
+.show-for-small {
+  display: none; }
+
+@media only screen and (max-width: 50rem) {
+  .content-normal img.couv {
+    max-width: 100%;
+    margin-left: 0; }
+
+  .dairies, .single-dairies {
+    width: 34.375rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+    .dairies article, .single-dairies article {
+      width: 100%; }
+      .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
+        display: none; } }
+@media only screen and (max-width: 64rem) {
+  .single-dairies .tools, .dairies .tools {
+    /* to do move tools...*/
+    display: none; } }
 /* shame of you */
 .admin-bar {
   padding-top: 82px;
@@ -1991,5 +2020,10 @@ img.mfp-img {
   text-align: center; }
   .social-count-plus .flat {
     display: inline-block; }
+
+.complete .social-count-plus {
+  text-align: inherit; }
+  .complete .social-count-plus span {
+    color: black !important; }
 
 /*# sourceMappingURL=style.css.map */
