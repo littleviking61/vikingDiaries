@@ -56,7 +56,7 @@
 						  </div>
 						<?php elseif(has_post_thumbnail()) : ?>
 						  <div class="thumbnail image">
-						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('medium_large'); ?></a>
+						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('large'); ?></a>
 						  </div>
 						<?php elseif(get_field('map')) : ?>
 							<div class="thumbnail map">

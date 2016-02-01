@@ -821,7 +821,7 @@ img, iframe {
         -webkit-transition: background-color 0.4s;
         transition: background-color 0.4s; }
         .nav .social li a:hover {
-          background-color: red; }
+          background-color: green; }
       .nav .social li.facebook a:hover {
         background-color: #3B5998; }
       .nav .social li.twitter a:hover {
