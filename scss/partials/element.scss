@@ -78,6 +78,21 @@ img, iframe{
 			margin-top: rem-calc(100);
 		}
 	}
+
+	a{
+		background-color: rgba(black, 0.1);
+
+		&:hover{ 
+			background-color: rgba(black, 0.6);
+		}
+	}
+
+	img.couv{
+		margin: 0;
+		max-width: rem-calc(900);
+		margin-left: - rem-calc(75);
+		margin-bottom: $gutter-big;
+	}
 }
 
 .oEmbed{
@@ -252,6 +267,10 @@ img, iframe{
 
 		a{
 			@extend %button;
+		}
+
+		.thumbnail a{
+			display: block;
 		}
 
 		> div{

@@ -10,8 +10,14 @@
  	max-width: $wrapper-width;
  	padding: 0 $margin-horizontal-large;
  	margin: 0 auto;
- 	@include display-flex;
+ 	//@include display-flex;
  	height: 50px;
+ 	text-align: center;
+	
+	> *{
+		display: inline-block;
+		vertical-align: top;
+	}
 
  	ul{
  		padding: 0;
@@ -21,6 +27,7 @@
  		@include single-transition(max-height, 0.4s);
  		max-height: 0;
  		overflow: hidden;
+ 		text-align: left;
  	}
 
  	.menu-item {
@@ -32,12 +39,12 @@
  			text-decoration: none;
  			color: white;
  			padding: 4px 0;
- 			margin: 0 8px;
- 			border-bottom: thin solid transparent;
+ 			margin: 0 $gutter-medium;
+ 		//	border-bottom: thin solid transparent;
 
  			i{
  				@include single-transition(opacity, 0.4s);
- 				opacity: 0;
+ 				opacity: 0.35;
  				margin-right: 6px;
  			}
  		}
@@ -58,11 +65,16 @@
  				a{
  					display: block;
  					white-space: nowrap;
- 					background-color: rgba(0,0,0,0.5);
+ 					background-color: rgba(0,0,0,0.8);
  					border-bottom: none;
  					padding: $gutter-small $gutter;
 
  					&:hover{
+ 						&:after{ 
+ 							@extend %fa;
+ 							padding-left: $gutter;
+ 							content : "\f178";
+ 						}
 	 					background-color: rgba(0,0,0,1);
  					}
  				}
@@ -83,7 +95,7 @@
  	}
 
  	.social{
- 		// margin-right: $gutter-hudge;
+ 		margin-left: $gutter;
  		margin-top: 0;
 
  		ul{

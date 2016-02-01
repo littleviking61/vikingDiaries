@@ -20,7 +20,13 @@
 								<img src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
 							<?php endif; ?>
 						</div>
-						<h1><?= bloginfo('name' );?></h1>
+						<h1>
+							<?php if (get_field('titre')): ?>
+								<?php the_field('titre') ?>
+							<?php else: ?>
+								<?= bloginfo('name' );?>
+							<?php endif ?>
+						</h1>
 						<h2><?php the_field('texte_daccueil'); ?></h2>
 						<!-- <button class="quickJournal"><?php the_field('acces_rapide'); ?></button> -->
 					</header>

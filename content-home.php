@@ -54,7 +54,7 @@
 				<div class="thumbnail"> 
 					<?php if( !empty($thumbnail) ): ?>
 						<a href="<?= $journal ? get_category_link( $cat ) : the_permalink($presentation); ?>">
-							<img src="<?= $thumbnail['sizes']['large']; ?>" alt="<?= $thumbnail['alt']; ?>" />
+							<img src="<?= $thumbnail['sizes']['medium']; ?>" alt="<?= $thumbnail['alt']; ?>" />
 						</a>
 					<?php endif; ?>
 				</div><!--
