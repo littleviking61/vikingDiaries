@@ -2003,20 +2003,21 @@ img.mfp-img {
 .show-for-small {
   display: none; }
 
+@media only screen and (max-width: 58.125rem) {
+  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+    width: 37.5rem; } }
 @media only screen and (max-width: 50rem) {
   .content-normal img.couv {
     max-width: 100%;
     margin-left: 0; }
 
-  .dairies, .single-dairies {
-    width: 34.375rem;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto; }
-    .dairies article, .single-dairies article {
-      width: 100%; }
-      .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
-        display: none; } }
+  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+    width: 31.25rem; }
+
+  .dairies article, .single-dairies article {
+    width: 100%; }
+    .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
+      display: none; } }
 @media only screen and (min-width: 41.3125rem) and (max-width: 50rem) {
   .nav {
     height: 5rem; }
@@ -2030,6 +2031,9 @@ img.mfp-img {
 @media only screen and (max-width: 41.25rem) {
   .show-for-small {
     display: initial; }
+
+  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+    width: 21.875rem; }
 
   .edit {
     display: none; }
@@ -2087,20 +2091,9 @@ img.mfp-img {
     font-size: 1.25rem; }
   .nav .sub-menu {
     display: none !important; } }
-@media only screen and (max-width: 58.125rem) {
-  .single-dairies article .tools, .dairies article .tools {
-    /* to do move tools...*/
-    max-width: 100%; }
-    .single-dairies article .tools > ul, .dairies article .tools > ul {
-      position: absolute;
-      right: 0.625rem;
-      padding-top: 18.75rem; }
-      .single-dairies article .tools > ul > li > a, .single-dairies article .tools > ul > li > button, .single-dairies article .tools > ul > li > share-button, .dairies article .tools > ul > li > a, .dairies article .tools > ul > li > button, .dairies article .tools > ul > li > share-button {
-        background-color: black; }
-        .single-dairies article .tools > ul > li > a > span, .single-dairies article .tools > ul > li > button > span, .single-dairies article .tools > ul > li > share-button > span, .dairies article .tools > ul > li > a > span, .dairies article .tools > ul > li > button > span, .dairies article .tools > ul > li > share-button > span {
-          display: none; }
-    .single-dairies article .tools.stuck > ul, .dairies article .tools.stuck > ul {
-      right: 0; } }
+@media only screen and (max-width: 30.625rem) {
+  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+    width: 15.625rem; } }
 /* shame of you */
 .admin-bar {
   padding-top: 82px;

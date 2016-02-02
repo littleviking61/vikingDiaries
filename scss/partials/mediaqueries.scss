@@ -9,6 +9,16 @@
 	display: none;
 }
 
+// en dessous de 930
+@media #{$extra-large-down}{
+	.single-dairies article.open, .dairies article.open{
+		.short, .complete, .tools{
+			width: rem-calc(600);
+		}
+	}
+}
+
+// en dessous de 800
 @media #{$large-down}{
 
 	.content-normal{
@@ -17,15 +27,21 @@
 			margin-left: 0;
 		}
 	}
+	
+	.single-dairies article.open, .dairies article.open{
+		.short, .complete, .tools{
+			width: rem-calc(500);
+		}
+	}
 
 	.dairies, .single-dairies{
-		width: rem-calc(550);
-		max-width: 100%;
-		margin-left: auto;
-		margin-right: auto;
 
 		article{
 			width: 100%;
+
+			.short, .complete, .tools{
+				// width: rem-calc(600);
+			}
 
 			&:before, &:after{
 				display: none;
@@ -34,6 +50,7 @@
 	}
 }
 
+// entre 660 et 800 (menu deux lignes)
 @media #{$screen} and (min-width: #{$break-medium + $one}) and (max-width: #{$break-large}) {
 	.nav {
 		height: rem-calc(80);
@@ -50,10 +67,18 @@
 	}
 }
 
+// en dessous de 660
 @media #{$medium-down}{
 	.show-for-small{
 		display: initial;
 	}
+
+	.single-dairies article.open, .dairies article.open{
+		.short, .complete, .tools{
+			width: rem-calc(350);
+		}
+	}
+
 	.edit{
 		display: none;
 	}
@@ -121,11 +146,10 @@
 			}
 
 		}
-
 	}
 }
 
-
+// format paysage en dessous de hauteur 420
 @media #{$screen} and (max-height: rem-calc(420)) and (max-width: #{$break-medium}) {
 	.nav{
 		>ul{
@@ -137,31 +161,10 @@
 	}
 }
 
-@media #{$extra-large-down}{
-	.single-dairies article .tools, .dairies article .tools{
-		/* to do move tools...*/
-		max-width: 100%;
-		> ul{
-			position: absolute;
-			right: $gutter;
-			padding-top: rem-calc(300);
-
-			> li{
-
-				> a, > button, > share-button{
-					background-color: black;
-
-					> span{
-						display: none;
-					}
-				}
-			}
-		}
-		&.stuck{
-			> ul{
-				right: 0;
-			}
+@media #{$small-down}{
+	.single-dairies article.open, .dairies article.open{
+		.short, .complete, .tools{
+			width: rem-calc(250);
 		}
 	}
-
 }

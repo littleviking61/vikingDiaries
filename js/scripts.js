@@ -122,7 +122,7 @@
 	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,150)};return c};
 
 	on_resize(function() {
-		var newWidth = (dairies.width() / 2) - 30;
+		var newWidth = dairies.width() > 615 ? (dairies.width() / 2) - 30 : dairies.width();
 		var isotopeArgNew = { masonry : {  columnWidth: newWidth,  gutter: 60 }  };
   	$grid.isotope($.extend({}, isotopeArgDefault, isotopeArgNew)).isotope('layout');
 	});
