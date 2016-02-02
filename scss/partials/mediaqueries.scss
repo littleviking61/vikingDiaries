@@ -12,7 +12,7 @@
 @media #{$large-down}{
 
 	.content-normal{
-	img.couv{
+		img.couv{
 			max-width: 100%;
 			margin-left: 0;
 		}
@@ -138,9 +138,30 @@
 }
 
 @media #{$extra-large-down}{
-	.single-dairies .tools, .dairies .tools{
+	.single-dairies article .tools, .dairies article .tools{
 		/* to do move tools...*/
-		display: none;
+
+		> ul{
+			position: absolute;
+			right: $gutter;
+			padding-top: rem-calc(300);
+
+			> li{
+
+				a, button, share-button{
+					background-color: black;
+
+					>span{
+						display: none;
+					}
+				}
+			}
+		}
+		&.stuck{
+			> ul{
+				right: 0;
+			}
+		}
 	}
 
 }

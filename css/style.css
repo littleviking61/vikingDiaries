@@ -2087,10 +2087,19 @@ img.mfp-img {
     font-size: 1.25rem; }
   .nav .sub-menu {
     display: none !important; } }
-@media only screen and (max-width: 64rem) {
-  .single-dairies .tools, .dairies .tools {
-    /* to do move tools...*/
-    display: none; } }
+@media only screen and (max-width: 58.125rem) {
+  .single-dairies article .tools, .dairies article .tools {
+    /* to do move tools...*/ }
+    .single-dairies article .tools > ul, .dairies article .tools > ul {
+      position: absolute;
+      right: 0.625rem;
+      padding-top: 18.75rem; }
+      .single-dairies article .tools > ul > li a, .single-dairies article .tools > ul > li button, .single-dairies article .tools > ul > li share-button, .dairies article .tools > ul > li a, .dairies article .tools > ul > li button, .dairies article .tools > ul > li share-button {
+        background-color: black; }
+        .single-dairies article .tools > ul > li a > span, .single-dairies article .tools > ul > li button > span, .single-dairies article .tools > ul > li share-button > span, .dairies article .tools > ul > li a > span, .dairies article .tools > ul > li button > span, .dairies article .tools > ul > li share-button > span {
+          display: none; }
+    .single-dairies article .tools.stuck > ul, .dairies article .tools.stuck > ul {
+      right: 0; } }
 /* shame of you */
 .admin-bar {
   padding-top: 82px;
