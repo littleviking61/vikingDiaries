@@ -55,8 +55,9 @@
 					<div class="social right">
 						<?php html5blank_nav('social-menu'); ?>
 					</div>
+					<li class="show-for-small show-menu"><span><?= __('Menu', 'html5blank') ?></span><span class="burger"><span></span></span></li>
 					<?php if ( current_user_can('manage_options') ): 
-						edit_post_link('<i class="fa fa-pencil"></i>', '<div class="edit"><ul><li>', '</li></ul></div>'); 
+						edit_post_link('<i class="fa fa-pencil"></i>', '<div class="edit">', '</div>'); 
 					endif; ?>
 				</nav>
     </div>

@@ -8,10 +8,10 @@
  .nav {
  	font-family: $font-family-title;
  	max-width: $wrapper-width;
- 	padding: 0 $margin-horizontal-large;
+ 	padding: 0;
  	margin: 0 auto;
  	//@include display-flex;
- 	height: 50px;
+ 	height: rem-calc(50);
  	text-align: center;
 	
 	> *{
@@ -38,14 +38,14 @@
  			text-transform: uppercase;
  			text-decoration: none;
  			color: white;
- 			padding: 4px 0;
+ 			padding: rem-calc(4) 0;
  			margin: 0 $gutter-medium;
  		//	border-bottom: thin solid transparent;
 
  			i{
  				@include single-transition(opacity, 0.4s);
  				opacity: 0.35;
- 				margin-right: 6px;
+ 				margin-right: rem-calc(6);
  			}
  		}
 
@@ -91,6 +91,7 @@
  			margin-top: 30px;
  			top: 0;
  			left: 0;
+ 			z-index: 5;
 		}
  	}
 
@@ -140,6 +141,62 @@
 
  			span{
  				display: none;
+ 			}
+ 		}
+ 	}
+
+ 	.show-menu{
+ 		cursor: pointer;
+ 		text-transform: uppercase;
+ 		width: rem-calc(100);
+    text-align: left;
+    padding: $gutter-small;
+    margin-right: $gutter-small;
+		
+		> span:first-child{
+			display: inline-block;
+	    padding: rem-calc(8);
+	    vertical-align: inherit;
+		}
+
+ 		.burger{
+ 			display: inline-block;
+ 			span, span:before, span:after {
+ 			  cursor: pointer;
+ 			  // border-radius: $one;
+ 			  height: rem-calc(3);
+ 			  width: $gutter-big;
+ 			  background: white;
+ 			  position: absolute;
+ 			  display: block;
+ 			  content: '';
+ 			}
+ 			span:before {
+ 			  top: -10px; 
+ 			}
+ 			span:after {
+ 			  bottom: -10px;
+ 			}
+
+ 			span, span:before, span:after {
+ 			  transition: all 200ms ease-in-out;
+ 			}
+ 		}
+
+ 		&.active{
+ 			.burger{
+ 				span {
+ 				  background-color: transparent;
+ 				}
+ 				span:before, span:after {
+ 				  top: 0;
+ 				}
+ 				span:before {
+ 				  transform: rotate(45deg);
+ 				}
+ 				span:after {
+ 				  transform: rotate(-45deg);
+ 				}
  			}
  		}
  	}

@@ -34,9 +34,113 @@
 	}
 }
 
+@media #{$screen} and (min-width: #{$break-medium + $one}) and (max-width: #{$break-large}) {
+	.nav {
+		height: rem-calc(80);
+		> ul{
+			width: 100%;
+			margin-bottom: 0;
+		}
+		.social{
+			margin-top: - $gutter-medium;
+			> ul{
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+@media #{$medium-down}{
+	.show-for-small{
+		display: initial;
+	}
+	.edit{
+		display: none;
+	}
+
+	.nav{
+		height: auto;
+		@include display-flex;
+		@include flex-wrap(wrap-reverse);
+
+		> ul{
+			@include single-transition(max-height, 0.4s);
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			text-align: right;
+			font-size: $ft-size-big;
+			margin: 0;
+
+			&:after{
+				content: '';
+				width: 100%;
+				height: $gutter-hudge;
+				display: block;
+			}
+
+			&.active{
+				max-height: 100vh;
+			}
+
+			.menu-item{
+				display: block;
+				margin: $gutter 0;
+				a{
+					padding: 0 !important;
+				}
+				i{
+					margin-right: $gutter;
+				}
+			}
+
+			.sub-menu{
+				display: block;
+				position: relative !important;
+				max-height: initial;
+				text-align: right;
+				font-size: $ft-size-medium;
+				margin-top: $gutter-small !important;
+				li{
+					margin: 0;
+				}
+			}
+		}
+
+		.show-menu{
+			margin-left: auto;
+			
+		}
+
+		.social{
+			@include flex-shrink(0);
+			padding-left: $gutter-small;
+
+			ul{
+				margin-bottom: $gutter-small;
+			}
+
+		}
+
+	}
+}
+
+
+@media #{$screen} and (max-height: rem-calc(420)) and (max-width: #{$break-medium}) {
+	.nav{
+		>ul{
+			font-size: $gutter-large;
+		}
+		.sub-menu{
+			display: none !important;
+		}
+	}
+}
+
 @media #{$extra-large-down}{
 	.single-dairies .tools, .dairies .tools{
 		/* to do move tools...*/
 		display: none;
 	}
+
 }

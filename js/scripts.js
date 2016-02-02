@@ -1,12 +1,13 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty = false;
+	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty = false;
 
 	$(function () {
 		// DOM ready, take it away
 		// init Isotope
 		dairies = $('.dairies');
+		menuNav = $('nav.nav > ul');
 
 		isotopeArgDefault = {
 			sortBy : 'date',
@@ -89,6 +90,12 @@
 			e.preventDefault();
 			var target = $(this).closest('.post');
 			closeArticle(target, true);
+		});
+
+		$(document).on( 'click', '.show-menu', function(e){
+			e.preventDefault();
+			$(this).toggleClass('active');
+			menuNav.toggleClass('active');
 		});
 
 		// close article on esc
