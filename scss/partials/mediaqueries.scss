@@ -11,7 +11,7 @@
 
 // en dessous de 930
 @media #{$extra-large-down}{
-	.single-dairies article.open, .dairies article.open{
+	.single-dairies article.openned, .dairies article.open{
 		.short, .complete, .tools{
 			width: rem-calc(600);
 		}
@@ -28,7 +28,7 @@
 		}
 	}
 	
-	.single-dairies article.open, .dairies article.open{
+	.single-dairies article.openned, .dairies article.open{
 		.short, .complete, .tools{
 			width: rem-calc(500);
 		}
@@ -73,7 +73,7 @@
 		display: initial;
 	}
 
-	.single-dairies article.open, .dairies article.open{
+	.single-dairies article.openned, .dairies article.open{
 		.short, .complete, .tools{
 			width: rem-calc(350);
 		}
@@ -162,7 +162,7 @@
 }
 
 @media #{$small-down}{
-	.single-dairies article.open, .dairies article.open{
+	.single-dairies article.openned, .dairies article.open{
 		.short, .complete, .tools{
 			width: rem-calc(250);
 		}

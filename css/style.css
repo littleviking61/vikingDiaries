@@ -2004,14 +2004,14 @@ img.mfp-img {
   display: none; }
 
 @media only screen and (max-width: 58.125rem) {
-  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+  .single-dairies article.openned .short, .single-dairies article.openned .complete, .single-dairies article.openned .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
     width: 37.5rem; } }
 @media only screen and (max-width: 50rem) {
   .content-normal img.couv {
     max-width: 100%;
     margin-left: 0; }
 
-  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+  .single-dairies article.openned .short, .single-dairies article.openned .complete, .single-dairies article.openned .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
     width: 31.25rem; }
 
   .dairies article, .single-dairies article {
@@ -2032,7 +2032,7 @@ img.mfp-img {
   .show-for-small {
     display: initial; }
 
-  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+  .single-dairies article.openned .short, .single-dairies article.openned .complete, .single-dairies article.openned .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
     width: 21.875rem; }
 
   .edit {
@@ -2092,7 +2092,7 @@ img.mfp-img {
   .nav .sub-menu {
     display: none !important; } }
 @media only screen and (max-width: 30.625rem) {
-  .single-dairies article.open .short, .single-dairies article.open .complete, .single-dairies article.open .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
+  .single-dairies article.openned .short, .single-dairies article.openned .complete, .single-dairies article.openned .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
     width: 15.625rem; } }
 /* shame of you */
 .admin-bar {
