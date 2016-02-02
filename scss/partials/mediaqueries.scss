@@ -140,7 +140,7 @@
 @media #{$extra-large-down}{
 	.single-dairies article .tools, .dairies article .tools{
 		/* to do move tools...*/
-
+		max-width: 100%;
 		> ul{
 			position: absolute;
 			right: $gutter;
@@ -148,10 +148,10 @@
 
 			> li{
 
-				a, button, share-button{
+				> a, > button, > share-button{
 					background-color: black;
 
-					>span{
+					> span{
 						display: none;
 					}
 				}
