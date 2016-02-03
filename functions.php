@@ -105,37 +105,17 @@ function html5blank_header_scripts()
             // Modernizr
             wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1');
             
-            wp_register_script('imagesloaded', get_template_directory_uri() . '/js/lib/imagesloaded.pkgd.min.js', array(), '4.1.0');
-            wp_register_script('isotope', get_template_directory_uri() . '/js/lib/isotope.pkgd.min.js', array(), '2.2.2');
-            wp_register_script('fitvids', get_template_directory_uri() . '/js/lib/jquery.fitvids.js', array(), '1.1');
-            wp_register_script('fotorama', get_template_directory_uri() . '/js/lib/fotorama.js', array(), '4.6.3');
-            wp_register_script('magnific', get_template_directory_uri() . '/js/lib/jquery.magnific-popup.min.js', array(), '1.0.0');
-            wp_register_script('scrollTo', get_template_directory_uri() . '/js/lib/jquery.scrollTo.min.js', array(), '2.1.3');
-            wp_register_script('waypoints', get_template_directory_uri() . '/js/lib/jquery.waypoints.min.js', array(), '4.0.0');
-            wp_register_script('waypointssticky', get_template_directory_uri() . '/js/lib/sticky.min.js', array(), '4.0.0');
-            wp_register_script('waypointsinview', get_template_directory_uri() . '/js/lib/inview.min.js', array(), '4.0.0');
-            wp_register_script('share', get_template_directory_uri() . '/js/lib/share-button.min.js', array(), '1.0.0');
-
-            // Custom scripts
+            // for prod
+            wp_register_script('app', get_template_directory_uri() . '/js/lib/app.min.js', array(), '1.0.0');
             wp_register_script(
                 'html5blankscripts',
-                get_template_directory_uri() . '/js/scripts.js',
+                get_template_directory_uri() . '/js/main.min.js',
                 array(
                     'conditionizr',
                     'modernizr',
                     'jquery',
-                    'imagesloaded',
-                    'isotope',
-                    'fotorama',
-                    'magnific',
-                    'scrollTo',
-                    'share',
-                    'waypoints',
-                    'waypointssticky',
-                    'waypointsinview',
-                    'fitvids'),
+                     'app' ),
                 '1.0.0');
-
             // Enqueue Scripts
             wp_enqueue_script('html5blankscripts');
 

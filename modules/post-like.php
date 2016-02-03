@@ -26,15 +26,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * (1) Enqueue scripts for like system
  */
-function like_scripts() {
-	wp_enqueue_script( 'jm_like_post', get_template_directory_uri().'/js/lib/post-like.js', array('jquery'), '1.0', 1 );
-	wp_localize_script( 'jm_like_post', 'ajax_var', array(
-		'url' => admin_url( 'admin-ajax.php' ),
-		'nonce' => wp_create_nonce( 'ajax-nonce' )
-		)
-	);
-}
-add_action( 'init', 'like_scripts' );
+// function like_scripts() {
+// 	wp_enqueue_script( 'jm_like_post', get_template_directory_uri().'/js/lib/post-like.js', array('jquery'), '1.0', 1 );
+// 	wp_localize_script( 'jm_like_post', 'ajax_var', array(
+// 		'url' => admin_url( 'admin-ajax.php' ),
+// 		'nonce' => wp_create_nonce( 'ajax-nonce' )
+// 		)
+// 	);
+// }
+// add_action( 'init', 'like_scripts' );
 
 /**
  * (2) Save like data
