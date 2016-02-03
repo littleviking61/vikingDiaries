@@ -278,7 +278,7 @@
 	    callbacks: {
 				ajaxContentAdded: function(data) {
 					history.pushState({actu: this.currItem.el[0].href}, 'Actu' + this.currItem.el[0].title, this.currItem.el[0].href );
-  				ga('send', 'event', 'ajax', 'click', 'simple', this.currItem.el[0].title);
+  				ga('send', 'pageview', this.currItem.el[0].href);
 					init_actions(this.container);
 				},
 				elementParse: function() {
@@ -377,8 +377,10 @@
 	      if(!moveByHistoty) {
 					if(typeof history.state.article == 'string') {
 		      	history.replaceState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+		      	ga('send', 'pageview', url);
 					}else{
 		      	history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+		      	ga('send', 'pageview', url);
 					}
 	      } 
 	    }).error( function() {
@@ -393,8 +395,10 @@
 			if(!moveByHistoty) {
 				if(typeof history.state.article == 'string') {
 	      	history.replaceState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+	      	ga('send', 'pageview', url);
 				}else{
 	      	history.pushState({article: '#'+target.attr('id')}, 'Article' + target.attr('id'), url);
+	      	ga('send', 'pageview', url);
 				}
       } 
 		}

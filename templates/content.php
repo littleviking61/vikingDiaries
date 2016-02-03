@@ -28,7 +28,7 @@ $type = get_post_format();
       </div>
     <?php elseif(has_post_thumbnail()) : ?>
       <div class="thumbnail image">
-        <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('large', ['class'=> 'lazy']); ?></a>
+        <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('largee', ['class'=> 'lazy']); ?></a>
         <!--<div class="overlay">    
           <span class="entry-date"><a href="<?php the_permalink(); ?>"><time class="published" datetime="<?= get_the_time('c'); ?>"><?= get_the_date('F Y'); ?></time></a></span>
         </div>-->

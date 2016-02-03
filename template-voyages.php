@@ -3,8 +3,8 @@
 	<main role="main">
 		<!-- section -->
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-			<section class="banner">
-				<div class="thumbnail">
+			<header class="banner">
+				<div class="thumbnail circle">
 					<?php 
 					$image = get_field('photo_auteur');
 					if( !empty($image) ): ?>
@@ -18,7 +18,7 @@
 					<h2><?php the_field('texte_daccueil'); ?></h2>
 				<?php endif ?>
 				<!-- <button class="quickJournal"><?php the_field('acces_rapide'); ?></button> -->
-			</section>
+			</header>
 
 			<section class="projets">
 				<h3><?php the_field('titre_aventures'); ?></h3>

@@ -333,12 +333,17 @@ img, iframe {
 
 /* bloc */
 .banner {
-  text-align: center; }
+  text-align: center;
+  padding-top: 1.25rem; }
   .banner .thumbnail {
     padding: 1.25rem 0;
     margin-left: auto;
     margin-right: auto;
     max-width: 37.5rem; }
+    .banner .thumbnail.circle img {
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%; }
   .banner h1 {
     font-size: 1.375rem; }
   .banner h2 {
@@ -726,6 +731,30 @@ img, iframe {
       opacity: 0.7; }
   .mfp-content .complete, .mfp-content .complete a {
     color: #737373; }
+
+.wpcf7-form {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.625rem; }
+  .wpcf7-form > div {
+    width: 50%;
+    padding: 0.625rem; }
+  .wpcf7-form input, .wpcf7-form textarea {
+    width: 100%;
+    border: none;
+    background-color: rgba(250, 250, 250, 0.5);
+    min-height: 1.875rem; }
+  .wpcf7-form textarea {
+    height: 8.125rem; }
+  .wpcf7-form input[type="submit"] {
+    width: auto;
+    background-color: rgba(250, 250, 250, 0.3); }
+  .wpcf7-form .wpcf7-response-output {
+    margin: 0;
+    width: 100%;
+    border-width: thin; }
 
 /**
  * partials/header

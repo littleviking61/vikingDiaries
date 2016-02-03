@@ -13,7 +13,7 @@
 
 					<!-- article -->
 					<header class="banner">
-						<div class="thumbnail">
+						<div class="thumbnail circle">
 							<?php 
 							$image = get_field('photo_auteur');
 							if( !empty($image) ): ?>
