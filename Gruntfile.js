@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             'js/lib/sticky.js',
             'js/lib/inview.js',
             'js/lib/share-button.js',
-            'js/lib/post-like.js'
+            'js/lib/simple-likes-public.js'
         ],
 
         watch: {

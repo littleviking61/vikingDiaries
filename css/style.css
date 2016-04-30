@@ -584,17 +584,17 @@ img, iframe {
               top: 18px;
               width: 1.875rem;
               text-align: left; }
-          .dairies article .tools > ul > li .jm-post-like, .single-dairies article .tools > ul > li .jm-post-like {
+          .dairies article .tools > ul > li .sl-button, .single-dairies article .tools > ul > li .sl-button {
             position: relative;
             padding-top: 19px;
             margin-left: 0px;
             color: transparent; }
-            .dairies article .tools > ul > li .jm-post-like i, .dairies article .tools > ul > li .jm-post-like span, .single-dairies article .tools > ul > li .jm-post-like i, .single-dairies article .tools > ul > li .jm-post-like span {
+            .dairies article .tools > ul > li .sl-button i, .dairies article .tools > ul > li .sl-button span, .single-dairies article .tools > ul > li .sl-button i, .single-dairies article .tools > ul > li .sl-button span {
               position: absolute;
               top: 10px;
               left: 10px;
               color: white; }
-            .dairies article .tools > ul > li .jm-post-like span, .single-dairies article .tools > ul > li .jm-post-like span {
+            .dairies article .tools > ul > li .sl-button span, .single-dairies article .tools > ul > li .sl-button span {
               top: auto;
               left: auto;
               font-size: 0.75rem;
@@ -602,10 +602,10 @@ img, iframe {
               width: 1.875rem;
               text-align: left;
               opacity: 0.4; }
-            .dairies article .tools > ul > li .jm-post-like.liked, .single-dairies article .tools > ul > li .jm-post-like.liked {
+            .dairies article .tools > ul > li .sl-button.liked, .single-dairies article .tools > ul > li .sl-button.liked {
               border-color: #FF3333;
               opacity: 1; }
-            .dairies article .tools > ul > li .jm-post-like.loading i:first-child, .single-dairies article .tools > ul > li .jm-post-like.loading i:first-child {
+            .dairies article .tools > ul > li .sl-button.loading i:first-child, .single-dairies article .tools > ul > li .sl-button.loading i:first-child {
               display: none; }
     .dairies article .tools-short, .single-dairies article .tools-short {
       display: inline-block;
@@ -712,6 +712,13 @@ img, iframe {
   display: none; }
 .single-dairies .show-on-single {
   display: initial; }
+
+.sl-button .sl-loader {
+  display: none; }
+.sl-button.loading:after {
+  content: ""; }
+.sl-button.loading .sl-loader {
+  display: inline; }
 
 .mfp-content .complete {
   background-color: white;

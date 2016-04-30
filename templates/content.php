@@ -44,7 +44,7 @@ $type = get_post_format();
         <div class="tools-short">
           <ul>
             <li>
-              <?= getPostLikeLink( get_the_ID() ) ?>
+              <?= get_simple_likes_button( get_the_ID() ) ?>
             </li>
             <li>
               <share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>" data-flyout="bottom left"></share-button></li>

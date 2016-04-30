@@ -4,7 +4,7 @@
 			<button title="Close (ESC)" type="button" class="close"><i class="fa fa-close"></i></button>
 		</li>
 		<li>
-			<?= getPostLikeLink( get_the_ID() ) ?>
+			<?= get_simple_likes_button( get_the_ID() ) ?>
 		</li>
 		<li>
 			<share-button data-url="<?php the_permalink(); ?>" data-title="<?php the_title() ?>"></share-button></li>

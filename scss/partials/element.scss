@@ -533,7 +533,7 @@ img, iframe{
 						}
 					}
 
-					.jm-post-like{
+					.sl-button{
 						position: relative;
 						padding-top: 19px;
 						margin-left: 0px;
@@ -565,10 +565,6 @@ img, iframe{
 							i:first-child{
 								display: none;
 							}
-						}
-
-						&:before{
-
 						}
 					}
 				}
@@ -751,6 +747,20 @@ img, iframe{
 
 	.show-on-single{
 		display: initial;
+	}
+}
+
+.sl-button{
+	.sl-loader{
+		display: none;
+	}
+	&.loading{
+		&:after{
+			content: ''
+		}
+		.sl-loader{
+			display: inline;
+		}
 	}
 }
 
