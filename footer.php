@@ -10,6 +10,8 @@
 				</p>
 				<!-- /copyright -->
 
+				<?php html5blank_nav('extra-menu'); ?>
+
 			</footer>
 			<!-- /footer -->
 

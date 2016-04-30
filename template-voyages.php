@@ -123,6 +123,7 @@
 			<!-- /article -->
 
 		<?php endif; ?>
+
 		<!-- /section -->
 	</main>
 

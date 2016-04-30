@@ -91,9 +91,9 @@
 </section>
 
 <section class="actus">
-	<h3><?php the_field('titre_actu'); ?></h3>
+	<h3><a href="<?= get_category_link(153); ?>"><?php the_field('titre_actu'); ?></a></h3>
 	<ul class="list">
-		<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'category_name' => 'actus', 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
+		<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'cat' => 153, 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
 		foreach ( $actus as $post ) : setup_postdata( $post ); ?>
 			<li class="actu">
 				<a href="<?php the_permalink(); ?>" class="simple-ajax-popup">

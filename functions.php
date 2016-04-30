@@ -106,7 +106,7 @@ function html5blank_header_scripts()
             wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1');
             
             // for prod
-            wp_register_script('app', get_template_directory_uri() . '/js/lib/app.min.js', array(), '1.0.0');
+             wp_register_script('app', get_template_directory_uri() . '/js/lib/app.min.js', array(), '1.0.0');
             wp_register_script(
                 'html5blankscripts',
                 get_template_directory_uri() . '/js/main.min.js',

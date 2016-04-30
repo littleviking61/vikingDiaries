@@ -1,4 +1,16 @@
 /* shame of you */
+.qtranxs-lang-menu{
+	list-style: none;
+	padding-right: rem-calc(40);
+	> a{
+		display: none;
+	}	
+	ul li{
+		margin-right: $gutter;
+		list-style: none;
+		display: inline-block;
+	}
+}
 
 .admin-bar{
 	padding-top: 82px;

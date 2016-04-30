@@ -27,8 +27,7 @@
 	$icone = get_field('icone', $cat);
 	$carte = get_field('carte', $cat);
 ?>
-
-<?php if ($post->ID === $presentation || $post->ID === $carte || is_category()): ?> 
+<?php if ($cat->term_id !== 153 && ($post->ID === $presentation || $post->ID === $carte || is_category())): ?> 
 	<header class="banner <?= $post->ID === $presentation ? 'presentation' : ($post->ID === $carte ? 'carte' : '') ?>">
 		<div class="thumbnail">
 			<?php 
@@ -70,6 +69,13 @@
 
 	<header class="banner short">
 		<h1><?= __('Diaries', 'html5blank');?></h1>
+		<h2><?= $cat->name; ?></h2>
+	</header>
+
+<?php elseif($cat->term_id === 153): ?>
+
+	<header class="banner short">
+		<h1><?= __('News', 'html5blank');?></h1>
 		<h2><?= $cat->name; ?></h2>
 	</header>
 

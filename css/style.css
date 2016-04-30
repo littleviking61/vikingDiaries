@@ -793,7 +793,7 @@ img, iframe {
       text-decoration: none;
       color: white;
       padding: 0.25rem 0;
-      margin: 0 0.9375rem; }
+      margin: 0 0.625rem; }
       .nav .menu-item a i {
         -moz-transition: opacity 0.4s;
         -o-transition: opacity 0.4s;
@@ -2035,7 +2035,7 @@ img.mfp-img {
 @media only screen and (max-width: 58.125rem) {
   .single-dairies article.openned .short, .single-dairies article.openned .complete, .single-dairies article.openned .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
     width: 37.5rem; } }
-@media only screen and (max-width: 50rem) {
+@media only screen and (max-width: 53.125rem) {
   .content-normal img.couv {
     max-width: 100%;
     margin-left: 0; }
@@ -2047,7 +2047,7 @@ img.mfp-img {
     width: 100%; }
     .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
       display: none; } }
-@media only screen and (min-width: 41.3125rem) and (max-width: 50rem) {
+@media only screen and (min-width: 41.3125rem) and (max-width: 53.125rem) {
   .nav {
     height: 5rem; }
     .nav > ul {
@@ -2124,6 +2124,16 @@ img.mfp-img {
   .single-dairies article.openned .short, .single-dairies article.openned .complete, .single-dairies article.openned .tools, .dairies article.open .short, .dairies article.open .complete, .dairies article.open .tools {
     width: 15.625rem; } }
 /* shame of you */
+.qtranxs-lang-menu {
+  list-style: none;
+  padding-right: 2.5rem; }
+  .qtranxs-lang-menu > a {
+    display: none; }
+  .qtranxs-lang-menu ul li {
+    margin-right: 0.625rem;
+    list-style: none;
+    display: inline-block; }
+
 .admin-bar {
   padding-top: 82px;
   background-position: 32px center; }
