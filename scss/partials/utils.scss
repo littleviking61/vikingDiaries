@@ -6,6 +6,13 @@
 
 
 // clearfix: http://nicolasgallagher.com/micro-clearfix-hack/
+
+a{
+	&:hover{
+		text-decoration: none;
+	}
+}
+
 .clear {
   &:before,
   &:after {
@@ -20,4 +27,27 @@
 
 .reset-box {
   @include reset-box;
+}
+
+.right{
+	margin-left: auto;
+}
+
+/* background angle */
+.skew:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: visible;
+	width: 100%;
+	height: 150vh;
+	background: black;
+	z-index: -1;
+	@include transform(skewY(-1deg));
+	-webkit-backface-visibility: hidden;
+}
+
+.text-big{
+	font-size: $ft-size-big;
 }

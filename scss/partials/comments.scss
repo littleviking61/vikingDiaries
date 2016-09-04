@@ -1,0 +1,174 @@
+
+/* ==========================================================================
+   Comments List
+   ========================================================================== */
+
+.entry-comments{
+   h3{
+      text-align: left !important;
+   }
+}
+
+.comments-single{
+   margin-top: 15px;
+}
+
+.comments{
+   text-align: left;
+
+   .alert {
+      margin-top: 20px;
+   }
+
+   &:not(.no-comments) > h3{
+      border-bottom: 1px solid #ddd;
+   }
+   
+   > h3 {
+      padding-bottom: $gutter-medium;
+      margin: $gutter-hudge 0 $gutter-large;
+      padding-top: $gutter-large;
+      border-top: thin solid $grey;
+      font-family: $font-family-title;
+      font-size: $ft-size-larger;
+      text-transform: uppercase;
+      @include ellipsis(nowrap);
+   }
+
+   .comment-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+   }
+
+   .comment {
+      border-top: 1px solid #ddd;
+      padding: $gutter-medium 0 $gutter-medium 70px;
+      position: relative;
+
+      &:first-child {
+         border-top: none;
+         padding-top: 0;
+      }
+
+      h4 {
+         margin: 5px 0;
+
+         a:after{
+            @extend %fa;
+            content: "\f08e";
+            padding-left: $gutter-medium;
+            font-size: $ft-size-normal;
+         }
+      }
+
+      time {
+         display: block;
+         margin: 0 0 15px;
+         font-size: $ft-size-normal;
+         color: #999;
+      }
+
+      .avatar {
+         border-radius: 40px;
+         position: absolute;
+         left: 0;
+         top: 35px;
+      }
+
+      &:first-child .avatar {
+         top: 0;
+      }
+
+      .comment-action a{
+         padding: $gutter-small $gutter;
+         border: thin solid $grey;
+         margin-right: $gutter-small;
+
+         &:hover{
+            border-color: black;
+         }
+
+         .fa-reply {
+            @include rotateY(180deg);
+         }
+      }
+
+      .children {
+         border-top: 1px solid #ddd;
+         padding: $gutter-medium 0 0;
+         margin: $gutter-medium 0 0;
+         list-style: none;
+
+         li:last-child {
+            padding-bottom: 0;
+         }
+      }
+   }
+
+}
+
+
+/* ==========================================================================
+   Comment Form
+   ========================================================================== */
+
+#respond {
+   margin-top: $gutter-hudge;
+   border-top: 1px solid #ddd;
+
+   > h3 {
+      margin: $gutter-large 0 $gutter-large;
+      font-family: $font-family-title;
+      font-size: $ft-size-larger;
+      text-transform: uppercase;
+      @include ellipsis(nowrap);
+   }
+
+   .comment-reply-title small {
+      font-size: 11px;
+      float: right;
+      letter-spacing: 0;
+      text-transform: none;
+   }
+
+   .form-submit input[type=submit] {
+      padding: $gutter-small $gutter;
+      border: thin solid $grey;
+      margin-right: $gutter-small;
+      background: none;
+
+      &:hover{
+        border-color: black;
+      }
+   }
+
+   .form-group{
+      textarea, input[type='text']{
+         width: 100% !important;
+         border: none;
+         padding: $gutter;
+         background: $grey;
+         margin-bottom: $gutter;
+      }
+
+      label {
+         display: none;
+      }
+   }
+
+   .form-group.required {
+      position: relative;
+
+      .required {
+         position: absolute;
+         right: $gutter;
+         top: 10px;
+         color: $youtube;
+      }
+
+      .form-control {
+         padding-right: $gutter-large;
+      }
+   }
+}

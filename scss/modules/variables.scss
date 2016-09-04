@@ -8,7 +8,8 @@
  * Typography
  */
 
-$font-family-base: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
+$font-family-base: 'Raleway', sans-serif;;
+$font-family-title: 'Poiret One', sans-serif;;
 $font-size-base: 140%;
 $line-height-base: 1.5;
 
@@ -17,21 +18,67 @@ $line-height-base: 1.5;
  * Colors
  */
 
-$text-color: #444;
-$body-bg: #fff;
+$text-color: white;
+$body-bg: black;
 $selection-bg: #04A4CC;
+$text-color-light: #737373;
 
+$grey: #dddddd;
 
+$twitter: #4099FF;
+$facebook: #3B5998;
+$youtube: #FF3333;
 /**
  * Grid
  */
 
-$wrapper-width: 1280px;
+$wrapper-width: 1180px;
+$content-width: rem-calc(800);
 
+// font size
+$ft-size-smallest: rem-calc(8);
+$ft-size-small: rem-calc(10);
+$ft-size-normal: rem-calc(12);
+$ft-size-medium: rem-calc(14);
+$ft-size-large: rem-calc(16);
+$ft-size-larger: rem-calc(18);
+$ft-size-largest: rem-calc(22);
+$ft-size-big: rem-calc(30);
+$ft-size-hudge: rem-calc(40);
+$ft-size-super-hudge: rem-calc(50);
 
-$padding-horizontal-base: 5px;
-$padding-vertical-base: 5px;
-$margin-horizontal-base: 5px;
-$margin-vertical-base: 5px;
+// size
+$one: rem-calc(1);
+$two: $one*2;
+
+// gutter
+$gutter: rem-calc(10); /* ref */
+$gutter-mini: $gutter/3;
+$gutter-small: $gutter/2;
+$gutter-medium: $gutter*1.5;
+$gutter-large: $gutter*2;
+$gutter-big: $gutter*3;
+$gutter-hudge: $gutter*4;
+$gutter-super-hudge: $gutter*6;
+
+$padding-horizontal-base: $gutter-medium;
+$padding-vertical-base: $gutter;
+$margin-horizontal-base: $gutter;
+$margin-vertical-base: $gutter;
 $margin-horizontal-large: 15px;
 $margin-vertical-large: 15px;
+
+// media querie
+// 
+$screen: "only screen";
+$break-small: rem-calc(490);
+$break-medium: rem-calc(660);
+$break-large: rem-calc(850);
+$break-extra-large: rem-calc(930);
+
+$small-down: "#{$screen} and (max-width: #{$break-small})";
+$medium-down: "#{$screen} and (max-width: #{$break-medium})";
+$medium-up: "#{$screen} and (min-width: #{$break-medium})";
+$large-down: "#{$screen} and (max-width: #{$break-large})";
+$large-up: "#{$screen} and (min-width: #{$break-large})";
+$extra-large-down: "#{$screen} and (max-width: #{$break-extra-large})";
