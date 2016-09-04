@@ -1,29 +1,77 @@
 <?php get_header(); ?>
 
 	<main role="main">
-		<!-- section -->
-		<section>
-
-			<h1><?php the_title(); ?></h1>
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<?php the_content(); ?>
+				<?php if (is_front_page()): ?>
+					<?php get_template_part('content','home' ); ?>
+				<?php else: ?>
+					<!-- section -->
 
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
+					<!-- article -->
+					<header class="banner">
+						<div class="thumbnail circle">
+							<?php 
+							$image = get_field('photo_auteur');
+							if( !empty($image) ): ?>
+								<img src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
+							<?php endif; ?>
+						</div>
+						<h1>
+							<?php if (get_field('titre')): ?>
+								<?php the_field('titre') ?>
+							<?php else: ?>
+								<?= bloginfo('name' );?>
+							<?php endif ?>
+						</h1>
+						<h2><?php the_field('texte_daccueil'); ?></h2>
+						<!-- <button class="quickJournal"><?php the_field('acces_rapide'); ?></button> -->
+					</header>
 
-				<br class="clear">
+					<?php 
+						if( have_rows('autres_blocs') ):
 
-				<?php edit_post_link(); ?>
+						 	// loop through the rows of data
+						    while ( have_rows('autres_blocs') ) : the_row(); ?>
+									
+									<section class="bloc">
+										<?php if (get_sub_field('titre')): ?>
+											<h3><?php the_sub_field('titre'); ?></h3>
+										<?php endif ?>
+
+										<?php if (get_sub_field('video')): ?>
+											<div class="video oEmbed">
+											<div class="video oEmbed">
+												<?php the_sub_field('video'); ?>
+											</div>
+										<?php endif ?>
+										
+										<div class="content">
+											<?php the_sub_field('contenu'); ?>
+										</div>
+
+									</section>
+
+						    <?php endwhile;
+
+						endif;
+					?>
+				
+				<?php endif ?>
+
+				<section class="content-normal">
+
+					<?php the_content(); ?>
+
+				</section>
 
 			</article>
-			<!-- /article -->
+			<!-- /section -->
 
-		<?php endwhile; ?>
-
+			<?php endwhile; ?>
 		<?php else: ?>
 
 			<!-- article -->
@@ -35,9 +83,6 @@
 			<!-- /article -->
 
 		<?php endif; ?>
-
-		</section>
-		<!-- /section -->
 	</main>
 
 <?php get_sidebar(); ?>

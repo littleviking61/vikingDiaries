@@ -2,15 +2,30 @@
 
 	<main role="main">
 		<!-- section -->
-		<section>
+			
+		<?php get_template_part('header', 'projet'); ?>
+		
+		<?php if (get_query_var( 'paged' ) !== 0): ?>
+			
+			<div class="pagination top">
+				<span class="more pref">
+					<?= _e('Load recent posts', 'html5blank') ?>
+				</span>
+			</div>
+		<?php endif ?>
+		
+		<section class="dairies middle-line">
 
-			<h1><?php _e( 'Category: ', 'html5blank' ); single_cat_title(); ?></h1>
+			<?php 
+				global $wp_query;
+				$args = array_merge( $wp_query->query_vars, array( 'category__not_in' => array( 165 )  ) );
+				query_posts( $args ); ?>
 
 			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
-
+			
 		</section>
+		
+		<?php get_template_part('pagination'); ?>
 		<!-- /section -->
 	</main>
 

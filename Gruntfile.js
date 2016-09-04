@@ -5,6 +5,20 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        appComponents : [
+            'js/lib/imagesloaded.pkgd.js',
+            'js/lib/isotope.pkgd.js',
+            'js/lib/jquery.fitvids.js',
+            'js/lib/fotorama.js',
+            'js/lib/jquery.magnific-popup.js',
+            'js/lib/jquery.scrollTo.js',
+            'js/lib/jquery.waypoints.js',
+            'js/lib/sticky.js',
+            'js/lib/inview.js',
+            'js/lib/share-button.js',
+            'js/lib/simple-likes-public.js'
+        ],
+
         watch: {
 
             sass: {
@@ -62,8 +76,17 @@ module.exports = function(grunt) {
                     // dest: "/var/www/html/laventurierviking/wp-content/themes/dw-timeline-pro/assets/css/",
 
                     src: "./css",
-                    dest: "/var/www/html/client/oniris/wp-content/themes/oniris-v2",
+                    dest: "/var/www/html/laventurierviking/wp-content/themes/vikingDiaries",
                     host: "laventurier@onlinet",
+                }
+            }
+        },
+
+        uglify: {
+            app: {
+                files: {
+                    'js/lib/app.min.js': '<%= appComponents %>',
+                    'js/main.min.js': 'js/scripts.js'
                 }
             }
         },

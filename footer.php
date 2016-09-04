@@ -3,10 +3,14 @@
 
 				<!-- copyright -->
 				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
+					<?php bloginfo('name'); ?> &copy; <?php echo date('Y'); ?>
+					 - <?php _e('Design by', 'html5blank'); ?>
+					<a href="http://nuagegraphik.fr" target="new" title="Nuagegaphik">Nuagegraphik</a>
+					 - <a href="http://wordpress.org" target="new" title="WordPress">WordPress</a>
 				</p>
 				<!-- /copyright -->
+
+				<?php html5blank_nav('extra-menu'); ?>
 
 			</footer>
 			<!-- /footer -->

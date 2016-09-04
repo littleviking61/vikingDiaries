@@ -6,6 +6,8 @@
  */
 
 require_once "modules/is-debug.php";
+require_once "modules/post-like.php";
+require_once "modules/comments.php";
 
 /*------------------------------------*\
     External Modules/Files
@@ -27,10 +29,11 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+   // add_image_size('largee', 1050, '', true); // Large Thumbnail
+   // add_image_size('medium_large', 1800, '', true); // Large Thumbnail
+   // add_image_size('medium', 550, '', true); // Medium Thumbnail
+   // add_image_size('small', 200, '', true); // Small Thumbnail
+   // add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -63,11 +66,11 @@ if (function_exists('add_theme_support'))
 \*------------------------------------*/
 
 // HTML5 Blank navigation
-function html5blank_nav()
+function html5blank_nav($nav = 'header-menu')
 {
     wp_nav_menu(
     array(
-        'theme_location'  => 'header-menu',
+        'theme_location'  => $nav,
         'menu'            => '',
         'container'       => 'div',
         'container_class' => 'menu-{menu slug}-container',
@@ -94,24 +97,25 @@ function html5blank_header_scripts()
         if (HTML5_DEBUG) {
             // jQuery
             wp_deregister_script('jquery');
-            wp_register_script('jquery', get_template_directory_uri() . '/js/lib/jquery.js', array(), '1.11.1');
+            wp_register_script('jquery', get_template_directory_uri() . '/js/lib/jquery-1.12.0.min.js', array(), '1.12.0');
 
             // Conditionizr
             wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0');
 
             // Modernizr
-            wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr.js', array(), '2.8.3');
-
-            // Custom scripts
+            wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1');
+            
+            // for prod
+             wp_register_script('app', get_template_directory_uri() . '/js/lib/app.min.js', array(), '1.0.0');
             wp_register_script(
                 'html5blankscripts',
-                get_template_directory_uri() . '/js/scripts.js',
+                get_template_directory_uri() . '/js/main.min.js',
                 array(
                     'conditionizr',
                     'modernizr',
-                    'jquery'),
+                    'jquery',
+                     'app' ),
                 '1.0.0');
-
             // Enqueue Scripts
             wp_enqueue_script('html5blankscripts');
 
@@ -142,7 +146,8 @@ function html5blank_styles()
     wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(), '3.0.1');
 
     // Custom CSS
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array('normalize'), '1.0');
+    wp_register_style('sharebutton', get_template_directory_uri() . '/css/share-button.min.css', array(), '1.0');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array('normalize', 'sharebutton'), '1.0');
 
     // Register CSS
     wp_enqueue_style('html5blank');
@@ -155,7 +160,8 @@ function register_html5_menu()
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu' => __('Extra Menu', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'social-menu' => __('Social Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -248,7 +254,9 @@ function html5wp_pagination()
         'base' => str_replace($big, '%#%', get_pagenum_link($big)),
         'format' => '?paged=%#%',
         'current' => max(1, get_query_var('paged')),
-        'total' => $wp_query->max_num_pages
+        'total' => $wp_query->max_num_pages,
+        'show_all' => true,
+        'prev_text' => false
     ));
 }
 
@@ -340,7 +348,7 @@ function html5blankcomments($comment, $args, $depth)
     }
 ?>
     <!-- heads up: starting < for the html tag (li or div) in the next line: -->
-    <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
+    <?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
     <?php if ( 'div' != $args['style'] ) : ?>
     <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
     <?php endif; ?>
@@ -379,7 +387,7 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+//add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -420,6 +428,8 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 
 // Shortcodes above would be nested like this -
 // [html5_shortcode_demo] [html5_shortcode_demo_2] Here's the page title! [/html5_shortcode_demo_2] [/html5_shortcode_demo]
+
+add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio' ) );
 
 /*------------------------------------*\
     Custom Post Types
@@ -477,4 +487,152 @@ function html5_shortcode_demo($atts, $content = null)
 function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
 {
     return '<h2>' . $content . '</h2>';
+}
+
+function my_gallery_shortcode($output, $attr) {
+    global $post;
+
+    static $instance = 0;
+    $instance++;
+
+    // We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+    if ( isset( $attr['orderby'] ) ) {
+        $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+        if ( !$attr['orderby'] )
+            unset( $attr['orderby'] );
+    }
+
+    extract(shortcode_atts(array(
+        'order'      => 'ASC',
+        'orderby'    => 'menu_order ID',
+        'id'         => $post->ID,
+        'itemtag'    => 'dl',
+        'icontag'    => 'dt',
+        'captiontag' => 'dd',
+        'columns'    => 3,
+        'size'       => 'thumbnail',
+        'include'    => '',
+        'exclude'    => ''
+    ), $attr));
+
+    $id = intval($id);
+    if ( 'RAND' == $order )
+        $orderby = 'none';
+
+    if ( !empty($include) ) {
+        $include = preg_replace( '/[^0-9,]+/', '', $include );
+        $_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+
+        $attachments = array();
+        foreach ( $_attachments as $key => $val ) {
+            $attachments[$val->ID] = $_attachments[$key];
+        }
+    } elseif ( !empty($exclude) ) {
+        $exclude = preg_replace( '/[^0-9,]+/', '', $exclude );
+        $attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+    } else {
+        $attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+    }
+
+    if ( empty($attachments) )
+        return '';
+
+    if ( is_feed() ) {
+        $output = "\n";
+        foreach ( $attachments as $att_id => $attachment )
+            $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+        return $output;
+    }
+
+    $selector = "gallery-{$instance}";
+
+    $size_class = sanitize_html_class( $size );
+    $gallery_div = "<div id='$selector' class='gallery galleryid-{$id}'>";
+    $output = '';
+    $output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
+
+    $i = 0;
+    foreach ( $attachments as $id => $attachment ) {
+        // $link = wp_get_attachment_link($id, $size, false, false);
+        // Here we add the image title
+
+        $urlFull = wp_get_attachment_image_src($id, 'full');
+        $urlLarge = is_single() ? wp_get_attachment_image_src($id, 'large') : wp_get_attachment_image_src($id, 'medium');
+
+        $link = "<a href='{$urlLarge[0]}' data-full='{$urlFull[0]}'>";
+        $link .= wp_get_attachment_image($id);
+        $link .= '</a>';
+
+        $output .= "$link";
+        if ( $captiontag && trim($attachment->post_excerpt) ) {
+            $output .= wptexturize($attachment->post_excerpt);
+        }
+    }
+
+    $output .= "
+        </div>\n";
+
+    return $output;
+}
+add_filter('post_gallery', 'my_gallery_shortcode', 10, 2);
+
+// bookmark
+function bigmap_shortcode( $atts = array(), $content = "" ) {
+    // $allMarker = true;
+    $values = shortcode_atts(array(
+            'height' => '600px'
+        ),$atts);
+
+    $template = locate_template( 'maps/map-'.$content.'.php' );
+    if(file_exists($template)) {
+        ob_start();
+        include($template);
+        $content = ob_get_contents();
+        ob_end_clean();
+    }
+    return $content;
+}
+add_shortcode( 'map', 'bigmap_shortcode' );
+
+// Add Shortcode
+function social_share_shortcode() {
+    return '<share-button></share-button>';
+}
+add_shortcode( 'share', 'social_share_shortcode' );
+
+// Add Shortcode
+function scp_all_shortcode() {
+    return get_scp_widget();
+}
+add_shortcode( 'scps', 'scp_all_shortcode' );
+
+add_filter( 'template_include', 'baw_template_include' );
+function baw_template_include( $template ) {
+    if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && $_SERVER['HTTP_X_REQUESTED_WITH']== 'BAWXMLHttpRequest' ):
+        $pre = dirname( $template );
+        $suf = basename( $template );
+        $_template = $pre . '/ajax-' . $suf;
+        if( !file_exists( $_template ) )
+            $_template = $template;
+        $template = $_template;
+    endif;
+    return $template;
+}
+
+function load_the_template($template) {
+    $template = locate_template( $template );
+    if(file_exists($template)) {
+      include($template);
+    }
+}
+
+add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+function my_embed_oembed_html($html, $url, $attr, $post_id) {
+  return '<div class="oEmbed">' . $html . '</div>';
+}
+
+//Display website on new window when readers click Commenter's name
+add_filter( "get_comment_author_link", "pxzoom_modifiy_comment_author_anchor" );
+function pxzoom_modifiy_comment_author_anchor( $author_link ){
+    return str_replace( "<a", "<a target='new'", $author_link );
 }
