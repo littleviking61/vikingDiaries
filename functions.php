@@ -636,3 +636,6 @@ add_filter( "get_comment_author_link", "pxzoom_modifiy_comment_author_anchor" );
 function pxzoom_modifiy_comment_author_anchor( $author_link ){
     return str_replace( "<a", "<a target='new'", $author_link );
 }
+
+// add better jpeg
+add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );

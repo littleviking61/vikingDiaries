@@ -1,37 +1,52 @@
 <header class="banner">
-	<div class="thumbnail circle">
+	<div class="thumbnail <?= get_field('photo_round') ? 'circle' : '';?>">
 		<?php 
 		$image = get_field('photo_auteur');
 		if( !empty($image) ): ?>
 			<img src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
 		<?php endif; ?>
 	</div>
-	<h1><?= bloginfo('name' );?></h1>
+	<?php if (get_field('titre')): ?>
+		<h1><?php the_field('titre'); ?></h1>
+	<?php else: ?>
+		<h1><?= bloginfo('name' );?></h1>
+	<?php endif ?>
 	<h2><?php the_field('texte_daccueil'); ?></h2>
 	<!-- <button class="quickJournal"><?php the_field('acces_rapide'); ?></button> -->
 </header>
 
-<section class="highlight video">
-	<?php if (get_field('titre_a_lhonneur')): ?>
-		<h3><?php the_field('titre_a_lhonneur'); ?></h3>
-	<?php endif ?>
+<?php if (get_field('has_honneur')): ?>
+	<section class="highlight video">
 
-	<?php if (get_field('video_a_lhonneur')): ?>
-		<div class="video oEmbed">
-			<?php the_field('video_a_lhonneur'); ?>
+		<?php if (get_field('video_a_lhonneur')): ?>
+			<div class="video oEmbed">
+				<?php the_field('video_a_lhonneur'); ?>
+			</div>
+		<?php else: ?>
+			<div class="image">
+				<?php $thumbnail = get_sub_field('image_a_lhonneur'); ?>
+				<img src="<?= $thumbnail['sizes']['large']; ?>" alt="<?= $thumbnail['alt']; ?>" />
+			</div>
+		<?php endif ?>
+		
+		<div class="content">
+			<?php the_field('contenu_a_lhonneur'); ?>
 		</div>
-	<?php else: ?>
-		<div class="image">
-			<?php $thumbnail = get_sub_field('image_a_lhonneur'); ?>
-			<img src="<?= $thumbnail['sizes']['large']; ?>" alt="<?= $thumbnail['alt']; ?>" />
-		</div>
-	<?php endif ?>
-	
-	<div class="content">
-		<?php the_field('contenu_a_lhonneur'); ?>
-	</div>
 
-</section>
+	</section>
+<?php endif ?>
+
+<?php if (get_field('has_actu_honneur')): ?>
+	<section class="dairies middle-line">
+		<?php $categorie_actu = get_field('categorie_des_actus_honneur') === "" ? 153 : get_field('categorie_des_actus_honneur'); ?>	
+		<h3><a href="<?= get_category_link($categorie_actu); ?>"><?php the_field('titre_actu_honneur'); ?></a></h3>
+		<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu_honneur'), 'cat' => $categorie_actu, 'category__not_in' => array( 165 )]) ;
+			foreach ( $actus as $post ) : setup_postdata( $post );
+				get_template_part('templates/content', get_post_format()); 
+			endforeach;
+			wp_reset_postdata();?>
+	</section>
+<?php endif ?>
 
 <section class="projets">
 	<h3><?php the_field('titre_aventures'); ?></h3>
@@ -90,23 +105,26 @@
 
 </section>
 
-<section class="actus">
-	<h3><a href="<?= get_category_link(153); ?>"><?php the_field('titre_actu'); ?></a></h3>
-	<ul class="list">
-		<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'cat' => 153, 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
-		foreach ( $actus as $post ) : setup_postdata( $post ); ?>
-			<li class="actu">
-				<a href="<?php the_permalink(); ?>" class="simple-ajax-popup">
-					<div class="thumbnail">
-						<?php the_post_thumbnail('medium'); ?>
-					</div>
-					<h4><?php the_title(); ?></h4>
-				</a>
-			</li>
-		<?php endforeach; 
-		wp_reset_postdata();?>
-	</ul>
-</section>
+<?php if (get_field('has_actu')): ?>
+	<section class="actus">
+		<?php $categorie_actu = get_field('categorie_des_actus') === "" ? 153 : get_field('categorie_des_actus'); ?>	
+		<h3><a href="<?= get_category_link($categorie_actu); ?>"><?php the_field('titre_actu'); ?></a></h3>
+		<ul class="list">
+			<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'cat' => $categorie_actu, 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
+			foreach ( $actus as $post ) : setup_postdata( $post ); ?>
+				<li class="actu">
+					<a href="<?php the_permalink(); ?>" class="simple-ajax-popup">
+						<div class="thumbnail">
+							<?php the_post_thumbnail('medium'); ?>
+						</div>
+						<h4><?php the_title(); ?></h4>
+					</a>
+				</li>
+			<?php endforeach; 
+			wp_reset_postdata();?>
+		</ul>
+	</section>
+<?php endif ?>
 
 <?php 
 	if( have_rows('autres_blocs') ):
