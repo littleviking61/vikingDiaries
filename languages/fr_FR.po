@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Viking Diaries\n"
+"Project-Id-Version: Trad site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Sun Jan 31 2016 17:50:31 GMT+0100 (CET)\n"
-"PO-Revision-Date: Sat Apr 30 2016 21:34:16 GMT+0200 (CEST)\n"
+"POT-Creation-Date: 2016-09-11 22:26+0200\n"
+"PO-Revision-Date: Sun Sep 11 2016 22:27:30 GMT+0200 (CEST)\n"
 "Last-Translator: nuagegraphik <baptiste.regne@yahoo.fr>\n"
 "Language-Team: \n"
 "Language: French (France)\n"
@@ -22,308 +22,315 @@ msgstr ""
 "X-Loco-Target-Locale: fr_FR\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: ../functions.php:181
+#: content-home.php:141 templates/projet.php:23
+msgid "Dairy"
+msgstr "Journal"
+
+#: functions.php:161
 msgid "Header Menu"
 msgstr ""
 
-#: ../functions.php:182
+#: functions.php:162
 msgid "Sidebar Menu"
 msgstr ""
 
-#: ../functions.php:183
+#: functions.php:163
 msgid "Extra Menu"
 msgstr ""
 
-#: ../functions.php:184
+#: functions.php:164
 msgid "Social Menu"
 msgstr ""
 
-#: ../functions.php:237
+#: functions.php:217
 msgid "Widget Area 1"
 msgstr ""
 
-#: ../functions.php:238 ../functions.php:249
+#: functions.php:218 functions.php:229
 msgid "Description for this widget-area..."
 msgstr ""
 
-#: ../functions.php:248
+#: functions.php:228
 msgid "Widget Area 2"
 msgstr ""
 
-#: ../functions.php:466 ../functions.php:467
+#: functions.php:446 functions.php:447
 msgid "HTML5 Blank Custom Post"
 msgstr ""
 
-#: ../functions.php:468
+#: functions.php:448
 msgid "Add New"
 msgstr ""
 
-#: ../functions.php:469
+#: functions.php:449
 msgid "Add New HTML5 Blank Custom Post"
 msgstr ""
 
-#: ../functions.php:470
+#: functions.php:450
 msgid "Edit"
 msgstr ""
 
-#: ../functions.php:471
+#: functions.php:451
 msgid "Edit HTML5 Blank Custom Post"
 msgstr ""
 
-#: ../functions.php:472
+#: functions.php:452
 msgid "New HTML5 Blank Custom Post"
 msgstr ""
 
-#: ../functions.php:473 ../functions.php:474
+#: functions.php:453 functions.php:454
 msgid "View HTML5 Blank Custom Post"
 msgstr ""
 
-#: ../functions.php:475
+#: functions.php:455
 msgid "Search HTML5 Blank Custom Post"
 msgstr ""
 
-#: ../functions.php:476
+#: functions.php:456
 msgid "No HTML5 Blank Custom Posts found"
 msgstr ""
 
-#: ../functions.php:477
+#: functions.php:457
 msgid "No HTML5 Blank Custom Posts found in Trash"
 msgstr ""
 
-#. Name of the template
-msgid "Page Voyages"
+#: header.php:57
+msgid "Menu"
 msgstr ""
 
-#: ../templates/comments.php:80
-msgid "Au plaisir de vous lire !"
+#: modules/post-like.php:32 modules/post-like.php:225 modules/post-like.php:348
+msgid "Like"
 msgstr ""
 
-#: ../templates/entry-meta.php:14
-#, php-format
-msgid "%1$s"
+#: modules/post-like.php:33 modules/post-like.php:221
+msgid "Unlike"
 msgstr ""
 
-#: ../templates/comment.php:5
+#: modules/post-like.php:47
+msgid "Not permitted"
+msgstr ""
+
+#: modules/post-like.php:390
+msgid "You do not like anything yet."
+msgstr ""
+
+#: templates/comment.php:5
 #, php-format
 msgid "%1$s à %2$s"
 msgstr ""
 
-#: ../modules/post-like.php:307
-msgid "Today's Most Popular Posts"
+#: templates/entry-meta.php:14
+#, php-format
+msgid "%1$s"
 msgstr ""
 
-#: ../modules/post-like.php:346
-msgid "This Month's Most Popular Posts"
-msgstr ""
-
-#: ../modules/post-like.php:385
-msgid "This Week's Most Popular Posts"
-msgstr ""
-
-#: ../modules/post-like.php:404
-msgid "Most Popular Posts"
-msgstr ""
-
-#. Name of the theme
-msgid "Viking Diaries"
-msgstr ""
-
-#. Theme URI of the theme
-msgid "http://nuagegraphik.com"
-msgstr ""
-
-#. Author of the theme
-msgid "Baptiste Régné (@VikingDiaries)"
-msgstr ""
-
-msgid "News"
-msgstr "Actualitées"
-
-#: ../searchform.php:3
-msgid "To search, type and hit enter."
-msgstr "Remplir puis appuyer sur entrer pour rechercher"
-
-#: ../searchform.php:4
-msgid "Search"
-msgstr "Rechercher"
-
-#: ../404.php:10
+#: 404.php:10
 msgid "Page not found"
 msgstr "Page non trouvée"
 
-#: ../404.php:12
+#: 404.php:12
 msgid "Return home?"
 msgstr "Retour à la page d'accueil ?"
 
-#: ../category.php:14
-msgid "Load recent posts"
-msgstr "Charger les articles plus récents"
-
-#: ../content-home.php:70 ../header-projet.php:49 ../template-voyages.php:56
-msgid "Presentation"
-msgstr "Présentation"
-
-#: ../content-home.php:73
-msgid "Journal"
-msgstr "Journal"
-
-#: ../content-home.php:78
-msgid "Carte"
-msgstr "Carte"
-
-#: ../search.php:7
-#, php-format
-msgid "%s Search Results for "
-msgstr "Résultats pour %s "
-
-#: ../author.php:9
-msgid "Author Archives for "
-msgstr "Archive de l'auteur pour"
-
-#: ../author.php:15
-msgid "About "
-msgstr "A propos"
-
-#: ../author.php:46
-msgid "Published by"
-msgstr "Publié par"
-
-#: ../author.php:47
-msgid "Leave your thoughts"
-msgstr "Donner votre avis"
-
-#: ../author.php:47
-msgid "1 Comment"
-msgstr "1 commentaire"
-
-#: ../author.php:47
-#, php-format
-msgid "% Comments"
-msgstr "% commentaires"
-
-#: ../author.php:66 ../single.php:105 ../loop.php:7 ../ajax-single.php:34 ../tag.
-#: php:38 ../page.php:68
-msgid "Sorry, nothing to display."
-msgstr "Désolé, aucun contenu disponible."
-
-#: ../index.php:7
-msgid "Latest Posts"
-msgstr "Derniers articles"
-
-#: ../footer.php:7
-msgid "Design by"
-msgstr "Designer par"
-
-#: ../single.php:22 ../single.php:116
-msgid "Back to the diaries"
-msgstr "Retourner sur le journal"
-
-#: ../single.php:33 ../ajax-single.php:7 ../templates/content.php:2
+#: ajax-single.php:7 single.php:33 templates/content.php:2
 msgid "Read more &rarr;"
 msgstr "Lire la suite &rarr;"
 
-#: ../content-tools.php:13 ../templates/comments.php:80 ../templates/content.php:53
-msgid "Comment"
-msgstr "Commentaire"
+#: ajax-single.php:35 author.php:66 loop.php:7 page.php:80 single.php:105
+#: tag.php:38 template-voyages.php:120
+msgid "Sorry, nothing to display."
+msgstr "Désolé, aucun contenu disponible."
 
-#: ../content-tools.php:18 ../templates/entry-meta.php:4
-msgid "See on the map"
-msgstr "Voir sur une carte"
-
-#: ../header-projet.php:42 ../header-projet.php:54 ../header-projet.php:72 ..
-#: template-voyages.php:59
-msgid "Diaries"
-msgstr "Journal"
-
-#: ../header-projet.php:62 ../template-voyages.php:64
-msgid "Map"
-msgstr "Carte"
-
-#: ../archive.php:7
+#: archive.php:7
 msgid "Archives"
 msgstr "Archives"
 
-#: ../ajax-single.php:22
-msgid "Pages:"
-msgstr "Pages :"
+#: author.php:9
+msgid "Author Archives for "
+msgstr "Archive de l'auteur pour"
 
-#: ../pagination.php:4
-msgid "Load previous Posts"
-msgstr "Charger les articles plus anciens"
+#: author.php:15
+msgid "About "
+msgstr "A propos"
 
-#: ../functions.php:316
+#: author.php:46
+msgid "Published by"
+msgstr "Publié par"
+
+#: author.php:47
+msgid "Leave your thoughts"
+msgstr "Donner votre avis"
+
+#: author.php:47
+msgid "1 Comment"
+msgstr "1 commentaire"
+
+#: author.php:47
+#, c-format
+msgid "% Comments"
+msgstr "% commentaires"
+
+#: category.php:12 index.php:36
+msgid "Load recent posts"
+msgstr "Charger les articles plus récents"
+
+#: content-home.php:69
+msgid "Read more about this project"
+msgstr "En savoir plus sur le projet"
+
+#: content-home.php:77
+msgid "From most recent information"
+msgstr "Aux dernières nouvelles"
+
+#: content-home.php:81
+msgid "All's fine"
+msgstr "Tout va bien"
+
+#: content-home.php:81
+msgid "I have some trouble"
+msgstr "J'ai des petits soucis"
+
+#: content-home.php:82
+msgid "I'm at"
+msgstr "Je suis à"
+
+#: content-home.php:84
+msgid "And I travel since"
+msgstr "Et je voyage depuis"
+
+#: content-home.php:84
+msgid "days"
+msgstr "jours"
+
+#: content-home.php:85
+msgid "Track the viking"
+msgstr "Suivre le tracé du viking"
+
+#: content-home.php:138 header-projet.php:46 template-voyages.php:57
+#: templates/projet.php:20
+msgid "Presentation"
+msgstr "Présentation"
+
+#: content-home.php:146 header-projet.php:59 template-voyages.php:65
+#: templates/projet.php:28
+msgid "Map"
+msgstr "Carte"
+
+#: content-tools.php:13 templates/comments.php:80 templates/content.php:53
+msgid "Comment"
+msgstr "Commentaire"
+
+#: content-tools.php:18 templates/entry-meta.php:4
+msgid "See on the map"
+msgstr "Voir sur une carte"
+
+#: footer.php:7
+msgid "Design by"
+msgstr "Designer par"
+
+#: functions.php:296
 msgid "View Article"
 msgstr "Voir l'article"
 
-#: ../functions.php:377
+#: functions.php:357
 #, php-format
 msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
 msgstr "<cite class=\"fn\">%s</cite> <span class=\"says\">dit:</span>"
 
-#: ../functions.php:380 ../templates/comment.php:11
+#: functions.php:360 templates/comment.php:11
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: ../functions.php:386
+#: functions.php:366
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: ../functions.php:386
+#: functions.php:366
 msgid "(Edit)"
 msgstr "(Éditer)"
 
-#: ../templates/comments.php:13
+#: header-projet.php:40 header-projet.php:51 header-projet.php:69
+#: template-voyages.php:60
+msgid "Diaries"
+msgstr "Journal"
+
+#: header-projet.php:76
+msgid "News"
+msgstr "Actualitées"
+
+#: modules/post-like.php:364
+msgid "You Like:"
+msgstr "Vous aimez :"
+
+#: pagination.php:4
+msgid "Load previous Posts"
+msgstr "Charger les articles plus anciens"
+
+#: search.php:7
 #, php-format
-msgid "One answer to &ldquo; %2$s &rdquo;"
-msgstr "Une réponse à &ldquo; %2$s &rdquo;"
+msgid "%s Search Results for "
+msgstr "Résultats pour %s "
 
-#: ../templates/comments.php:28
-msgid "&larr; Older comments"
-msgstr "&larr; Anciens commentaires\n"
+#: searchform.php:3
+msgid "To search, type and hit enter."
+msgstr "Remplir puis appuyer sur entrer pour rechercher"
 
-#: ../templates/comments.php:31
-msgid "Newer comments &rarr;"
-msgstr "Nouveaux commentaires &rarr;"
+#: searchform.php:4
+msgid "Search"
+msgstr "Rechercher"
 
-#: ../templates/comments.php:39 ../templates/comments.php:50
-msgid "Comments are closed."
-msgstr "Les commentaires sont fermés."
+#: single.php:22 single.php:116
+msgid "Back to the diaries"
+msgstr "Retourner sur le journal"
 
-#: ../templates/comments.php:57
-msgid "And you, what to you think ?"
-msgstr "Et vous vous en pensez quoi ?"
-
-#: ../templates/comments.php:58
-msgid "Send a comment"
-msgstr "Envoyer un commentaire"
-
-#: ../templates/comments.php:64 ../templates/comments.php:65
-msgid "Name"
-msgstr "Nom"
-
-#: ../templates/comments.php:69 ../templates/comments.php:70
-msgid "Email"
-msgstr "Mail"
-
-#: ../templates/comments.php:75 ../templates/comments.php:76
-msgid "Website"
-msgstr "Site"
-
-#: ../templates/comment.php:19
+#: templates/comment.php:19
 #, php-format
 msgid "%s Reply"
 msgstr "%s Repondre"
 
-#: ../templates/comment.php:21
+#: templates/comment.php:21
 #, php-format
 msgid "%s edit"
 msgstr "%s éditer"
 
-#: ../modules/post-like.php:208 ../modules/post-like.php:268
-msgid "You Like:"
-msgstr "Vous aimez :"
+#: templates/comments.php:13
+#, php-format
+msgid "One answer to &ldquo; %2$s &rdquo;"
+msgstr "Une réponse à &ldquo; %2$s &rdquo;"
 
-#: ../modules/post-like.php:232
-msgid "You don't like anything yet."
-msgstr "Vous aimez rien pou le moment"
+#: templates/comments.php:28
+msgid "&larr; Older comments"
+msgstr "&larr; Anciens commentaires\n"
+
+#: templates/comments.php:31
+msgid "Newer comments &rarr;"
+msgstr "Nouveaux commentaires &rarr;"
+
+#: templates/comments.php:39 templates/comments.php:50
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: templates/comments.php:57
+msgid "And you, what to you think ?"
+msgstr "Et vous vous en pensez quoi ?"
+
+#: templates/comments.php:58
+msgid "Send a comment"
+msgstr "Envoyer un commentaire"
+
+#: templates/comments.php:64 templates/comments.php:65
+msgid "Name"
+msgstr "Nom"
+
+#: templates/comments.php:69 templates/comments.php:70
+msgid "Email"
+msgstr "Mail"
+
+#: templates/comments.php:75 templates/comments.php:76
+msgid "Website"
+msgstr "Site"
+
+#: templates/comments.php:80
+msgid "Looking forward to reading you !"
+msgstr "Au plaisir de vous lire !"

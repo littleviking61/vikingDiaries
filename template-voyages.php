@@ -48,7 +48,7 @@
 							--><div class="details">
 								<h4>
 									<a href="<?= $journal ? get_category_link( $cat ) : the_permalink($presentation); ?>">
-										<?= $cat->name; ?>
+										<?= apply_filters('the_title', $cat->name) ?>
 									</a>
 								</h4>
 								<nav>
@@ -117,7 +117,7 @@
 			<!-- article -->
 			<article>
 
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+				<h2><?php __( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
 
 			</article>
 			<!-- /article -->

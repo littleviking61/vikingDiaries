@@ -11,7 +11,7 @@
 				--><div class="details">
 					<h4>
 						<a href="<?= $journal ? get_category_link( $cat ) : the_permalink($presentation); ?>">
-							<?= $cat->name; ?>
+							<?= apply_filters('the_title', $cat->name) ?>
 						</a>
 					</h4>
 					<nav>
@@ -20,12 +20,12 @@
 						    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation', 'html5blank') ?></a></li>
 						    <?php endif ?>
 						    <?php if ($journal): ?>
-						    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal', 'html5blank') ?></a></li>
+						    	<li><a href="/<?= $cat->slug; ?>"><?= __('Dairy', 'html5blank') ?></a></li>
 						    <?php else: ?>
 						    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
 						    <?php endif ?>
 						    <?php if ($carte): ?>
-						    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte', 'html5blank') ?></a></li>
+						    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Map', 'html5blank') ?></a></li>
 						    <?php endif ?>
 					    </ul>
 					</nav>

@@ -38,7 +38,7 @@
 			<?php endif; ?>
 		</div>
 		<h1><?= __('Diaries', 'html5blank');?></h1>
-		<h2><?= $cat->name; ?></h2>
+		<h2><?= apply_filters('the_title', $cat->name); ?></h2>
 		<nav>
 			<ul>
 				<?php if ($presentation): ?>
@@ -67,14 +67,14 @@
 
 	<header class="banner short">
 		<h1><?= __('Diaries', 'html5blank');?></h1>
-		<h2><?= $cat->name; ?></h2>
+		<h2><?= apply_filters('the_title', $cat->name) ?></h2>
 	</header>
 
 <?php elseif($cat->term_id === 153): ?>
 
 	<header class="banner short">
 		<h1><?= __('News', 'html5blank');?></h1>
-		<h2><?= $cat->name; ?></h2>
+		<h2><?= apply_filters('the_title', $cat->name) ?></h2>
 	</header>
 
 <?php endif; ?>

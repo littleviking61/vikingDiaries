@@ -77,7 +77,7 @@
           '" class="form-control" /></div>'
         )
       ),
-      'comment_field' => '<div class="form-group"><label for="comment">' . __( 'Comment', 'html5blank' ) . '</label><textarea placeholder="' . __( 'Au plaisir de vous lire !', 'html5blank' ) . '" name="comment" id="comment" class="form-control" rows="5" aria-required="true"></textarea></div>',
+      'comment_field' => '<div class="form-group"><label for="comment">' . __( 'Comment', 'html5blank' ) . '</label><textarea placeholder="' . __( 'Looking forward to reading you !', 'html5blank' ) . '" name="comment" id="comment" class="form-control" rows="5" aria-required="true"></textarea></div>',
     );
 
     comment_form($comments_args); ?>

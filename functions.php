@@ -357,7 +357,7 @@ function html5blankcomments($comment, $args, $depth)
     <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
     </div>
 <?php if ($comment->comment_approved == '0') : ?>
-    <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
+    <em class="comment-awaiting-moderation"><?php __('Your comment is awaiting moderation.') ?></em>
     <br />
 <?php endif; ?>
 

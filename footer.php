@@ -4,7 +4,7 @@
 				<!-- copyright -->
 				<p class="copyright">
 					<?php bloginfo('name'); ?> &copy; <?php echo date('Y'); ?>
-					 - <?php _e('Design by', 'html5blank'); ?>
+					 - <?php __('Design by', 'html5blank'); ?>
 					<a href="http://nuagegraphik.fr" target="new" title="Nuagegaphik">Nuagegraphik</a>
 					 - <a href="http://wordpress.org" target="new" title="WordPress">WordPress</a>
 				</p>

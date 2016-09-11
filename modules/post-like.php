@@ -361,7 +361,7 @@ add_action( 'edit_user_profile', 'show_user_likes' );
 function show_user_likes( $user ) { ?>        
 	<table class="form-table">
 		<tr>
-			<th><label for="user_likes"><?php _e( 'You Like:', 'html5blank' ); ?></label></th>
+			<th><label for="user_likes"><?php __( 'You Like:', 'html5blank' ); ?></label></th>
 			<td>
 			<?php
 			$types = get_post_types( array( 'public' => true ) );
@@ -387,7 +387,7 @@ function show_user_likes( $user ) { ?>
 			?>
 			</p>
 			<?php else : ?>
-			<p><?php _e( 'You do not like anything yet.', 'html5blank' ); ?></p>
+			<p><?php __( 'You do not like anything yet.', 'html5blank' ); ?></p>
 			<?php 
 			endif; 
 			wp_reset_postdata(); 

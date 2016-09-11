@@ -9,7 +9,7 @@
 			
 			<div class="pagination top">
 				<span class="more pref">
-					<?= _e('Load recent posts', 'html5blank') ?>
+					<?= __('Load recent posts', 'html5blank') ?>
 				</span>
 			</div>
 		<?php endif ?>

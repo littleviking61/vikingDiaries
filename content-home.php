@@ -61,28 +61,28 @@
 	    	--><div class="details">
 	    		<h4>
 	    			<a href="<?= $journal ? get_category_link( $cat_honneur ) : the_permalink($presentation); ?>">
-	    				<?= $cat_honneur->name; ?>
+	    				<?= apply_filters('the_title', $cat_honneur->name) ?>
 	    			</a>
 	    		</h4>
 	    		<div class="content">
 	    			<?=  apply_filters('the_content', $cat_honneur->description); ?>
-	    			<p><a href="<?php the_permalink($presentation) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= _e('Read more about this project', 'html5blank') ?> </a></p>
+	    			<p><a href="<?php the_permalink($presentation) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= __('Read more about this project', 'html5blank') ?> </a></p>
 	    		</div>
     		</div>
   		</li>
   		<li class="projet full statut">
 				<div class="details">
 					<h4>
-	    			<a href="<?= the_permalink($presentation); ?>">
-	    				<?= _e('From most recent information', 'html5blank') ?>
+	    			<a href="<?= get_category_link( $cat_honneur ); ?>">
+	    				<?= __('From most recent information', 'html5blank') ?>
 	    			</a>
 	    		</h4>
 					<div class="content ">
-						<p><strong><?= $lastPoint->messageType === 'OK' ? _e('All\'s fine', 'html5blank') : _e('I have some trouble', 'html5blank') ?></strong></p>
-				    <p><strong><?= _e('I\'m at', 'html5blank') ?> :</strong> <?= $lastPoint->messageDetail ?></p>
+						<p><strong><?= $lastPoint->messageType === 'OK' ? __('All\'s fine', 'html5blank') : __('I have some trouble', 'html5blank') ?></strong></p>
+				    <p><strong><?= __('I\'m at', 'html5blank') ?> :</strong> <?= $lastPoint->messageDetail ?></p>
 				    <p><strong>Latitude :</strong> <?= $lastPoint->latitude ?> | Longitude :</strong> <?= $lastPoint->longitude ?></p>
-				    <p><strong><?= _e('And I travel since', 'html5blank') ?> :</strong> <?= round(abs(1473266802 - time())/60/60/24);  ?> <?= _e('days', 'html5blank') ?></p>
-				    <br><a href="<?= the_permalink($carte) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= _e('Track the viking', 'html5blank') ?> </a>
+				    <p><strong><?= __('And I travel since', 'html5blank') ?> :</strong> <?= round((1473266802 - time())/60/60/24);  ?> <?= __('days', 'html5blank') ?></p>
+				    <br><a href="<?= the_permalink($carte) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= __('Track the viking', 'html5blank') ?> </a>
 					</div>
 	    	</div><!--
 	    	--><div class="image">
@@ -129,7 +129,7 @@
 				--><div class="details">
 						<h4>
 							<a href="<?= $journal ? get_category_link( $cat ) : the_permalink($presentation); ?>">
-								<?= $cat->name; ?>
+								<?= apply_filters('the_title', $cat->name) ?>
 							</a>
 						</h4>
 						<nav>
@@ -138,12 +138,12 @@
 							    	<li><a href="<?= the_permalink($presentation) ?>"><?= __('Presentation', 'html5blank') ?></a></li>
 							    <?php endif ?>
 							    <?php if ($journal): ?>
-							    	<li><a href="/<?= $cat->slug; ?>"><?= __('Journal', 'html5blank') ?></a></li>
+							    	<li><a href="/<?= $cat->slug; ?>"><?= __('Dairy', 'html5blank') ?></a></li>
 							    <?php else: ?>
 							    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
 							    <?php endif ?>
 							    <?php if ($carte): ?>
-							    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Carte', 'html5blank') ?></a></li>
+							    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Map', 'html5blank') ?></a></li>
 							    <?php endif ?>
 						    </ul>
 						</nav>
