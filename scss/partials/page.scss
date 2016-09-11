@@ -21,6 +21,45 @@
 		padding: rem-calc(100) 0 rem-calc(20);
 	}
 
+	.dairies article{
+		&:after, &:before{
+			display: none;
+		}
+		display: block;
+		margin: 0 auto;
+	}
+
+}
+
+.statut{
+
+	.details > div{
+		text-align: right;
+		p{
+			margin: 0;
+			width: 100%;
+		}
+	}
+	.details{
+		.content{
+			clear: both;
+		}
+		> h4{
+			display: inline-block;
+ 			float: right;
+		}   
+	}   
+
+	.thumbnail.map{
+		height: rem-calc(215);
+
+		a{
+			overflow: hidden;
+			height: 100%;
+			display: block;
+			width: 100%;
+		}
+	}
 }
 
 .presentation, .carte{

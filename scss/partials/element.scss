@@ -168,7 +168,15 @@ img, iframe{
 }
 
 /* bloc */
+.thumbnail{
 
+	&.circle{
+		img{
+			@include border-radius(50%);
+		}
+	}
+}
+	
 .banner{
 	text-align: center;
 	padding-top: $gutter-large;
@@ -178,12 +186,6 @@ img, iframe{
 		margin-left: auto;
 		margin-right: auto;
 		max-width: rem-calc(600);
-
-		&.circle{
-			img{
-				@include border-radius(50%);
-			}
-		}
 	}
 
 	h1{

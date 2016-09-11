@@ -6,7 +6,7 @@
 	$(function () {
 		// DOM ready, take it away
 		// init Isotope
-		dairies = $('.dairies');
+		dairies = $('.dairies:not(.single)');
 		menuNav = $('nav.nav > ul');
 
 		isotopeArgDefault = {

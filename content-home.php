@@ -37,7 +37,7 @@
 <?php endif ?>
 
 <?php if (get_field('afficher_projet_lhonneur')): ?>
-	<section class="projets highlight">
+	<section class="projets lhonneur">
 		<h3><?php the_field('titre_projet_lhonneur'); ?></h3>
 		<ul>
 	    <?php 
@@ -52,10 +52,10 @@
 				// derniere actu
 				$recentPosts = wp_get_recent_posts( array( 'numberposts' => '1', 'category' => $cat_honneur->term_id) );
 	    ?>
-	    <li class="projet full projet">
-	    	<div class="thumbnail circle"> 
+	    <li class="projet full">
+    		<div class="thumbnail"> 
 	    		<?php if( !empty($thumbnail) ): ?>
-						<img src="<?= $lastPoint->showCustomMsg ?>" alt="">
+	    			<a href="<?= the_permalink($presentation); ?>"><img src="<?= $thumbnail['sizes']['medium']; ?>" alt="<?= $thumbnail['alt']; ?>" /></a>
 	    		<?php endif; ?>
 	    	</div><!--
 	    	--><div class="details">
@@ -66,19 +66,34 @@
 	    		</h4>
 	    		<div class="content">
 	    			<?=  apply_filters('the_content', $cat_honneur->description); ?>
+	    			<p><a href="<?php the_permalink($presentation) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= _e('Read more about this project', 'html5blank') ?> </a></p>
 	    		</div>
-					<div class="position">
-						<div class="info">
-							<p><strong>Statut :</strong> <?= $lastPoint->messageType === 'OK' ? 'Tout va bien' : 'J\'ai des petits soucis' ?></p>
-					    <p><strong>Localisation :</strong> <?= $lastPoint->messageDetail ?></p>
-					    <p><strong>Latitude :</strong> <?= $lastPoint->latitude ?></p>
-					    <p><strong>Longitude :</strong> <?= $lastPoint->longitude ?></p>
-					    <p><strong>Nombre de jours depuis le départ :</strong> <?= round(abs(1473266802 - time())/60/60/24);  ?></p>
-					    <p><strong>Dernières actualitées :</strong><a href="<?= get_permalink($recentPosts[0]['ID'] ); ?>"><?= $recentPosts[0]['post_title'] ?></a></p>
-						</div>
+    		</div>
+  		</li>
+  		<li class="projet full statut">
+				<div class="details">
+					<h4>
+	    			<a href="<?= the_permalink($presentation); ?>">
+	    				<?= _e('From most recent information', 'html5blank') ?>
+	    			</a>
+	    		</h4>
+					<div class="content ">
+						<p><strong><?= $lastPoint->messageType === 'OK' ? _e('All\'s fine', 'html5blank') : _e('I have some trouble', 'html5blank') ?></strong></p>
+				    <p><strong><?= _e('I\'m at', 'html5blank') ?> :</strong> <?= $lastPoint->messageDetail ?></p>
+				    <p><strong>Latitude :</strong> <?= $lastPoint->latitude ?> | Longitude :</strong> <?= $lastPoint->longitude ?></p>
+				    <p><strong><?= _e('And I travel since', 'html5blank') ?> :</strong> <?= round(abs(1473266802 - time())/60/60/24);  ?> <?= _e('days', 'html5blank') ?></p>
+				    <br><a href="<?= the_permalink($carte) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= _e('Track the viking', 'html5blank') ?> </a>
 					</div>
-	    	</div>
+	    	</div><!--
+	    	--><div class="image">
+					<div class="thumbnail map"> 
+						<a href="<?php the_permalink($carte) ?>"><img src="<?= $lastPoint->showCustomMsg ?>" alt=""></a>
+					</div>
+  			</div>
 	    </li>
+			<div class="content">
+				<?= get_field('contenu_a_lhonneur_fin') ?>
+			</div>
 		</ul>
 	</section>
 
