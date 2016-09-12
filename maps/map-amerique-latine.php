@@ -1,5 +1,11 @@
+<?php 
+	global $wpdb;
+	$acfPoints = $wpdb->get_results( 'SELECT * FROM wp_messagespot ORDER BY ID DESC ', OBJECT ); ?>
+
 <div class="acf-map">
-	<span class="marker" data-icon="<?= get_template_directory_uri(); ?>/img/icons/drapeau.png" data-lat="48.70870" data-lng="-4.02963"></span>
+	<?php foreach ($acfPoints as $point) :?>
+		<span class="marker" data-lat="<?= $point->latitude ?>" data-lng="<?= $point->longitude ?>"></span>
+	<?php endforeach; ?>
 </div>
 <style>
 	.acf-map{

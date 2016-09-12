@@ -80,6 +80,7 @@ img, iframe{
 	}
 
 	a{
+		display: inline-block;
 		background-color: rgba(black, 0.1);
 
 		&:hover{ 

@@ -81,7 +81,7 @@
 						<p><strong><?= $lastPoint->messageType === 'OK' ? __('All\'s fine', 'html5blank') : __('I have some trouble', 'html5blank') ?></strong></p>
 				    <p><strong><?= __('I\'m at', 'html5blank') ?> :</strong> <?= $lastPoint->messageDetail ?></p>
 				    <p><strong>Latitude :</strong> <?= $lastPoint->latitude ?> | Longitude :</strong> <?= $lastPoint->longitude ?></p>
-				    <p><strong><?= __('And I travel since', 'html5blank') ?> :</strong> <?= round((1473266802 - time())/60/60/24);  ?> <?= __('days', 'html5blank') ?></p>
+				    <p><strong><?= __('And I travel since', 'html5blank') ?> :</strong> <?= round((time()-1474290000)/60/60/24);  ?> <?= __('days', 'html5blank') ?></p>
 				    <br><a href="<?= the_permalink($carte) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= __('Track the viking', 'html5blank') ?> </a>
 					</div>
 	    	</div><!--

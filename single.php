@@ -54,10 +54,6 @@
 						  <div class="thumbnail oEmbed">
 						    <?= get_field('video') ?>
 						  </div>
-						<?php elseif(has_post_thumbnail()) : ?>
-						  <div class="thumbnail image">
-						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('largee'); ?></a>
-						  </div>
 						<?php elseif(get_field('map')) : ?>
 							<div class="thumbnail map">
 								<?php 
@@ -67,6 +63,10 @@
 										include($template);
 									} ?>
 							</div>
+						<?php elseif(has_post_thumbnail()) : ?>
+						  <div class="thumbnail image">
+						    <a href="<?php the_permalink(); ?>" class="ajax-go"><?php the_post_thumbnail('largee'); ?></a>
+						  </div>
 						<?php endif; ?>
 					</div>
 					<div class="complete">
