@@ -81,9 +81,9 @@ function render_map( $el ) {
 	 }
 
 	poly = new google.maps.Polyline({
-	    strokeOpacity: 1,
-	    strokeColor: '#B76C34',
-	    strokeWeight: 10,
+	    strokeOpacity: 0,
+	    strokeColor: '#ace600',
+	    strokeWeight: 8,
       icons: [{
         icon: lineSymbol,
         offset: '0',
@@ -134,6 +134,7 @@ function add_marker( $marker, map, markerIcon) {
 		var marker = new google.maps.Marker({
 			position	: latlng,
 			map			: map,
+			visible : false,
 			// icon: markerIcon
 		});
 

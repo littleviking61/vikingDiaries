@@ -1,5 +1,3 @@
-<pre><?php var_dump($cat) ?>
-	
 </pre><li class="projet <?= $grand ? 'full' : 'medium' ?> projet">
 				<div class="thumbnail"> 
 					<?php if( !empty($thumbnail) ): ?>
@@ -24,6 +22,9 @@
 						    <?php else: ?>
 						    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
 						    <?php endif ?>
+						    <?php if ($journal): ?>
+						    	<li><a href="/<?= $cat->slug; ?>"><?= __('Dairy', 'html5blank') ?></a></li>
+						    <?php else: ?>
 						    <?php if ($carte): ?>
 						    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Map', 'html5blank') ?></a></li>
 						    <?php endif ?>

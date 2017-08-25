@@ -147,7 +147,8 @@ function html5blank_styles()
 
     // Custom CSS
     wp_register_style('sharebutton', get_template_directory_uri() . '/css/share-button.min.css', array(), '1.0');
-    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array('normalize', 'sharebutton'), '1.0');
+    wp_register_style('shame', get_template_directory_uri() . '/css/shame.css', array(), '1.0');
+    wp_register_style('html5blank', get_template_directory_uri() . '/css/style.css', array('normalize', 'sharebutton', 'shame'), '1.0');
 
     // Register CSS
     wp_enqueue_style('html5blank');

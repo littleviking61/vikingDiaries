@@ -78,10 +78,11 @@
 	    			</a>
 	    		</h4>
 					<div class="content ">
-						<p><strong><?= $lastPoint->messageType === 'OK' ? __('All\'s fine', 'html5blank') : __('I have some trouble', 'html5blank') ?></strong></p>
+						<p><strong><?= $lastPoint->messageType === 'OK'|| $lastPoint->messageType === 'CUSTOM' ? __('All\'s fine', 'html5blank') : __('I have some trouble', 'html5blank') ?></strong></p>
 				    <p><strong><?= __('I\'m at', 'html5blank') ?> :</strong> <?= $lastPoint->messageDetail ?></p>
 				    <p><strong>Latitude :</strong> <?= $lastPoint->latitude ?> | Longitude :</strong> <?= $lastPoint->longitude ?></p>
-				    <p><strong><?= __('And I travel since', 'html5blank') ?> :</strong> <?= round((time()-1474290000)/60/60/24);  ?> <?= __('days', 'html5blank') ?></p>
+				    <p><strong><?= __('Last chekup at', 'html5blank') ?> :</strong> <?= date('d/m/Y', $lastPoint->unixTime)  ?> </p>
+				    <p><strong><?= __('And I travel since', 'html5blank') ?> :</strong> 240 <?= __('days', 'html5blank') ?></p>
 				    <br><a href="<?= the_permalink($carte) ?>"> <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;<?= __('Track the viking', 'html5blank') ?> </a>
 					</div>
 	    	</div><!--
@@ -91,10 +92,18 @@
 					</div>
   			</div>
 	    </li>
-			<div class="content">
-				<?= get_field('contenu_a_lhonneur_fin') ?>
-			</div>
 		</ul>
+
+		<h3><?= __('Most recent news', 'html5blank'); ?></h3>
+		<div class="single-dairies full">
+
+				<?php $actus = get_posts(['posts_per_page' => 1, 'cat' => $cat_honneur->term_id]) ;
+				foreach ( $actus as $post ) : setup_postdata( $post ); 
+					get_template_part('templates/content', get_post_format());
+				endforeach; 
+				wp_reset_postdata();?>
+			<?= get_field('contenu_a_lhonneur_fin') ?>
+		</div>
 	</section>
 
 <?php endif ?>
@@ -115,6 +124,9 @@
 				$carte = get_field('carte', $cat);
 				$grand = get_field('en_grand', $cat);
 				$avenir = get_field('a_venir', $cat);
+				$autre_page = get_field('autre_page', $cat);
+				$lien_autre_page = get_field('lien_autre_page', $cat);
+				$titre_autre_page = get_field('titre_autre_page', $cat);
 
 				if($cat->term_id === $cat_honneur->term_id) continue;
 			?>
@@ -142,6 +154,9 @@
 							    <?php else: ?>
 							    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
 							    <?php endif ?>
+							    <?php if ($autre_page): ?>
+							    	<li><a href="<?= the_permalink($lien_autre_page) ?>"><?=  __($titre_autre_page, 'html5blank') ?></a></li>
+							    <?php endif ?>
 							    <?php if ($carte): ?>
 							    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Map', 'html5blank') ?></a></li>
 							    <?php endif ?>
@@ -161,21 +176,18 @@
 <?php if (get_field('has_actu')): ?>
 	<section class="actus">
 		<?php $categorie_actu = get_field('categorie_des_actus') === "" ? 153 : get_field('categorie_des_actus'); ?>	
-		<h3><a href="<?= get_category_link($categorie_actu); ?>"><?php the_field('titre_actu'); ?></a></h3>
-		<ul class="list">
+
+		<div class="content-normal">
+			<h3><a href="<?= get_category_link($categorie_actu); ?>"><?php the_field('titre_actu'); ?></a></h3>
+		</div>
+
+		<div class="single-dairies full">
 			<?php $actus = get_posts(['posts_per_page' => get_field('nombre_dactu'), 'cat' => $categorie_actu, 'date_query' => ['after' => ['year' => 2015, 'month' => 5]]]) ;
-			foreach ( $actus as $post ) : setup_postdata( $post ); ?>
-				<li class="actu">
-					<a href="<?php the_permalink(); ?>" class="simple-ajax-popup">
-						<div class="thumbnail">
-							<?php the_post_thumbnail('medium'); ?>
-						</div>
-						<h4><?php the_title(); ?></h4>
-					</a>
-				</li>
-			<?php endforeach; 
-			wp_reset_postdata();?>
-		</ul>
+				foreach ( $actus as $post ) : setup_postdata( $post );
+					get_template_part('templates/content', get_post_format());
+				endforeach; 
+				wp_reset_postdata();?>
+		</div>
 	</section>
 <?php endif ?>
 

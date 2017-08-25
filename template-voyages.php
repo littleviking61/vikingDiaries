@@ -36,6 +36,9 @@
 							$carte = get_field('carte', $cat);
 							$grand = get_field('en_grand', $cat);
 							$avenir = get_field('a_venir', $cat);
+							$autre_page = get_field('autre_page', $cat);
+							$lien_autre_page = get_field('lien_autre_page', $cat);
+							$titre_autre_page = get_field('titre_autre_page', $cat);
 						?>
 						<li class="projet <?= $grand ? 'full' : 'medium' ?> projet">
 							<div class="thumbnail"> 
@@ -60,6 +63,9 @@
 								    	<li><a href="/<?= $cat->slug; ?>"><?= __('Diaries', 'html5blank') ?></a></li>
 								    <?php else: ?>
 								    	<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
+								    <?php endif ?>
+								    <?php if ($autre): ?>
+								    	<li><a href="<?= the_permalink($lien_autre_page) ?>"><?=  __($titre_autre_page, 'html5blank') ?></a></li>
 								    <?php endif ?>
 								    <?php if ($carte): ?>
 								    	<li><a href="<?= the_permalink($carte) ?>"><?= __('Map', 'html5blank') ?></a></li>

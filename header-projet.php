@@ -25,6 +25,9 @@
 	$avenir = get_field('a_venir', $cat);
 	$icone = get_field('icone', $cat);
 	$carte = get_field('carte', $cat);
+	$autre_page = get_field('autre_page', $cat);
+	$lien_autre_page = get_field('lien_autre_page', $cat);
+	$titre_autre_page = get_field('titre_autre_page', $cat);
 ?>
 <?php if ($cat->term_id !== 153 && ($post->ID === $presentation || $post->ID === $carte || is_category())): ?> 
 	<header class="banner <?= $post->ID === $presentation ? 'presentation' : ($post->ID === $carte ? 'carte' : '') ?>">
@@ -53,6 +56,9 @@
 				<?php endif ?>
 				<?php if (!empty($avenir)): ?>
 					<li><a href="<?= the_permalink($presentation) ?>"><?= $avenir ?></a></li>
+				<?php endif ?>
+				<?php if ($autre_page): ?>
+					<li><a href="<?= the_permalink($lien_autre_page) ?>"><?=  __($titre_autre_page, 'html5blank') ?></a></li>
 				<?php endif ?>
 				<?php if ($carte): ?>
 					<li <?= $post->ID === $carte && !is_category() ? 'class="current"' : ''; ?>>

@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: Trad site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-11 22:26+0200\n"
-"PO-Revision-Date: Sun Sep 11 2016 22:27:30 GMT+0200 (CEST)\n"
+"PO-Revision-Date: 2016-11-13 21:44+0000\n"
 "Last-Translator: nuagegraphik <baptiste.regne@yahoo.fr>\n"
-"Language-Team: \n"
-"Language: French (France)\n"
+"Language-Team: French (France)\n"
+"Language: fr-FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +21,6 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Loco-Target-Locale: fr_FR\n"
 "X-Generator: Loco - https://localise.biz/"
-
-#: content-home.php:141 templates/projet.php:23
-msgid "Dairy"
-msgstr "Journal"
 
 #: functions.php:161
 msgid "Header Menu"
@@ -124,6 +120,10 @@ msgstr ""
 msgid "%1$s"
 msgstr ""
 
+#: content-home.php:141 templates/projet.php:23
+msgid "Dairy"
+msgstr "Journal"
+
 #: 404.php:10
 msgid "Page not found"
 msgstr "Page non trouvée"
@@ -195,23 +195,27 @@ msgid "I'm at"
 msgstr "Je suis à"
 
 #: content-home.php:84
+msgid "Last chekup at"
+msgstr "Dernier checkpoint le"
+
+#: content-home.php:85
 msgid "And I travel since"
 msgstr "Et je voyage depuis"
 
-#: content-home.php:84
+#: content-home.php:85
 msgid "days"
 msgstr "jours"
 
-#: content-home.php:85
+#: content-home.php:86
 msgid "Track the viking"
 msgstr "Suivre le tracé du viking"
 
-#: content-home.php:138 header-projet.php:46 template-voyages.php:57
+#: content-home.php:139 header-projet.php:46 template-voyages.php:57
 #: templates/projet.php:20
 msgid "Presentation"
 msgstr "Présentation"
 
-#: content-home.php:146 header-projet.php:59 template-voyages.php:65
+#: content-home.php:147 header-projet.php:59 template-voyages.php:65
 #: templates/projet.php:28
 msgid "Map"
 msgstr "Carte"
@@ -301,7 +305,8 @@ msgstr "Une réponse à &ldquo; %2$s &rdquo;"
 
 #: templates/comments.php:28
 msgid "&larr; Older comments"
-msgstr "&larr; Anciens commentaires\n"
+msgstr ""
+"&larr; Anciens commentaires\n"
 
 #: templates/comments.php:31
 msgid "Newer comments &rarr;"

@@ -1,0 +1,22 @@
+/* shame.css */
+
+.single-dairies article:before,
+.single-dairies article:after{
+	display: none;
+}
+
+.single-dairies article{
+	text-align: left;
+}
+
+#ytc-wrapper .ytc-thumbnails a.ytcthumb{
+	border:none !important;
+}
+
+#ytc-wrapper h5{
+	text-transform: initial;
+}
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{
+	background-color: #efefef;
+}
