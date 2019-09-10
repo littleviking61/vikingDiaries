@@ -1,17 +1,18 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty = false;
+	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty, orderPost = false;
 
 	$(function () {
 		// DOM ready, take it away
 		// init Isotope
 		dairies = $('.dairies:not(.single)');
 		menuNav = $('nav.nav > ul');
+		orderPost = dairies.hasClass('ASC');
 
 		isotopeArgDefault = {
 			sortBy : 'date',
-			sortAscending: false,
+			sortAscending: orderPost,
 
 			getSortData: {
 				date: '[data-date]'

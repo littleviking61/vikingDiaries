@@ -39,6 +39,7 @@
 							$autre_page = get_field('autre_page', $cat);
 							$lien_autre_page = get_field('lien_autre_page', $cat);
 							$titre_autre_page = get_field('titre_autre_page', $cat);
+							$statut = get_field('statut', $cat);
 						?>
 						<li class="projet <?= $grand ? 'full' : 'medium' ?> projet">
 							<div class="thumbnail"> 
