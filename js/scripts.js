@@ -1,7 +1,7 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty, orderPost = false;
+	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty, orderPost = false, searchPage;
 
 	$(function () {
 		// DOM ready, take it away
@@ -9,6 +9,7 @@
 		dairies = $('.dairies:not(.single)');
 		menuNav = $('nav.nav > ul');
 		orderPost = dairies.hasClass('ASC');
+		searchPage = $('.search .search-results');
 
 		isotopeArgDefault = {
 			sortBy : 'date',
@@ -332,18 +333,28 @@
 
 		// load more page
 	function loadPagedArticle(url, lastPage) {
-    $.ajax({
+  $.ajax({
       url    : url,
       type   : 'POST',
+      data : 'statut='+(orderPost ? 'ASC' : 'DESC'),
       headers: {
           'X-Requested-With':'BAWXMLHttpRequest'
       }
     }).done( function( data ) {
-      $grid.isotope( 'insert', $(data).filter('article') );
-      init_actions($grid);
-      // push state history (no more need with share on post)
-      // if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
-      $('.pagination .loading').removeClass('loading').removeClass('error');
+    	// if($grid.length > 0) {
+	      $grid.isotope( 'insert', $(data).filter('article') );
+	      init_actions($grid);
+	      // push state history (no more need with share on post)
+	      // if(!moveByHistoty) history.pushState({page: url}, 'Page ' + lastPage.text(), url);
+	      $('.pagination .loading').removeClass('loading').removeClass('error');
+      // }else{
+      // 	if(searchPage.length > 0) {
+      // 		console.log($(data).filter('article'));
+      		
+      // 		searchPage.append(data);
+      // 	}
+		    // $('.pagination .loading').removeClass('loading').removeClass('error');
+      // }
     }).error( function() {
     	dairies.removeClass('loading');
     	console.log('Error', url, lastPage);

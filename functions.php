@@ -109,7 +109,7 @@ function html5blank_header_scripts()
              wp_register_script('app', get_template_directory_uri() . '/js/lib/app.min.js', array(), '1.0.0');
             wp_register_script(
                 'html5blankscripts',
-                get_template_directory_uri() . '/js/main.min.js',
+                get_template_directory_uri() . '/js/scripts.js',
                 array(
                     'conditionizr',
                     'modernizr',
@@ -640,3 +640,10 @@ function pxzoom_modifiy_comment_author_anchor( $author_link ){
 
 // add better jpeg
 add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
+
+// add svg upload
+function cc_mime_types($mimes) {
+ $mimes['svg'] = 'image/svg+xml';
+ return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');

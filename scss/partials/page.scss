@@ -80,3 +80,49 @@
 		display: none;
 	}
 }
+
+/* search */
+
+.search{
+
+	article{
+		@include display-flex;
+		width: 100%;
+
+		.thumbnail{
+			max-width: 300px;
+			@include flex-shrink(0);
+
+			img{
+				object-fit :cover;
+				object-position :right;
+				min-height: 100%;
+			}
+		}
+	}
+
+	main{
+		@include display-flex;
+		@include justify-content(center);
+		@include flex-direction(column);
+	}
+	
+}
+
+.search-form{
+	text-align: center;
+
+	input{
+		@include appearance(none);
+		background-color: transparent;
+		border: thin 1px white;
+		min-width: 300px;
+		padding: 0 $gutter-small;
+	}
+
+	form{
+		button{
+			color: black;
+		}
+	}
+}

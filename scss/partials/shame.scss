@@ -5,10 +5,15 @@
 	> a{
 		display: none;
 	}	
-	ul li{
+	ul{
+		&.sub-menu{
+			padding :0;
+		}
+		li{
 		margin-right: $gutter;
 		list-style: none;
 		display: inline-block;
+		}
 	}
 }
 

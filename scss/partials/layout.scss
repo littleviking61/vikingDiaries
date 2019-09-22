@@ -51,5 +51,9 @@ main{
 footer{
 	text-align: center;
 	font-size: $ft-size-normal;
-	opacity: 0.4;
+	// opacity: 0.4;
+	// 
+	.search-form{
+		margin-bottom: $gutter-hudge;
+	}
 }
