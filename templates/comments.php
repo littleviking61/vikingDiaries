@@ -10,7 +10,7 @@
       <h3>
         <i class="fa fa-comments"></i>&nbsp;
         <?php 
-          printf( __('One answer to &ldquo; %2$s &rdquo;', '%1$s answers to &ldquo; %2$s &rdquo;', 
+          printf( __('Une réponse pour &ldquo; %2$s &rdquo;', '%1$s réponses pour &ldquo; %2$s &rdquo;', 
             get_comments_number(), 'html5blank'), 
             number_format_i18n(get_comments_number()), 
             get_the_title()); 

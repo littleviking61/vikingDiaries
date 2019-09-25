@@ -1141,6 +1141,94 @@ img, iframe {
 .carte + .pagination + .dairies .entry-comments {
   display: none; }
 
+/* fundraising */
+.fundraising {
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 0; }
+  .fundraising h2 {
+    font-size: 1.375rem; }
+  .fundraising .pannel-fundraising {
+    width: 21.875rem;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0; }
+    .fundraising .pannel-fundraising h2 {
+      margin-top: 3.75rem; }
+    .fundraising .pannel-fundraising .wdf_fundraiser_panel {
+      padding: 1.25rem; }
+      .fundraising .pannel-fundraising .wdf_fundraiser_panel > h2:first-child {
+        margin-top: 0.625rem; }
+      .fundraising .pannel-fundraising .wdf_fundraiser_panel .wdf_reward_item {
+        border: thin white solid;
+        padding: 0.9375rem 1.25rem;
+        margin-top: 1.25rem; }
+        .fundraising .pannel-fundraising .wdf_fundraiser_panel .wdf_reward_item h3 {
+          font-size: 1.125rem; }
+        .fundraising .pannel-fundraising .wdf_fundraiser_panel .wdf_reward_item .wdf_direct_donate_button {
+          margin-top: 1.25rem;
+          margin-bottom: 0.625rem; }
+        .fundraising .pannel-fundraising .wdf_fundraiser_panel .wdf_reward_item .wdf_level_amount {
+          font-size: 1.875rem; }
+        .fundraising .pannel-fundraising .wdf_fundraiser_panel .wdf_reward_item .wdf_reward_limit {
+          font-size: 0.875rem;
+          background-color: transparent;
+          color: white; }
+    .fundraising .pannel-fundraising input[type="text"] {
+      color: #737373; }
+  .fundraising .content-fundraising {
+    padding: 1.25rem;
+    background-color: white;
+    padding: 1.875rem;
+    -webkit-flex: 1;
+    flex: 1; }
+    .fundraising .content-fundraising > *:first-child {
+      margin-top: 0;
+      padding-top: 0; }
+      .fundraising .content-fundraising > *:first-child img {
+        margin-top: 0; }
+    .fundraising .content-fundraising, .fundraising .content-fundraising a {
+      color: #737373; }
+    .fundraising .content-fundraising h2 {
+      position: relative; }
+      .fundraising .content-fundraising h2:before {
+        content: '';
+        position: absolute;
+        top: 0.3125rem;
+        left: -30px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid black; }
+  .fundraising .ui-progressbar {
+    background: transparent;
+    padding: 4px 2px 2px 4px;
+    border-radius: inherit;
+    margin-top: 0; }
+    .fundraising .ui-progressbar .ui-progressbar-value {
+      background: white;
+      border: none;
+      border-radius: inherit;
+      width: 0%; }
+  .fundraising .wdf_direct_donate_button {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    text-decoration: none;
+    background: #eaeaea;
+    padding: 5px 9px 6px;
+    box-shadow: none;
+    text-shadow: none; }
+  .fundraising .wdf-no-checkout .wdf_checkout_form {
+    display: none; }
+  .fundraising div.wdf_total_backers, .fundraising div.wdf_amount_raised {
+    display: -webkit-flex;
+    display: flex;
+    margin: 0 0 -0.625rem; }
+    .fundraising div.wdf_total_backers > *, .fundraising div.wdf_amount_raised > * {
+      padding-right: 0.625rem; }
+
 /* search */
 .search article {
   display: -webkit-flex;
@@ -2112,7 +2200,13 @@ img.mfp-img {
   .dairies article, .single-dairies article {
     width: 100%; }
     .dairies article:before, .dairies article:after, .single-dairies article:before, .single-dairies article:after {
-      display: none; } }
+      display: none; }
+
+  .search article .thumbnail {
+    max-width: 200px; }
+
+  .fundraising .pannel-fundraising {
+    width: 15.625rem; } }
 @media only screen and (min-width: 41.3125rem) and (max-width: 53.125rem) {
   .nav {
     height: 5rem; }
@@ -2180,7 +2274,16 @@ img.mfp-img {
       flex-shrink: 0;
       padding-left: 0.3125rem; }
       .nav .social ul {
-        margin-bottom: 0.3125rem; } }
+        margin-bottom: 0.3125rem; }
+
+  .search article .thumbnail {
+    display: none; }
+
+  .fundraising {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .fundraising .pannel-fundraising {
+      width: 100%; } }
 @media only screen and (max-height: 26.25rem) and (max-width: 41.25rem) {
   .nav > ul {
     font-size: 1.25rem; }
@@ -2241,5 +2344,8 @@ img.mfp-img {
   text-align: inherit; }
   .complete .social-count-plus span {
     color: black !important; }
+
+.mejs-container {
+  width: auto !important; }
 
 /*# sourceMappingURL=style.css.map */

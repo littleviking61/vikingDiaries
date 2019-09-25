@@ -81,6 +81,142 @@
 	}
 }
 
+/* fundraising */
+
+.fundraising{
+	@include display-flex;
+	margin-top: 0;
+	
+	h2{
+		font-size: $ft-size-largest;
+	}
+
+	.pannel-fundraising{
+		width: $pannel-width;
+		@include flex-shrink(0);
+
+		h2{
+			margin-top: $gutter-super-hudge;	
+		}
+
+		.wdf_fundraiser_panel{
+			padding: $gutter-large;
+
+			> h2:first-child{
+				margin-top: $gutter;
+			}
+			.wdf_reward_item{
+				border: thin white solid;
+	    	padding: $gutter-medium $gutter-large;
+	    	margin-top: $gutter-large;
+
+	    	h3{
+	    		font-size: $ft-size-larger;
+	    	}
+		
+				.wdf_direct_donate_button{
+					margin-top: $gutter-large;
+					margin-bottom: $gutter;
+				}
+
+				.wdf_level_amount{
+					font-size: $ft-size-big;
+					// font-weight: bold;
+				}
+
+				.wdf_reward_limit{
+					font-size: $ft-size-medium;
+					background-color: transparent;
+					color: white;
+				}
+			}
+		}
+
+
+		input[type="text"]{
+			color: $text-color-light;
+		}
+
+	}
+
+	.content-fundraising{
+		padding: $gutter-large;
+		background-color: white;
+		padding: $gutter-big;
+		@include flex(1);
+
+		> *:first-child{
+			margin-top: 0;
+			padding-top: 0;
+			img{
+				margin-top: 0;
+			}
+		}
+
+		&, a{
+			color: $text-color-light; 
+		}
+
+		h2{
+			position: relative;
+			&:before{
+				content: '';
+				position: absolute;
+				top: rem-calc(5);
+				left: -30px;
+				width: 0;
+				height: 0;
+				border-top: 8px solid transparent;
+				border-bottom: 8px solid transparent;
+				border-left: 8px solid black;
+			}
+		}
+	}
+
+	.ui-progressbar{
+		background: transparent;
+    padding: 4px 2px 2px 4px;
+    border-radius: inherit;
+    margin-top: 0;
+
+    .ui-progressbar-value{
+    	background: white;
+	    border: none;
+	    border-radius: inherit;
+	    width: 0%;
+    }
+	}
+
+	.wdf_direct_donate_button{
+		color: #333;
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    text-decoration: none;
+    background: #eaeaea;
+    padding: 5px 9px 6px;
+    box-shadow: none;
+    text-shadow: none;
+	}
+
+	.wdf-no-checkout .wdf_checkout_form{
+		display: none;
+	}
+
+	div.wdf_total_backers, div.wdf_amount_raised{
+		@include display-flex;
+		margin: 0 0 0 -($gutter);
+
+		> *{
+			padding-right: $gutter;
+		}
+	}
+
+	// .wdf_reward_item_none{
+	// 	display: none;
+	// }
+}
+
 /* search */
 
 .search{
@@ -126,3 +262,6 @@
 		}
 	}
 }
+
+
+

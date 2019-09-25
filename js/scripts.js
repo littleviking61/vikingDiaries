@@ -1,15 +1,26 @@
 (function( root, $, undefined ) {
 	"use strict";
 
-	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty, orderPost = false, searchPage;
+	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty, orderPost = false, searchPage, fundraisingButton;
 
 	$(function () {
+		console.log('debug');
 		// DOM ready, take it away
 		// init Isotope
 		dairies = $('.dairies:not(.single)');
 		menuNav = $('nav.nav > ul');
 		orderPost = dairies.hasClass('ASC');
 		searchPage = $('.search .search-results');
+
+		// // fundraisingButton
+		// fundraisingButton = $('button.wdf_direct_donate_button');
+		// console.log(fundraisingButton),
+		// fundraisingButton.on( 'click', function(e){
+		// 	e.preventDefault();
+		// 	$(this).parent().trigger('click');
+		// 	$('input.wdf_send_donation', '.wdf_payment_options').trigger('click');
+		// });
+
 
 		isotopeArgDefault = {
 			sortBy : 'date',
@@ -38,7 +49,7 @@
 		toolsInit($('.single-dairies'));
 
 		lastPage = $('.pagination-links .current');
-		
+
 		$(document).on( 'click', '.pagination .more', function(e){
 			e.preventDefault();
 

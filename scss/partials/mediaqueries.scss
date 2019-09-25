@@ -48,6 +48,14 @@
 			}
 		}
 	}
+
+	.search article .thumbnail{
+			max-width: 200px;
+	}
+
+	.fundraising .pannel-fundraising{
+		width: rem-calc(250);
+	}
 }
 
 // entre 660 et 800 (menu deux lignes)
@@ -145,6 +153,16 @@
 				margin-bottom: $gutter-small;
 			}
 
+		}
+	}
+	.search article .thumbnail{
+		display: none;
+	}
+
+	.fundraising{
+		@include flex-wrap(wrap);
+		.pannel-fundraising{
+			width: 100%;
 		}
 	}
 }
