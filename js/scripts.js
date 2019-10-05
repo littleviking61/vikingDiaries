@@ -4,7 +4,7 @@
 	var $grid, lastPage, dairies, menuNav, taille, initialUrl, isotopeArgDefault, goComment, moveByHistoty, orderPost = false, searchPage, fundraisingButton;
 
 	$(function () {
-		console.log('debug');
+		// console.log('debug');
 		// DOM ready, take it away
 		// init Isotope
 		dairies = $('.dairies:not(.single)');
@@ -368,7 +368,7 @@
       // }
     }).error( function() {
     	dairies.removeClass('loading');
-    	console.log('Error', url, lastPage);
+    	//console.log('Error', url, lastPage);
     	$('.pagination .loading').removeClass('loading').addClass('error');
     });
 	}

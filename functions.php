@@ -109,7 +109,7 @@ function html5blank_header_scripts()
              wp_register_script('app', get_template_directory_uri() . '/js/lib/app.min.js', array(), '1.0.0');
             wp_register_script(
                 'html5blankscripts',
-                get_template_directory_uri() . '/js/scripts.js',
+                get_template_directory_uri() . '/js/main.min.js',
                 array(
                     'conditionizr',
                     'modernizr',

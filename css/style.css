@@ -34,8 +34,8 @@
  * ---
  * Declare fonts here
  */
-@import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
-@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Raleway:700,400);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
 /**
  * partials/reset
  * ---
@@ -212,6 +212,22 @@ footer {
   font-size: 0.75rem; }
   footer .search-form {
     margin-bottom: 2.5rem; }
+  footer ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding-left: 0;
+    text-align: center; }
+    footer ul .qtranxs-lang-menu {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 0.625rem; }
+    footer ul li {
+      display: inline-block;
+      padding: 0 0.625rem; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Poiret One", sans-serif;
@@ -1146,6 +1162,17 @@ img, iframe {
   display: -webkit-flex;
   display: flex;
   margin-top: 0; }
+  .fundraising.quickbuy {
+    padding-top: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-justify-content: center;
+    justify-content: center; }
+    .fundraising.quickbuy .buy {
+      margin: 0 0.625rem;
+      font-size: 1rem; }
   .fundraising h2 {
     font-size: 1.375rem; }
   .fundraising .pannel-fundraising {
@@ -1209,7 +1236,8 @@ img, iframe {
       background: white;
       border: none;
       border-radius: inherit;
-      width: 0%; }
+      width: 1%;
+      min-width: 2px; }
   .fundraising .wdf_direct_donate_button {
     color: #333;
     cursor: pointer;
@@ -2311,6 +2339,25 @@ img.mfp-img {
   .admin-bar .header {
     top: 32px; }
 
+button.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.625rem;
+  text-transform: uppercase;
+  font-family: "Poiret One", sans-serif;
+  border: thin white solid; }
+  button.button.disable {
+    display: none; }
+  button.button.loading {
+    display: inline-block;
+    background-image: url("../img/loading-flat.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: transparent; }
+
 .edit li {
   list-style: none;
   margin-left: 0.625rem; }
@@ -2347,5 +2394,11 @@ img.mfp-img {
 
 .mejs-container {
   width: auto !important; }
+
+.grecaptcha-badge {
+  display: none; }
+
+.contact .grecaptcha-badge {
+  display: initial; }
 
 /*# sourceMappingURL=style.css.map */

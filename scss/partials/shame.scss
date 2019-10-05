@@ -27,6 +27,29 @@
 
 }
 
+button.button{
+	@include appearance(none);
+	background-color: transparent;
+	display: inline-block;
+	cursor: pointer;
+	padding: $gutter;
+	text-transform: uppercase;
+	font-family: $font-family-title;
+	border: thin white solid;
+	
+	&.disable{
+		display: none;
+	}
+
+	&.loading{
+		display: inline-block;
+		background-image: url('../img/loading-flat.gif');
+		background-position: center center;
+		background-repeat: no-repeat;
+		color: transparent;
+	}
+}
+
 .edit{
 	li{
 		list-style: none;
@@ -74,4 +97,12 @@
 
 .mejs-container{
 	width: auto !important;
+}
+
+.grecaptcha-badge{
+	display: none;
+}
+
+.contact .grecaptcha-badge{
+	display: initial;
 }

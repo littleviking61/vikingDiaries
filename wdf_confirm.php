@@ -16,7 +16,7 @@
 							<?php endif; ?>
 						</div>
 						<h1>
-							<?= __('Merci pour votre soutien','html5blank') ?>
+							<?= __('Thanks for your help','html5blank') ?>
 						</h1>
 						<h2><?= __('Bon visionnage') ?></h2>
 					</header>
