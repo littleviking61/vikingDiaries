@@ -27,9 +27,11 @@
 
 }
 
-button.button{
+button.button, a.button{
 	@include appearance(none);
+	font-size: $ft-size-large;
 	background-color: transparent;
+	text-align: center;
 	display: inline-block;
 	cursor: pointer;
 	padding: $gutter;

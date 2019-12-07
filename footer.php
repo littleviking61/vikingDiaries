@@ -1,11 +1,15 @@
 			<!-- footer -->
 			<footer class="footer" role="contentinfo">
 				
-
 				<section class="search-form">
 					<h1><?= __( 'Looking for something ?', 'html5blank' ) ?></h1>
 					<p><?php get_search_form(); ?></p>
 				</section>
+				
+				<section class="more-content-footer">
+					<?php the_field('pied_de_page', 'option'); ?>
+				</section>
+
 				<!-- copyright -->
 				<p class="copyright">
 					<?php bloginfo('name'); ?> &copy; <?php echo date('Y'); ?>

@@ -95,7 +95,6 @@
 
 		.buy{
 			margin: 0 $gutter;
-			font-size: $ft-size-large;
 		}
 	}
 	
@@ -156,6 +155,8 @@
 		background-color: white;
 		padding: $gutter-big;
 		@include flex(1);
+		max-width: 100%;
+		overflow: hidden;
 
 		> *:first-child{
 			margin-top: 0;
